@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="base">基本資料+設定&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="fav">我的最愛&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="history">歷史紀錄&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="readmod">Read模式&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="ar">實境互動&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="help">教學手冊&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="search">查詢書籍&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="username">呂同學,您好!</string>
+    <string name="userinfo">學號:09170215\n姓名:呂艾艾\n</string>
+</resources>
