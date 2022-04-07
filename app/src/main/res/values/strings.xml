@@ -9,4 +9,15 @@
     <string name="search">查詢書籍&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="username">呂同學,您好!</string>
     <string name="userinfo">學號:09170215\n姓名:呂艾艾\n</string>
+    <string name="user_setting">用戶設定</string>
+    <string name="user_name">呂艾庭</string>
+    <string name="student_num">學號：09170242</string>
+    <string name="subject">系級：巨資二B</string>
+    <string name="gender">性別：女</string>
+    <string name="email">Email：boloily426@gmail.com</string>
+    <string name="phone">手機：0926115777</string>
+    <string name="edit">編輯</string>
+    <string name="monitor">顯示器</string>
+    <string name="feedback">反饋</string>
+    <string name="info">關於我們</string>
 </resources>
