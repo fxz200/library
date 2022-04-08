@@ -20,4 +20,6 @@
     <string name="monitor">顯示器</string>
     <string name="feedback">反饋</string>
     <string name="info">關於我們</string>
+    <string name="favorite">我的最愛</string>
+    <string name="favtitle">書名：</string>
 </resources>

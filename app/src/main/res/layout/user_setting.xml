@@ -1,172 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@color/background"
+    android:background="@color/bar_green"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_weight="6.5"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/bar_green"
-        >
-        <TextView
-            android:id="@+id/usersetting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/user_setting"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_weight="1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
-        <ImageView
-            android:id="@+id/infoback"
-            android:layout_width="270dp"
-            android:layout_height="270dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="45dp"
-            android:src="@drawable/infoback" />
-
-        <ImageView
-            android:id="@+id/userphoto"
-            android:layout_width="60dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="57dp"
-            android:src="@drawable/user2" />
+            android:background="@color/bar_green"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/user_setting"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <ImageView
+                android:id="@+id/infoback"
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/infoback" />
+            <ImageView
+                android:id="@+id/userphoto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="57dp"
+                android:src="@drawable/user2" />
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:layout_below="@id/userphoto"
-            android:layout_marginTop="6dp"
-            android:text="@string/user_name"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/studentnum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="135dp"
-            android:layout_below="@id/username"
-            android:layout_marginTop="3dp"
-            android:text="@string/student_num"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-        <TextView
-            android:id="@+id/subject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_below="@id/studentnum"
-            android:layout_marginTop="3dp"
-            android:text="@string/subject"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/studentnum"
-            android:layout_marginTop="3dp"
-            android:layout_toRightOf="@id/subject"
-            android:layout_marginLeft="10dp"
-            android:text="@string/gender"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/gender"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="3dp"
-            android:text="@string/email"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-        <TextView
-            android:id="@+id/phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/email"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="3dp"
-            android:text="@string/phone"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userphoto"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="6dp"
+                android:text="@string/user_name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
-            android:layout_below="@id/phone"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/round_button"
-            android:text="@string/edit"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
-        <Button
-            android:id="@+id/monitor"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/infoback"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="70dp"
-            android:text="@string/monitor"
-            android:paddingLeft="20dp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:background="@drawable/round_button"/>
-        <Button
-            android:id="@+id/feedback"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/infoback"
-            android:layout_marginLeft="50dp"
-            android:layout_below="@id/monitor"
-            android:layout_marginTop="30dp"
-            android:text="@string/feedback"
-            android:paddingLeft="20dp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@drawable/round_button"
-            android:textColor="@color/white"/>
-        <Button
-            android:id="@+id/aboutus"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/infoback"
-            android:layout_marginLeft="50dp"
-            android:layout_below="@+id/feedback"
-            android:layout_marginTop="30dp"
-            android:text="@string/info"
-            android:paddingLeft="20dp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@drawable/round_button"
-            android:textColor="@color/white"/>
-    </RelativeLayout>
-</LinearLayout>
+            <TextView
+                android:id="@+id/studentnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/username"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/student_num"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/studentnum"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/subject"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/studentnum"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/subject"
+                android:text="@string/gender"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gender"
+                android:layout_marginLeft="85dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/email"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/phone"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="70dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/phone"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/round_button"
+                android:text="@string/edit"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/monitor"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp"
+                android:layout_toRightOf="@id/infoback"
+                android:background="@drawable/round_button"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="@string/monitor"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/feedback"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/monitor"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/infoback"
+                android:background="@drawable/round_button"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="@string/feedback"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/aboutus"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/feedback"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/infoback"
+                android:background="@drawable/round_button"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="@string/info"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
 
 
 
