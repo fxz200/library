@@ -12,7 +12,7 @@
         android:layout_weight="3"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ADD8E6"
+        android:background="@color/bar_green"
         >
         <TextView
                 android:id="@+id/username"
@@ -46,7 +46,7 @@
         android:layout_weight="1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#DCDCDC"
+        android:background="@color/background"
         >
 
         <RelativeLayout
@@ -71,7 +71,6 @@
             </ImageView>
 
             <TextView
-                android:textSize="17sp"
                 android:id="@+id/base"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -79,7 +78,10 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/base">
+                android:onClick="BASE"
+                android:text="@string/base"
+                android:textSize="17sp"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
 
@@ -97,7 +99,6 @@
             </ImageView>
 
             <TextView
-                android:textSize="17sp"
                 android:id="@+id/fav"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -106,7 +107,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/fav">
+                android:onClick="FAV"
+                android:text="@string/fav"
+                android:textSize="17sp"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
 
@@ -123,7 +127,7 @@
             </ImageView>
 
             <TextView
-                android:textSize="17sp"
+
                 android:id="@+id/his"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -132,35 +136,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/history">
-
-            </TextView>
-
-            <ImageView
-                android:id="@+id/book"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_below="@id/time"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="-70dp"
-                android:layout_toLeftOf="@id/his"
-                android:src="@drawable/book">
-
-            </ImageView>
-
-            <TextView
+                android:onClick="HIS"
+                android:text="@string/history"
                 android:textSize="17sp"
-                android:id="@+id/readmod"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/his"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/readmod">
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
+
+
 
             <ImageView
                 android:id="@+id/globe"
@@ -169,14 +152,13 @@
                 android:layout_below="@id/user"
                 android:layout_marginTop="-20dp"
                 android:layout_marginRight="-110dp"
-                android:layout_toLeftOf="@id/ar"
-                android:src="@drawable/globe">
+                android:layout_toLeftOf="@id/readmod"
+                android:src="@drawable/book">
 
             </ImageView>
 
             <TextView
-                android:textSize="17sp"
-                android:id="@+id/ar"
+                android:id="@+id/readmod"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="120dp"
@@ -184,7 +166,10 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_toRightOf="@id/base"
-                android:text="@string/ar">
+                android:onClick="READMOD"
+                android:text="@string/readmod"
+                android:textSize="17sp"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
 
@@ -202,17 +187,19 @@
 
 
             <TextView
-                android:textSize="17sp"
                 android:id="@+id/help"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/ar"
+                android:layout_below="@id/readmod"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_toRightOf="@id/fav"
-                android:text="@string/help">
+                android:onClick="HELP"
+                android:text="@string/help"
+                android:textSize="17sp"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
 
@@ -229,7 +216,6 @@
             </ImageView>
 
             <TextView
-                android:textSize="17sp"
                 android:id="@+id/search"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
@@ -239,19 +225,23 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_toRightOf="@id/his"
-                android:text="@string/search">
+                android:onClick="SEARCH"
+                android:text="@string/search"
+                android:textSize="17sp"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
+
             <Button
-                android:background="@drawable/logout"
-                android:textColor="#880000"
-                android:text="登出"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/search"
+                android:layout_marginLeft="-210dp"
+                android:layout_marginTop="0dp"
                 android:layout_toRightOf="@id/readmod"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="0dp">
+                android:background="@drawable/logout"
+                android:text="登出"
+                android:textColor="#880000">
 
             </Button>
         </RelativeLayout>

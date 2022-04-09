@@ -7,8 +7,8 @@
         <item name="windowActionBar">false</item>
 
         <item name="android:windowFullscreen">true</item>
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/bar_green</item>
+        <item name="colorPrimaryVariant">@color/bar_green</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

@@ -27,4 +27,7 @@
     <string name="main">首頁</string>
     <string name="account">帳號</string>
     <string name="password">密碼</string>
+    <string name="read">閱讀模式</string>
+    <string name="video">教學影片</string>
+    <string name="question">常見問題</string>
 </resources>
