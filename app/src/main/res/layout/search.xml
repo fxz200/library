@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/bar_green"
+    tools:context=".read">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/bar_green"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/logintitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/search"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="18dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:background="@drawable/searchbar"
+                android:id="@+id/search_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="40dp"
+                android:width="380dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:autofillHints="查詢書籍">
+
+            </EditText>
+
+            <ImageView
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/search"
+                android:layout_toRightOf="@+id/search_bar"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
