@@ -22,4 +22,9 @@
     <string name="info">關於我們</string>
     <string name="favorite">我的最愛</string>
     <string name="favtitle">書名：</string>
+    <string name="favauth">作者：</string>
+    <string name="where">館藏：</string>
+    <string name="main">首頁</string>
+    <string name="account">帳號</string>
+    <string name="password">密碼</string>
 </resources>
