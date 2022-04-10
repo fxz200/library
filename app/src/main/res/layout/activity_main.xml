@@ -26,17 +26,17 @@
                 android:layout_marginRight="0dp">
 
         </TextView>
+
         <TextView
-            android:background="@drawable/logout"
             android:id="@+id/userinfo"
-            android:textSize="15sp"
-            android:text="@string/userinfo"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@id/username"
-            >
+            android:background="@drawable/logout"
+            android:text="@string/userinfo"
+            android:textSize="15sp">
 
         </TextView>
     </RelativeLayout>
@@ -64,8 +64,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="-70dp"
-                android:layout_toLeftOf="@+id/base"
+                android:layout_marginEnd="-70dp"
+                android:layout_toStartOf="@+id/base"
                 android:src="@drawable/user">
 
             </ImageView>
@@ -74,9 +74,9 @@
                 android:id="@+id/base"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="80dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="BASE"
                 android:text="@string/base"
@@ -92,8 +92,8 @@
                 android:layout_height="20dp"
                 android:layout_below="@id/user"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="-70dp"
-                android:layout_toLeftOf="@id/fav"
+                android:layout_marginEnd="-70dp"
+                android:layout_toStartOf="@id/fav"
                 android:src="@drawable/hear">
 
             </ImageView>
@@ -103,9 +103,9 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/base"
-                android:layout_marginLeft="80dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="FAV"
                 android:text="@string/fav"
@@ -120,8 +120,8 @@
                 android:layout_height="20dp"
                 android:layout_below="@id/heart"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="-70dp"
-                android:layout_toLeftOf="@id/his"
+                android:layout_marginEnd="-70dp"
+                android:layout_toStartOf="@id/his"
                 android:src="@drawable/time">
 
             </ImageView>
@@ -132,9 +132,9 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/fav"
-                android:layout_marginLeft="80dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="HIS"
                 android:text="@string/history"
@@ -151,8 +151,8 @@
                 android:layout_height="20dp"
                 android:layout_below="@id/user"
                 android:layout_marginTop="-20dp"
-                android:layout_marginRight="-110dp"
-                android:layout_toLeftOf="@id/readmod"
+                android:layout_marginEnd="-110dp"
+                android:layout_toStartOf="@id/readmod"
                 android:src="@drawable/book">
 
             </ImageView>
@@ -161,11 +161,11 @@
                 android:id="@+id/readmod"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="120dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="20dp"
-                android:layout_toRightOf="@id/base"
+                android:layout_toEndOf="@id/base"
                 android:onClick="READMOD"
                 android:text="@string/readmod"
                 android:textSize="17sp"
@@ -179,8 +179,8 @@
                 android:layout_height="20dp"
                 android:layout_below="@id/globe"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="-110dp"
-                android:layout_toLeftOf="@id/help"
+                android:layout_marginEnd="-110dp"
+                android:layout_toStartOf="@id/help"
                 android:src="@drawable/info">
 
             </ImageView>
@@ -191,11 +191,11 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/readmod"
-                android:layout_marginLeft="120dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="20dp"
-                android:layout_toRightOf="@id/fav"
+                android:layout_toEndOf="@id/fav"
                 android:onClick="HELP"
                 android:text="@string/help"
                 android:textSize="17sp"
@@ -209,8 +209,8 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/info"
                 android:layout_marginTop="40dp"
-                android:layout_marginRight="-110dp"
-                android:layout_toLeftOf="@+id/search"
+                android:layout_marginEnd="-110dp"
+                android:layout_toStartOf="@+id/search"
                 android:src="@drawable/search">
 
             </ImageView>
@@ -220,7 +220,7 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/help"
-                android:layout_marginLeft="120dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"

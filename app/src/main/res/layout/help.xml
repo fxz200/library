@@ -37,35 +37,35 @@
 
             <ImageView
                 android:id="@+id/question"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:layout_marginBottom="30dp"
                 android:layout_toStartOf="@id/video"
-                android:background="@drawable/roound">
+                android:src="@drawable/question">
 
 
             </ImageView>
 
             <ImageView
                 android:id="@+id/video"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="160dp"
+                android:layout_height="180dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/roound">
+                android:layout_marginTop="30dp"
+                android:src="@drawable/video">
 
             </ImageView>
 
             <ImageView
                 android:id="@+id/use"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
+                android:layout_width="160dp"
+                android:layout_height="180dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@id/video"
-                android:background="@drawable/roound">
+                android:src="@drawable/compass">
             </ImageView>
 
             <TextView
@@ -99,7 +99,7 @@
                 android:paddingStart="30dp"
                 android:layout_alignStart="@+id/use"
                 android:layout_alignEnd="@+id/use"
-                android:text="應用指南"
+                android:text="@string/use"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold"
                 android:textSize="25sp"

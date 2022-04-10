@@ -68,6 +68,7 @@
                     android:text="@string/student_num"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
+
                 <TextView
                     android:id="@+id/subject"
                     android:layout_width="wrap_content"
