@@ -17,12 +17,12 @@
             android:background="@color/bar_green"
             android:orientation="vertical" >
             <TextView
-                android:id="@+id/favorite"
+                android:id="@+id/history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="center"
-                android:text="@string/favorite"
+                android:text="@string/history2"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="18dp"
                 android:textColor="@color/white"
@@ -44,7 +44,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/book2"
+                        android:id="@+id/book"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginLeft="60dp"
@@ -57,7 +57,7 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="40dp"
-                        android:layout_toRightOf="@id/book2"
+                        android:layout_toRightOf="@id/book"
                         android:text="@string/title"
                         android:textSize="20sp" />
 
@@ -68,7 +68,7 @@
                         android:layout_below="@id/booktitle"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@id/book2"
+                        android:layout_toRightOf="@id/book"
                         android:text="@string/author"
                         android:textSize="20sp" />
 
@@ -79,7 +79,7 @@
                         android:layout_below="@id/bookauthor"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@id/book2"
+                        android:layout_toRightOf="@id/book"
                         android:text="@string/where"
                         android:textSize="20sp" />
 
@@ -90,7 +90,7 @@
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="50dp"
                         android:layout_toRightOf="@id/booktitle"
-                        android:src="@drawable/heart" />
+                        android:src="@drawable/blank_heart" />
 
                     <ImageView
                         android:id="@+id/moreinfo"
@@ -99,6 +99,66 @@
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="50dp"
                         android:layout_toRightOf="@id/heart"
+                        android:src="@drawable/link" />
+
+                    <ImageView
+                        android:id="@+id/book2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_below="@id/book"
+                        android:layout_marginTop="40dp"
+                        android:src="@drawable/book2" />
+
+                    <TextView
+                        android:id="@+id/booktitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_below="@id/where"
+                        android:layout_marginTop="40dp"
+                        android:layout_toRightOf="@id/book2"
+                        android:text="@string/title"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/bookauthor2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_below="@id/booktitle2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@id/book2"
+                        android:text="@string/author"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/where2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_below="@id/bookauthor2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@id/book2"
+                        android:text="@string/where"
+                        android:textSize="20sp" />
+                    <ImageView
+                        android:id="@+id/heart2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="330dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_toRightOf="@id/booktitle2"
+                        android:layout_below="@id/heart"
+                        android:src="@drawable/heart" />
+
+                    <ImageView
+                        android:id="@+id/moreinfo2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_toRightOf="@id/heart2"
+                        android:layout_below="@id/moreinfo"
                         android:src="@drawable/link" />
 
                     <ImageView
@@ -115,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_below="@id/where"
+                        android:layout_below="@id/where2"
                         android:layout_marginTop="40dp"
                         android:layout_toRightOf="@id/book3"
                         android:text="@string/title"
@@ -128,7 +188,7 @@
                         android:layout_below="@id/booktitle3"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@id/book2"
+                        android:layout_toRightOf="@id/book3"
                         android:text="@string/author"
                         android:textSize="20sp" />
                     <TextView
@@ -142,25 +202,24 @@
                         android:text="@string/where"
                         android:textSize="20sp" />
                     <ImageView
-                        android:id="@+id/heart2"
+                        android:id="@+id/heart3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle3"
-                        android:layout_below="@id/heart"
+                        android:layout_below="@id/heart2"
                         android:src="@drawable/heart" />
 
                     <ImageView
-                        android:id="@+id/moreinfo2"
+                        android:id="@+id/moreinfo3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="100dp"
-                        android:layout_toRightOf="@id/heart2"
-                        android:layout_below="@id/moreinfo"
+                        android:layout_toRightOf="@id/heart3"
+                        android:layout_below="@id/moreinfo2"
                         android:src="@drawable/link" />
-
                     <ImageView
                         android:id="@+id/book4"
                         android:layout_width="100dp"
@@ -202,71 +261,12 @@
                         android:text="@string/where"
                         android:textSize="20sp" />
                     <ImageView
-                        android:id="@+id/heart3"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="330dp"
-                        android:layout_marginTop="100dp"
-                        android:layout_toRightOf="@id/booktitle4"
-                        android:layout_below="@id/heart2"
-                        android:src="@drawable/heart" />
-
-                    <ImageView
-                        android:id="@+id/moreinfo3"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="100dp"
-                        android:layout_toRightOf="@id/heart3"
-                        android:layout_below="@id/moreinfo2"
-                        android:src="@drawable/link" />
-                    <ImageView
-                        android:id="@+id/book5"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="60dp"
-                        android:layout_below="@id/book4"
-                        android:layout_marginTop="40dp"
-                        android:src="@drawable/book2" />
-
-                    <TextView
-                        android:id="@+id/booktitle5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_below="@id/where4"
-                        android:layout_marginTop="40dp"
-                        android:layout_toRightOf="@id/book5"
-                        android:text="@string/title"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/bookauthor5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_below="@id/booktitle5"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@id/book5"
-                        android:text="@string/author"
-                        android:textSize="20sp" />
-                    <TextView
-                        android:id="@+id/where5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_below="@id/bookauthor5"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@id/book5"
-                        android:text="@string/where"
-                        android:textSize="20sp" />
-                    <ImageView
                         android:id="@+id/heart4"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="100dp"
-                        android:layout_toRightOf="@id/booktitle5"
+                        android:layout_toRightOf="@id/booktitle4"
                         android:layout_below="@id/heart3"
                         android:src="@drawable/heart" />
 

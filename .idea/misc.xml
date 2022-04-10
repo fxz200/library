@@ -8,19 +8,27 @@
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/pencil_24.xml" value="0.313" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/roound.xml" value="0.333" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/ya.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2135" />
-<<<<<<<<< Temporary merge branch 1
-=========
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/account.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/c6d0ba_round.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/ic_outline_assignment_ind_24.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/logout.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/password.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/roound.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/round_button.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable/searchbar.xml" value="0.198" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30052083333333335" />
-        <entry key="app/src/main/res/layout/favorite.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/favorite.xml" value="0.2495346069335938" />
+        <entry key="app/src/main/res/layout/help.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/hihihi.xml" value="0.3759057971014493" />
-        <entry key="app/src/main/res/layout/login.xml" value="0.194598388671875" />
+        <entry key="app/src/main/res/layout/history.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.20993957519531248" />
+        <entry key="app/src/main/res/layout/read.xml" value="0.19635416666666666" />
+        <entry key="app/src/main/res/layout/search.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/user_setting.xml" value="0.2517333984375" />
         <entry key="app/src/main/res/layout/ya.xml" value="0.30052083333333335" />
->>>>>>>>> Temporary merge branch 2
       </map>
     </option>
   </component>

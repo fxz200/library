@@ -21,8 +21,8 @@
     <string name="feedback">反饋</string>
     <string name="info">關於我們</string>
     <string name="favorite">我的最愛</string>
-    <string name="favtitle">書名：</string>
-    <string name="favauth">作者：</string>
+    <string name="title">書名：</string>
+    <string name="author">作者：</string>
     <string name="where">館藏：</string>
     <string name="main">首頁</string>
     <string name="account">帳號</string>
@@ -30,4 +30,7 @@
     <string name="read">閱讀模式</string>
     <string name="video">教學影片</string>
     <string name="question">常見問題</string>
+    <string name="login">登入</string>
+    <string name="register">註冊</string>
+    <string name="history2">歷史紀錄</string>
 </resources>

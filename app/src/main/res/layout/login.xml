@@ -36,24 +36,60 @@
             <RelativeLayout
                 android:layout_width="300dp"
                 android:layout_height="280dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="200dp"
-                android:background="@color/login_green"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/c6d0ba_round"
                 android:orientation="vertical">
-                <TextView
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/book2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp" />
+                <EditText
                     android:id="@+id/account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/account"
-                    android:textSize="24sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/password"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/logo"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/account"
+                    android:layout_centerHorizontal="true"
+                    android:drawableStart="@drawable/account"
+                    android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
                     android:layout_below="@id/account"
-                    android:layout_marginTop="8dp"
-                    android:textSize="24dp" />
-
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:hint="@string/password"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/password" />
+                <Button
+                    android:id="@+id/registerbt"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/round_button"
+                    android:layout_below="@id/password"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginLeft="60dp"
+                    android:text="@string/register"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+                <Button
+                    android:id="@+id/loginbt"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/round_button"
+                    android:layout_below="@id/password"
+                    android:layout_marginTop="13dp"
+                    android:layout_toRightOf="@id/registerbt"
+                    android:layout_marginLeft="35dp"
+                    android:text="@string/login"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
