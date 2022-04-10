@@ -34,4 +34,5 @@
     <string name="register">註冊</string>
     <string name="history2">歷史紀錄</string>
     <string name="use">應用指南</string>
+    <string name="logout">登出</string>
 </resources>
