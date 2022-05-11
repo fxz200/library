@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     fun BASE(view: View) {
         
-        val intent = Intent(this,User_setting::class.java)
+        val intent = Intent(this,usersetting::class.java)
         startActivity(intent)
     }
 
