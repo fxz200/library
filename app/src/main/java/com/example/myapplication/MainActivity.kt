@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
+import android.content.Intent
 import android.text.Html
 import android.view.View
 import android.widget.Toast
@@ -18,24 +19,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun BASE(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+        
+        val intent = Intent(this,User_setting::class.java)
+        startActivity(intent)
     }
 
     fun READMOD(view: View) {
-
+        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
     }
     fun HELP(view: View) {
-
+        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
     }
     fun HIS(view: View) {
-
+        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
     }
 
     fun FAV(view: View) {
-
+        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
     }
 
     fun SEARCH(view: View) {
-
+        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
     }
 }
