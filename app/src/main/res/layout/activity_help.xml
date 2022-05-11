@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@color/bar_green"
-    tools:context=".read">
+    tools:context=".help">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

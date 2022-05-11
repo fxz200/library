@@ -10,8 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
-            android:name=".usersetting"
+            android:screenOrientation="landscape"
+            android:name=".read"
             android:exported="false" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".history"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".help"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".favorite"
+            android:exported="false" />
+        <activity
+            android:name=".search"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".usersetting"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

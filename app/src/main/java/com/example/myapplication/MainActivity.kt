@@ -25,20 +25,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun READMOD(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this,read::class.java)
+        startActivity(intent)
     }
     fun HELP(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this,help::class.java)
+        startActivity(intent)
     }
     fun HIS(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this,history::class.java)
+        startActivity(intent)
     }
 
     fun FAV(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this,favorite::class.java)
+        startActivity(intent)
     }
 
     fun SEARCH(view: View) {
-        Toast.makeText(this, "qwe", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this,search::class.java)
+        startActivity(intent)
     }
 }
