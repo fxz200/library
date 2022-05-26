@@ -98,13 +98,16 @@
                         android:textSize="20sp" />
 
                     <ImageView
+                        android:tag="select"
                         android:id="@+id/heart"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="50dp"
                         android:layout_toRightOf="@id/booktitle"
-                        android:src="@drawable/heart" />
+                        android:onClick="heart_change"
+                        android:src="@drawable/heart"
+                        tools:ignore="OnClick,UsingOnClickInXml" />
 
                     <ImageView
                         android:id="@+id/moreinfo"
@@ -155,15 +158,18 @@
                         android:layout_toRightOf="@id/book3"
                         android:text="@string/where"
                         android:textSize="20sp" />
+
                     <ImageView
                         android:id="@+id/heart2"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
+                        android:layout_below="@id/heart"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle3"
-                        android:layout_below="@id/heart"
-                        android:src="@drawable/heart" />
+                        android:onClick="heart_change"
+                        android:src="@drawable/heart"
+                        tools:ignore="OnClick,UsingOnClickInXml" />
 
                     <ImageView
                         android:id="@+id/moreinfo2"
@@ -215,15 +221,18 @@
                         android:layout_toRightOf="@id/book4"
                         android:text="@string/where"
                         android:textSize="20sp" />
+
                     <ImageView
                         android:id="@+id/heart3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
+                        android:layout_below="@id/heart2"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle4"
-                        android:layout_below="@id/heart2"
-                        android:src="@drawable/heart" />
+                        android:onClick="heart_change"
+                        android:src="@drawable/heart"
+                        tools:ignore="OnClick,UsingOnClickInXml" />
 
                     <ImageView
                         android:id="@+id/moreinfo3"
@@ -274,14 +283,15 @@
                         android:layout_toRightOf="@id/book5"
                         android:text="@string/where"
                         android:textSize="20sp" />
+
                     <ImageView
                         android:id="@+id/heart4"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
+                        android:layout_below="@id/heart3"
                         android:layout_marginLeft="330dp"
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle5"
-                        android:layout_below="@id/heart3"
                         android:src="@drawable/heart" />
 
                     <ImageView

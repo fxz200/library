@@ -4,6 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+
+
+
 
 class favorite : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,4 +20,27 @@ class favorite : AppCompatActivity() {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
+
+
+
+    fun heart_change(view: View) {
+
+
+        val ImageView:ImageView=findViewById(R.id.heart) as ImageView
+
+
+
+        if (ImageView.getTag().equals("select")) {
+
+            ImageView.setTag("unSelect");
+            ImageView.setImageResource(R.drawable.blank_heart)
+        } else {
+            ImageView.setTag("select");
+            ImageView.setImageResource(R.drawable.heart)
+
+        }
+    }
 }
+
+
+
