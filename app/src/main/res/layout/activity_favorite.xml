@@ -98,7 +98,6 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:tag="select"
                         android:id="@+id/heart"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
@@ -107,6 +106,7 @@
                         android:layout_toRightOf="@id/booktitle"
                         android:onClick="heart_change"
                         android:src="@drawable/heart"
+                        android:tag="select"
                         tools:ignore="OnClick,UsingOnClickInXml" />
 
                     <ImageView
