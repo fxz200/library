@@ -33,7 +33,7 @@ class favorite : AppCompatActivity() {
         book.writer="呂艾艾"
         //db.collection("Book_1").add(book)
         //---------------------------------------------------------------------//
-        //var list = List<books>()
+
         db.collection("Book_1")
             .document(
                 "0TdGNbGT6HjPMMhRxrRJ")
