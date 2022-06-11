@@ -48,7 +48,7 @@ class favorite : AppCompatActivity() {
 
         //val book_01_name=book_01_ob.name
 
-        //val name=book_01_ob.name
+        /val name=book_01_ob.name
 
     }
     fun back(view: View) {
