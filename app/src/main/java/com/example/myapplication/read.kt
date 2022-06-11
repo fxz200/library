@@ -31,7 +31,7 @@ class read: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read)
 
-        PermissionUtils.readAndWrite(this, {
+        PermissionUtils.camera(this, {
 
         })
 
