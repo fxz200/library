@@ -7,7 +7,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 android {
     compileSdk 32
-
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21

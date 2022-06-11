@@ -7,17 +7,24 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 
 
 class favorite : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    class block(
 
+    ){
+
+    }
     class Book(
         var bookId:Int=0,
         var name:String="",
         var writer:String="",
+        var fav:Boolean=false,
     ){
 
     }
@@ -25,30 +32,33 @@ class favorite : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        val book=Book()
+        //val book=Book()
         val db= FirebaseFirestore.getInstance()
-        book.bookId=123456
-        book.name="呂艾電腦修好了沒"
-        book.writer="呂艾艾"
+        //book.bookId=123456
+        //book.name="呂艾電腦修好了沒"
+        //book.writer="呂艾艾"
         //db.collection("Book_1").add(book)
         //---------------------------------------------------------------------//
+        //var list = List<Book>()
 
         db.collection("Book_1")
-            .document(
-                "0TdGNbGT6HjPMMhRxrRJ")
+            .whereEqualTo("fav",true)
             .get()
-            .addOnSuccessListener { documentSnapshot:DocumentSnapshot->
-                val books=documentSnapshot.toObject(Book::class.java)
-                val TextView:TextView=findViewById((R.id.booktitle))
-                if (books != null) {
-                    TextView.setText("書名:"+books.name)
+            .addOnSuccessListener {querySnapshot: QuerySnapshot ->
+                val books: List<Book> = querySnapshot.toObjects(Book::class.java)
+                for (i:Book in books){
+                    val TextViewname:TextView=findViewById((R.id.booktitle))
+                    TextViewname.setText("書名:"+i.name)
+                    val TextViewwriter:TextView=findViewById((R.id.bookauthor))
+                    TextViewwriter.setText("作者:"+i.writer)
+
                 }
             }
 
-        //val book_01_name=book_01_ob.name
 
-        /val name=book_01_ob.name
 
     }
     fun back(view: View) {
