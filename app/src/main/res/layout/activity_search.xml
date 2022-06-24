@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="center"
-                android:text="@string/search"
+                android:text="@string/search2"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="18dp"
                 android:textColor="@color/white"
@@ -63,15 +63,23 @@
             </EditText>
 
             <ImageView
-
+                android:id="@+id/find"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/search"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_toEndOf="@+id/search_bar"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp">
+                android:src="@drawable/search">
 
             </ImageView>
+            <ImageView
+                android:id="@+id/qrcode"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@id/find"
+                android:src="@drawable/qrcode" />
 
             <ScrollView
                 android:layout_marginTop="10dp"
@@ -79,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">

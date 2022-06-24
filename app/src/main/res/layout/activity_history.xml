@@ -163,7 +163,7 @@
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle2"
                         android:layout_below="@id/heart"
-                        android:src="@drawable/heart" />
+                        android:src="@drawable/blank_heart" />
 
                     <ImageView
                         android:id="@+id/moreinfo2"
@@ -223,7 +223,7 @@
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle3"
                         android:layout_below="@id/heart2"
-                        android:src="@drawable/heart" />
+                        android:src="@drawable/blank_heart" />
 
                     <ImageView
                         android:id="@+id/moreinfo3"
@@ -282,7 +282,7 @@
                         android:layout_marginTop="100dp"
                         android:layout_toRightOf="@id/booktitle4"
                         android:layout_below="@id/heart3"
-                        android:src="@drawable/heart" />
+                        android:src="@drawable/blank_heart" />
 
                     <ImageView
                         android:id="@+id/moreinfo4"

@@ -15,7 +15,6 @@
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_read.xml" value="0.25" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_search.xml" value="0.3" />
-        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_test.xml" value="0.11203703703703703" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_usersetting.xml" value="0.3388888888888889" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/attrs.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/favorite.xml" value="0.3463541666666667" />
@@ -26,7 +25,20 @@
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/search.xml" value="0.67" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/user_setting.xml" value="0.1" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2135" />
+        <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.31476449275362317" />
+        <entry key="app/src/main/res/layout/activity_help.xml" value="0.22327898550724637" />
+        <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.29694671630859376" />
+        <entry key="app/src/main/res/layout/activity_read.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_scanqrcode.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_usersetting.xml" value="0.25226449275362317" />
+        <entry key="app/src/main/res/layout/attrs.xml" value="0.31979166666666664" />
         <entry key="app/src/main/res/layout/hihihi.xml" value="0.3759057971014493" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/qrcode.xml" value="0.3695652173913043" />
       </map>
     </option>
   </component>

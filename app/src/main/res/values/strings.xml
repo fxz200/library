@@ -24,6 +24,7 @@
     <string name="title">書名：</string>
     <string name="author">作者：</string>
     <string name="where">館藏：</string>
+    <string name="search2">查詢書籍</string>
     <string name="main">首頁</string>
     <string name="account">帳號</string>
     <string name="password">密碼</string>
@@ -36,4 +37,7 @@
     <string name="use">應用指南</string>
     <string name="logout">登出</string>
     <string name="back"><![CDATA[<]]></string>
+    <string name="findpath">尋找書籍位置</string>
+    <string name="plaesescan">請掃描館內的QRcode\n來幫助您找到書籍。</string>
+    <string name="blank">&#160;</string>
 </resources>

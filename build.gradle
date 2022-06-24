@@ -8,6 +8,7 @@ buildscript {
         // Check that you have the following line (if not, add it):
         google()
         mavenCentral()  // Google's Maven repository
+        jcenter()
     }
 
     dependencies {
@@ -33,6 +34,7 @@ allprojects {
     // ...
 
     repositories {
+        maven {url 'https://jitpack.io'}
         // Check that you have the following line (if not, add it):
         google()  // Google's Maven repository
         // ...
