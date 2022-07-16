@@ -79,7 +79,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
                 android:layout_toEndOf="@id/find"
-                android:src="@drawable/qrcode" />
+                android:src="@drawable/qrcode"
+                android:onClick="qrcode"
+                tools:ignore="OnClick,UsingOnClickInXml"/>
 
             <ScrollView
                 android:layout_marginTop="10dp"

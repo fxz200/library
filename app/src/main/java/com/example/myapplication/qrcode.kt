@@ -2,10 +2,12 @@ package com.example.myapplication
 
 import android.content.pm.PackageManager
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.SurfaceHolder
+import android.view.View
 import android.view.animation.Animation
 import android.widget.Toast
 import android.view.animation.AnimationUtils
@@ -19,6 +21,7 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.example.myapplication.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_qrcode.*
 import java.io.IOException
 import java.util.jar.Manifest
 
@@ -42,7 +45,7 @@ class qrcode : AppCompatActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread{
-                Toast.makeText(this, "${it.text}", Toast.LENGTH_LONG).show()
+                textScanResult.text = it.text
             }
         }
         codeScanner.errorCallback = ErrorCallback {
@@ -62,5 +65,10 @@ class qrcode : AppCompatActivity() {
     override fun onPause(){
         codeScanner.releaseResources()
         super.onPause()
+    }
+    fun back(view: View) {
+
+        val intent = Intent(this,search::class.java)
+        startActivity(intent)
     }
 }
