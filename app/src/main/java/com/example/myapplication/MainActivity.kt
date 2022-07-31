@@ -50,4 +50,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,search::class.java)
         startActivity(intent)
     }
+    fun qrcode(view: View) {
+        val intent = Intent(this,qrcode::class.java)
+        startActivity(intent)
+    }
 }

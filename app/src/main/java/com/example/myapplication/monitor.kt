@@ -5,16 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class search : AppCompatActivity() {
+class monitor : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        setContentView(R.layout.activity_monitor)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
     }
     fun back(view: View) {
 
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,usersetting::class.java)
         startActivity(intent)
     }
-
 }

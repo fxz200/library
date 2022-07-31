@@ -33,14 +33,14 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/favorite"
+                android:id="@+id/qrcode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="18dp"
                 android:background="@null"
                 android:gravity="center"
-                android:text="@string/findpath"
+                android:text="@string/qrcode2"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />

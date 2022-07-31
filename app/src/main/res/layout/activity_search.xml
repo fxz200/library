@@ -72,16 +72,7 @@
                 android:src="@drawable/search">
 
             </ImageView>
-            <ImageView
-                android:id="@+id/qrcode"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_toEndOf="@id/find"
-                android:src="@drawable/qrcode"
-                android:onClick="qrcode"
-                tools:ignore="OnClick,UsingOnClickInXml"/>
+
 
             <ScrollView
                 android:layout_marginTop="10dp"

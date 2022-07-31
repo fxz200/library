@@ -28,13 +28,14 @@
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.31476449275362317" />
         <entry key="app/src/main/res/layout/activity_help.xml" value="0.22327898550724637" />
         <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_monitor.xml" value="0.3145833333333333" />
+        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_read.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_scanqrcode.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_usersetting.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_usersetting.xml" value="0.25" />
         <entry key="app/src/main/res/layout/attrs.xml" value="0.31979166666666664" />
         <entry key="app/src/main/res/layout/hihihi.xml" value="0.3759057971014493" />
         <entry key="app/src/main/res/layout/login.xml" value="0.25" />

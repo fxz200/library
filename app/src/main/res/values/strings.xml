@@ -2,11 +2,12 @@
     <string name="app_name">My Application</string>
     <string name="base">基本資料+設定&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="fav">我的最愛&#160;&#160;&#160;&#160;&#160;&#160;></string>
-    <string name="history">歷史紀錄&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="history">學習紀錄&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="readmod">Read模式&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="ar">實境互動&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="help">教學手冊&#160;&#160;&#160;&#160;&#160;&#160;></string>
-    <string name="search">查詢書籍&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="search">查詢類別&#160;&#160;&#160;&#160;&#160;&#160;></string>
+    <string name="qrcode">引導模式&#160;&#160;&#160;&#160;&#160;&#160;></string>
     <string name="username">呂同學,您好!</string>
     <string name="userinfo">學號:09170215\n姓名:呂艾艾\n</string>
     <string name="user_setting">用戶設定</string>
@@ -14,8 +15,6 @@
     <string name="student_num">學號：09170242</string>
     <string name="subject">系級：巨資二B</string>
     <string name="gender">性別：女</string>
-    <string name="email">Email：boloily426@gmail.com</string>
-    <string name="phone">手機：0926115777</string>
     <string name="edit">編輯</string>
     <string name="monitor">顯示器</string>
     <string name="feedback">反饋</string>
@@ -33,11 +32,12 @@
     <string name="question">常見問題</string>
     <string name="login">登入</string>
     <string name="register">註冊</string>
-    <string name="history2">歷史紀錄</string>
+    <string name="history2">學習紀錄</string>
+    <string name="qrcode2">引導模式</string>
     <string name="use">應用指南</string>
     <string name="logout">登出</string>
     <string name="back"><![CDATA[<]]></string>
-    <string name="findpath">尋找書籍位置</string>
-    <string name="plaesescan">請掃描館內的QRcode\n來幫助您找到書籍。</string>
+    <string name="plaesescan">請掃描館內的QRcode\n來幫助您找到書籍類別。</string>
+    <string name="monitorset">顯示器設定</string>
     <string name="blank">&#160;</string>
 </resources>
