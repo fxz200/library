@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
+            android:name=".aboutus"
+            android:exported="false" />
+        <activity
+            android:name=".feedback"
+            android:exported="false" />
+        <activity
             android:name=".monitor"
             android:exported="false" />
         <activity
@@ -34,10 +40,6 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".help"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".favorite"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity

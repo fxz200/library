@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class monitor : AppCompatActivity() {
+class aboutus : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_monitor)
+        setContentView(R.layout.activity_aboutus)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
     }
     fun back(view: View) {

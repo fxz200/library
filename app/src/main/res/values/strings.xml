@@ -18,6 +18,7 @@
     <string name="edit">編輯</string>
     <string name="monitor">顯示器</string>
     <string name="feedback">反饋</string>
+    <string name="feedb">您寶貴的反饋將是我們進步的動力！\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;歡迎給予指教～</string>
     <string name="info">關於我們</string>
     <string name="favorite">我的最愛</string>
     <string name="title">書名：</string>
@@ -38,6 +39,11 @@
     <string name="logout">登出</string>
     <string name="back"><![CDATA[<]]></string>
     <string name="plaesescan">請掃描館內的QRcode\n來幫助您找到書籍類別。</string>
-    <string name="monitorset">顯示器設定 </string>
+    <string name="monitorset">顯示器設定</string>
     <string name="blank">&#160;</string>
+    <string name="send">送出</string>
+    <string name="aboutus">東吳大學 巨量資料管理學院學士學位學程</string>
+    <string name="aboutus2">三年B班 黃郁庭 呂艾庭 吳姿伶 同學</string>
+    <string name="aboutus3">指導老師：金凱儀 老師</string>
+    <string name="aboutustitle">ABOUT US</string>
 </resources>

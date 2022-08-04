@@ -40,12 +40,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun FAV(view: View) {
-
-        val intent = Intent(this,favorite::class.java)
-        startActivity(intent)
-    }
-
     fun SEARCH(view: View) {
         val intent = Intent(this,search::class.java)
         startActivity(intent)

@@ -132,7 +132,10 @@
                 android:text="@string/monitor"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="MONITOR"
+                tools:ignore="OnClick,UsingOnClickInXml"
+                />
 
             <Button
                 android:id="@+id/feedback"
@@ -147,7 +150,10 @@
                 android:text="@string/feedback"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="FEEDBACK"
+                tools:ignore="OnClick,UsingOnClickInXml"/>
+
             <Button
                 android:id="@+id/aboutus"
                 android:layout_width="280dp"
@@ -162,7 +168,10 @@
                 android:text="@string/info"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="ABOUTUS"
+                tools:ignore="OnClick,UsingOnClickInXml"
+                />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
