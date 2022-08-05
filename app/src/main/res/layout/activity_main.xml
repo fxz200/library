@@ -40,7 +40,9 @@
             android:background="@drawable/logout"
             android:text="@string/qrcode2"
             android:textColor="#696969"
-            android:textSize="25sp">
+            android:textSize="25sp"
+            android:onClick="qrcode"
+            tools:ignore="OnClick,UsingOnClickInXml">
 
         </Button>
     </RelativeLayout>
@@ -146,10 +148,6 @@
                 tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
-
-
-
-
 
 
             <ImageView

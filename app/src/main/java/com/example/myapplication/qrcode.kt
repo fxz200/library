@@ -20,7 +20,6 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
-import com.example.myapplication.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_qrcode.*
 import java.io.IOException
 import java.util.jar.Manifest
