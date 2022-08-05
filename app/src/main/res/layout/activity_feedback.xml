@@ -18,21 +18,20 @@
             android:layout_height="60dp"
             android:background="@color/bar_green"
             android:orientation="vertical" >
-
             <TextView
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:background="@null"
                 android:gravity="center"
-                android:onClick="back"
                 android:text="@string/back"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                tools:ignore="OnClick,UsingOnClickInXml" />
+                android:onClick="back"
+                tools:ignore="OnClick,UsingOnClickInXml"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/feedbackset"
                 android:layout_width="wrap_content"
@@ -67,10 +66,7 @@
                 android:layout_marginTop="10dp"
                 android:width="380dp"
                 android:height="220dp"
-                android:inputType="textMultiLine"
-                android:gravity="left|top"
-                android:minLines="10"
-                android:hint="@string/givefb"
+                android:hints="請輸入反饋內容"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:background="@drawable/searchbar"/>

@@ -28,20 +28,16 @@
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
             android:name=".aboutus"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:exported="false" />
         <activity
             android:name=".feedback"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:exported="false" />
         <activity
             android:name=".monitor"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:exported="false" />
         <activity
             android:name=".qrcode"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:exported="false" />
         <activity
             android:name=".read"
             android:exported="false"
