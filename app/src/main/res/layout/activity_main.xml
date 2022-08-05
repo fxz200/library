@@ -14,31 +14,35 @@
         android:layout_height="fill_parent"
         android:background="@color/bar_green"
         >
+
         <TextView
-                android:id="@+id/username"
-                android:textSize="25sp"
-                android:text="@string/username"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="0dp">
+            android:id="@+id/username"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="@string/username"
+            android:textSize="25sp">
 
         </TextView>
 
-        <TextView
-            android:id="@+id/userinfo"
+
+        <Button
+            android:drawableLeft="@drawable/qrcodenew"
+            android:paddingLeft="10dp"
             android:layout_width="200dp"
             android:layout_height="60dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@id/username"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/username"
             android:background="@drawable/logout"
-            android:text="@string/userinfo"
-            android:textSize="15sp">
+            android:text="@string/qrcode2"
+            android:textColor="#696969"
+            android:textSize="25sp">
 
-        </TextView>
+        </Button>
     </RelativeLayout>
 
 
@@ -143,34 +147,9 @@
 
             </TextView>
 
-            <ImageView
-                android:id="@+id/qrcode"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_below="@id/time"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="-70dp"
-                android:layout_toStartOf="@id/his"
-                android:src="@drawable/qrcode">
 
-            </ImageView>
 
-            <TextView
 
-                android:id="@+id/qr"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/his"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="10dp"
-                android:onClick="qrcode"
-                android:text="@string/qrcode"
-                android:textSize="17sp"
-                tools:ignore="OnClick,UsingOnClickInXml">
-
-            </TextView>
 
 
             <ImageView
@@ -264,8 +243,8 @@
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/search"
-                android:layout_marginStart="-210dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginStart="-50dp"
+                android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/readmod"
                 android:background="@drawable/logout"
                 android:text="@string/logout"

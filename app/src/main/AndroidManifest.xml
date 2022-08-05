@@ -4,6 +4,13 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Both "AR Optional" and "AR Required" apps require CAMERA permission. -->
+
+    <!-- Indicates that app requires ARCore ("AR Required"). Ensures app is only
+         visible in the Google Play Store on devices that support ARCore.
+         For "AR Optional" apps remove this line. -->
+    <uses-feature android:name="android.hardware.camera.ar" />
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -11,11 +18,13 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        tools:replace="label,allowBackup"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
             android:name=".aboutus"
@@ -60,6 +69,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.google.ar.core" android:value="required" />
     </application>
 
 </manifest>
