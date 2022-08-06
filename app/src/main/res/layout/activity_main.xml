@@ -30,18 +30,18 @@
 
 
         <Button
-            android:drawableLeft="@drawable/qrcodenew"
-            android:paddingLeft="10dp"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/username"
             android:background="@drawable/logout"
+            android:drawableLeft="@drawable/qrcodenew"
+            android:onClick="qrcode"
+            android:paddingLeft="10dp"
             android:text="@string/qrcode2"
             android:textColor="#696969"
             android:textSize="25sp"
-            android:onClick="qrcode"
             tools:ignore="OnClick,UsingOnClickInXml">
 
         </Button>
@@ -100,7 +100,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="-70dp"
                 android:layout_toStartOf="@id/fav"
-                android:src="@drawable/hear">
+                android:src="@drawable/search">
 
             </ImageView>
 
@@ -113,8 +113,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="10dp"
-                android:onClick="FAV"
-                android:text="@string/fav"
+                android:onClick="SEARCH"
+                android:text="@string/search"
                 android:textSize="17sp"
                 tools:ignore="OnClick,UsingOnClickInXml">
 
@@ -208,39 +208,11 @@
 
             </TextView>
 
-            <ImageView
-                android:id="@+id/search_pic"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/info"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="-110dp"
-                android:layout_toStartOf="@+id/search"
-                android:src="@drawable/search">
-
-            </ImageView>
-
-            <TextView
-                android:id="@+id/search"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/help"
-                android:layout_marginStart="120dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@id/his"
-                android:onClick="SEARCH"
-                android:text="@string/search"
-                android:textSize="17sp"
-                tools:ignore="OnClick,UsingOnClickInXml">
-
-            </TextView>
 
             <Button
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/search"
+                android:layout_below="@id/help"
                 android:layout_marginStart="-50dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/readmod"

@@ -57,22 +57,23 @@
                 android:textColorHint="@color/black"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/feedbackbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/feedb"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:width="380dp"
                 android:height="220dp"
+                android:background="@drawable/searchbar"
+                android:gravity="left|top"
                 android:hint="@string/givefb"
                 android:inputType="textMultiLine"
-                android:gravity="left|top"
                 android:minLines="10"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:background="@drawable/searchbar"/>
+                android:textSize="16sp" />
             <Button
                 android:layout_width="80dp"
                 android:layout_height="40dp"

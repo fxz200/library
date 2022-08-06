@@ -1,16 +1,18 @@
 package com.example.myapplication
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
+import android.text.Html
 import android.view.View
-import com.example.myapplication.monitor
-import kotlinx.android.synthetic.main.activity_usersetting.*
+import android.widget.Toast
 
 class usersetting : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_usersetting)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
     }
     fun back(view: View) {
 
@@ -26,9 +28,11 @@ class usersetting : AppCompatActivity() {
         val intent = Intent(this,feedback::class.java)
         startActivity(intent)
     }
-    fun ABOUTUS(view: View) {
+
+    fun aboutus(view: View) {
         val intent = Intent(this,aboutus::class.java)
         startActivity(intent)
     }
+
 
 }

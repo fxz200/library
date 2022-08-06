@@ -3,19 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.31" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/c6d0ba_round.xml" value="0.31" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2135" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/logout.xml" value="0.322" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/pencil_24.xml" value="0.313" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/roound.xml" value="0.333" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/round_button.xml" value="0.2655" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/drawable/searchbar.xml" value="0.2655" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_about.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_aboutus.xml" value="0.33" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_favorite.xml" value="0.22" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_feedback.xml" value="0.33" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_help.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_history.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_monitor.xml" value="0.1" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_qrcode.xml" value="0.13796296296296295" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_read.xml" value="0.25" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_search.xml" value="0.3" />
-        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_usersetting.xml" value="0.3388888888888889" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_test.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/activity_usersetting.xml" value="0.1" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/attrs.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/favorite.xml" value="0.3463541666666667" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/help.xml" value="0.33" />
@@ -25,23 +33,7 @@
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/search.xml" value="0.67" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/user_setting.xml" value="0.1" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2135" />
-        <entry key="app/src/main/res/layout/activity_aboutus.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_feedback.xml" value="0.26224328593996843" />
-        <entry key="app/src/main/res/layout/activity_help.xml" value="0.22327898550724637" />
-        <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2755267423014587" />
-        <entry key="app/src/main/res/layout/activity_monitor.xml" value="0.3145833333333333" />
-        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_read.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_scanqrcode.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_search.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_test.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_usersetting.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/attrs.xml" value="0.31979166666666664" />
         <entry key="app/src/main/res/layout/hihihi.xml" value="0.3759057971014493" />
-        <entry key="app/src/main/res/layout/login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/qrcode.xml" value="0.3695652173913043" />
       </map>
     </option>
   </component>
