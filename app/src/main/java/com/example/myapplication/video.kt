@@ -27,7 +27,7 @@ class video : AppCompatActivity() {
         }
         VideoView!!.setMediaController(mediaController)
 
-        VideoView!!.setVideoURI(Uri.parse("android.resource://" + packageName + "/" +R.raw.qrcode))
+        VideoView!!.setVideoURI(Uri.parse("android.resource://" + packageName + "/" +R.raw.video))
 
         VideoView!!.requestFocus()
 
