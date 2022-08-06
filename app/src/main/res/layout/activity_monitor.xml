@@ -76,19 +76,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-            <Button
-                android:id="@+id/set3"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/set2"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/round_button"
-                android:layout_centerHorizontal="true"
-                android:paddingLeft="20dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
