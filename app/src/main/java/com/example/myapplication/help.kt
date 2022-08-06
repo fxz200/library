@@ -15,4 +15,8 @@ class help : AppCompatActivity() {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
+    fun video(view: View) {
+        val intent = Intent(this,video::class.java)
+        startActivity(intent)
+    }
 }

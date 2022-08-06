@@ -23,13 +23,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
-
         <activity
-            android:name="com.example.myapplication.aboutus"
+            android:name=".video"
+            android:exported="false" />
+        <activity
+            android:name=".aboutus"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.example.myapplication.feedback"
+            android:name=".feedback"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
