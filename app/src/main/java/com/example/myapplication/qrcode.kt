@@ -2,6 +2,11 @@ package com.example.myapplication
 
 import android.content.pm.PackageManager
 import android.annotation.SuppressLint
+
+import android.app.Activity
+
+import android.text.Html
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,6 +73,11 @@ class qrcode : AppCompatActivity() {
     fun back(view: View) {
 
         val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun test(view: View) {
+        val intent = Intent(this,cam::class.java)
         startActivity(intent)
     }
 }

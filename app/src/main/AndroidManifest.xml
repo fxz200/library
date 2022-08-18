@@ -4,12 +4,12 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.CAMERA" /> <!-- Both "AR Optional" and "AR Required" apps require CAMERA permission. -->
-    <!--
- Indicates that app requires ARCore ("AR Required"). Ensures app is only
-         visible in the Google Play Store on devices that support ARCore.
-         For "AR Optional" apps remove this line.
-    -->
-    <uses-feature android:name="android.hardware.camera.ar" />
+
+    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -24,9 +24,13 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
-            android:name=".video"
+            android:name=".cam"
             android:exported="false"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".video"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".aboutus"
             android:exported="false"
@@ -77,7 +81,12 @@
 
         <meta-data
             android:name="com.google.ar.core"
-            android:value="required" />
+            android:value="required"
+            />
+        <meta-data
+            android:name="com.google.android.ar.API_KEY"
+            android:value="你的 API key" />
+
     </application>
 
 </manifest>
