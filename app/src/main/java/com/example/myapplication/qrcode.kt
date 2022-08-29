@@ -37,6 +37,7 @@ class qrcode : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
+        val r ="4"
 
         codeScanner = CodeScanner(this, scannerView)
 
@@ -48,8 +49,13 @@ class qrcode : AppCompatActivity() {
         codeScanner.isFlashEnabled = false
 
         codeScanner.decodeCallback = DecodeCallback {
-            runOnUiThread{
-                textScanResult.text = it.text
+            if (it.text == r){
+                val intent = Intent(this,cam::class.java)
+                startActivity(intent)
+            }else{
+                runOnUiThread{
+                    textScanResult.text = it.text
+                }
             }
         }
         codeScanner.errorCallback = ErrorCallback {
