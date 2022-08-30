@@ -53,19 +53,18 @@
             <com.budiyev.android.codescanner.CodeScannerView
                 android:id="@+id/scanner_view"
                 android:layout_width="400dp"
-                android:layout_height="300dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp" />
+                android:layout_height="280dp"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"/>
 
             <TextView
                 android:id="@+id/textScanResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/scanner_view"
+                android:layout_marginTop="13dp"
+                android:layout_centerHorizontal="true"
                 android:text="@string/plaesescan"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:onClick="test"
                 tools:ignore="OnClick,UsingOnClickInXml"/>

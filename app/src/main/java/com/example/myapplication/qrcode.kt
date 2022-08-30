@@ -38,7 +38,7 @@ class qrcode : AppCompatActivity() {
         setContentView(R.layout.activity_qrcode)
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val r ="4"
-        val e = "ERROR"
+        val e = "QRCODE錯誤，請至圖書館入口掃描。"
 
         codeScanner = CodeScanner(this, scannerView)
 
