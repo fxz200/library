@@ -24,6 +24,36 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
+            android:name=".literature"
+            android:exported="false" />
+        <activity
+            android:name=".foreign_geo"
+            android:exported="false" />
+        <activity
+            android:name=".chinese_geo"
+            android:exported="false" />
+        <activity
+            android:name=".geography"
+            android:exported="false" />
+        <activity
+            android:name=".social"
+            android:exported="false" />
+        <activity
+            android:name=".applied"
+            android:exported="false" />
+        <activity
+            android:name=".natural"
+            android:exported="false" />
+        <activity
+            android:name=".religion"
+            android:exported="false" />
+        <activity
+            android:name=".philo"
+            android:exported="false" />
+        <activity
+            android:name=".total"
+            android:exported="false" />
+        <activity
             android:name=".find"
             android:exported="false" />
         <activity
