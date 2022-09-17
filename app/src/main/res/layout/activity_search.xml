@@ -181,14 +181,15 @@
                         android:layout_toEndOf="@id/book3"
                         android:text="@string/where"
                         android:textSize="20sp" />
+
                     <ImageView
                         android:id="@+id/heart2"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
+                        android:layout_below="@id/heart"
                         android:layout_marginStart="330dp"
                         android:layout_marginTop="100dp"
                         android:layout_toEndOf="@id/booktitle3"
-                        android:layout_below="@id/heart"
                         android:src="@drawable/heart" />
 
                     <ImageView

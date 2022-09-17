@@ -47,4 +47,17 @@
     <string name="aboutus3">指導老師：金凱儀 老師</string>
     <string name="aboutustitle">ABOUT US</string>
     <string name="givefb">請在此留下您的反饋～</string>
+    <string name="big">"選擇大類別"</string>
+    <string name="total">001 ~ 099\n總類</string>
+    <string name="philo">100 ~ 100\n哲學類</string>
+    <string name="religion">200 ~ 298\n宗教類</string>
+    <string name="natural">300 ~ 390\n自然科學類</string>
+    <string name="applied">394 ~ 497\n應用科學類</string>
+    <string name="social">500 ~ 599\n社會科學類</string>
+    <string name="geography">600 ~ 609\n史地類</string>
+    <string name="chinese_geo">610 ~ 690\n中國史地類</string>
+    <string name="foreign_geo">710 ~ 834\n外國史地\n及語文類</string>
+    <string name="literature">835 ~ 890\n文學類</string>
+    <string name="art">910 ~ 989\n藝術類</string>
+
 </resources>

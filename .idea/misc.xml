@@ -25,11 +25,19 @@
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/search.xml" value="0.67" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/layout/user_setting.xml" value="0.1" />
         <entry key="..\:/Users/FXZ/Desktop/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2135" />
+        <entry key="app/src/main/res/drawable/account.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/c6d0ba_round.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/dae2b6_green.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/green_7fbcd2.xml" value="0.192" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/library_map.xml" value="0.2625" />
+        <entry key="app/src/main/res/drawable/roound.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/round_button.xml" value="0.193" />
         <entry key="app/src/main/res/layout/activity_aboutus.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_cam.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_feedback.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_find.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_help.xml" value="0.22327898550724637" />
         <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2755267423014587" />
