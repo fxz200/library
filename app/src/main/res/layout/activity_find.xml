@@ -181,7 +181,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_below="@+id/literature"
                 android:text="@string/art"
-                android:textSize="20sp"
+                android:textSize="21sp"
                 android:background="@drawable/a2b38b_green"
                 android:onClick="art"
                 tools:ignore="OnClick,UsingOnClickInXml"/>
