@@ -39,24 +39,24 @@
         <entry key="app/src/main/res/layout/activity_chinese_geo.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_feedback.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_find.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_find.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_foreign_geo.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_geography.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_help.xml" value="0.22327898550724637" />
         <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_literature.xml" value="0.29583333333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2755267423014587" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_monitor.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/layout/activity_natural.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_philo.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_read.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_religion.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_scanqrcode.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_social.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_total.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_total.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_usersetting.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_video.xml" value="0.1" />
         <entry key="app/src/main/res/layout/attrs.xml" value="0.31979166666666664" />
