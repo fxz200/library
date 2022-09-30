@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     fun READMOD(view: View) {
 
-        val intent = Intent(this,read::class.java)
+        val intent = Intent(this,cam2::class.java)
         startActivity(intent)
     }
     fun HELP(view: View) {
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun qrcode(view: View) {
-        val intent = Intent(this,find::class.java)
+        val intent = Intent(this,qrcode::class.java)
         startActivity(intent)
     }
 }

@@ -8,7 +8,7 @@ buildscript {
         // Check that you have the following line (if not, add it):
         google()
         mavenCentral()  // Google's Maven repository
-        jcenter()
+
     }
 
     dependencies {
@@ -16,14 +16,14 @@ buildscript {
 
         classpath 'com.google.ar.sceneform:plugin:1.17.1'
         // Add the following line:
-        classpath 'com.google.gms:google-services:4.3.13'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.14'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0-Beta"
         // Google Services plugin
     }
 }
 plugins {
-    id 'com.android.application' version '7.2.1' apply false
-    id 'com.android.library' version '7.2.1' apply false
+    id 'com.android.application' version '7.3.0' apply false
+    id 'com.android.library' version '7.3.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
 }
 

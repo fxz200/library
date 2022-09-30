@@ -31,11 +31,14 @@ import java.util.jar.Manifest
 
 
 class qrcode : AppCompatActivity() {
+
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
+
+
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val r ="4"
         val e = "QRCODE錯誤，請至圖書館入口掃描。"
@@ -84,7 +87,7 @@ class qrcode : AppCompatActivity() {
     }
 
     fun test(view: View) {
-        val intent = Intent(this,cam::class.java)
+        val intent = Intent(this,find::class.java)
         startActivity(intent)
     }
 }

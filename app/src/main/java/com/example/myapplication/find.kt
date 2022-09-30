@@ -18,7 +18,7 @@ class find : AppCompatActivity() {
 
     }
     fun back(view: View) {
-        val intent = Intent(this,find::class.java)
+        val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
     fun total(view: View) {
