@@ -32,19 +32,14 @@ class total : AppCompatActivity() {
             .addOnSuccessListener { querySnapshot: QuerySnapshot ->
                 val books: List<Book> = querySnapshot.toObjects(Book::class.java)
                 for (i:Book in books){
-                    val TextViewname:TextView=findViewById((R.id.f1001))
-                    TextViewname.setText(i.num)
-                    TextViewname.setText(i.small)
+                    val Textname:TextView=findViewById((R.id.f1001))
+                    Textname.text = i.num
+                    Textname.text = i.small
                 }
             }
 
     }
     private lateinit var binding: ActivityMainBinding
-    class block(
-
-    ){
-
-    }
     class Book(
         var bookID:Int=0,
         var num:String="",
