@@ -79,10 +79,6 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".cam"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".video"
             android:exported="false"
             android:screenOrientation="landscape" />

@@ -1,10 +1,12 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.annotation.SuppressLint
+
 import android.widget.TextView
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.firebase.firestore.DocumentSnapshot
@@ -14,20 +16,6 @@ import com.google.firebase.firestore.QuerySnapshot
 
 
 class total : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    class block(
-
-    ){
-
-    }
-    class Book(
-        var bookID:Int=0,
-        var num:String="",
-        var big:String="",
-        var small:String=""
-    )
-
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_total)
@@ -51,6 +39,21 @@ class total : AppCompatActivity() {
             }
 
     }
+    private lateinit var binding: ActivityMainBinding
+    class block(
+
+    ){
+
+    }
+    class Book(
+        var bookID:Int=0,
+        var num:String="",
+        var big:String="",
+        var small:String=""
+    )
+
+    @SuppressLint("SetTextI18n")
+
 
 
     fun back(view: View) {
