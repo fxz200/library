@@ -4,10 +4,16 @@ import android.Manifest
 import android.accessibilityservice.GestureDescription
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.CameraXThreads.TAG
@@ -45,20 +51,75 @@ class cam2 : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera()
-            } else {
-                Toast.makeText(this, "未开启权限.", Toast.LENGTH_SHORT).show()
-
+    }
+    private var imageCapture: ImageCapture? = null
+    private lateinit var outputDirectory: File
+    private lateinit var cameraExecutor: ExecutorService
+    override fun onStart() {
+        super.onStart()
+        // 畫面開始時檢查權限
+        onClickRequestPermission()
+    }
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
+    { isGranted: Boolean ->
+        if (isGranted) {
+            onAgree()
+        } else {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                // 被拒絕太多次，無法開啟請求權限視窗
+                AlertDialog.Builder(this)
+                    .setTitle("需要相機權限")
+                    .setMessage("這個APP需要相機權限，因為被拒絕太多次，無法自動給予權限，請至設定手動開啟")
+                    .setPositiveButton("Ok") { _, _ ->
+                        openPermissionSettings()
+                    }
+                    .setNeutralButton("No") { _, _ -> onDisagree() }
+                    .show()
             }
         }
     }
-    private var imageCapture: ImageCapture? = null
+    private fun openPermissionSettings() {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        val uri = Uri.fromParts("package", packageName, null)
+        intent.data = uri
+        startActivity(intent)
+    }
+    //取得權限
+    private fun onClickRequestPermission() {
+        when {
+            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED -> {
+                Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show()
+                startCamera()
+            }
+            ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.CAMERA
+            ) -> {
+                AlertDialog.Builder(this)
+                    .setTitle("需要相機權限")
+                    .setMessage("這個APP需要相機權限，請給予權限")
+                    .setPositiveButton("Ok") { _, _ -> requestPermissionLauncher.launch(Manifest.permission.CAMERA) }
+                    .setNeutralButton("No") { _, _ -> onDisagree() }
+                    .show()
 
-    private lateinit var outputDirectory: File
-    private lateinit var cameraExecutor: ExecutorService
+            }
+            else -> {
+                requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+            }
+        }
+    }
 
+
+    private fun onAgree() {
+        Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show()
+        startCamera()
+    }
+
+    private fun onDisagree() {
+        Toast.makeText(this, "未取得相機權限", Toast.LENGTH_SHORT).show()
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -69,12 +130,6 @@ class cam2 : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
-
-        // Set up the listener for take photo button
-        //capture_button.setOnClickListener { takePhoto() }
-
-        //outputDirectory = getOutputDirectory()
-
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
     @SuppressLint("RestrictedApi")
@@ -84,11 +139,9 @@ class cam2 : AppCompatActivity() {
 
         cameraProviderFuture.addListener(Runnable {
 
-            // Used to bind the lifecycle of cameras to the lifecycle owner
+
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
-
-            // Preview
             val preview = Preview.Builder()
                 .build()
                 .also {
@@ -98,14 +151,6 @@ class cam2 : AppCompatActivity() {
             imageCapture = ImageCapture.Builder()
                 .build()
 
-            /*
-            val imageAnalyzer = ImageAnalysis.Builder()
-                .build()
-                .also {
-                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer { luma ->
-                        Log.d(TAG, "Average luminosity: $luma")
-                    })
-                }*/
 
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
@@ -121,5 +166,10 @@ class cam2 : AppCompatActivity() {
 
         }, ContextCompat.getMainExecutor(this))
 
+    }
+    fun back(view: View) {
+
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
 }
