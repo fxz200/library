@@ -26,6 +26,94 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
+            android:name=".find2"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".art"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".literature"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".foreign_geo"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".chinese_geo"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".geography"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".social"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".applied"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".natural"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".religion"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".philo"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".total"
             android:exported="false"
             android:screenOrientation="landscape">
@@ -42,14 +130,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".art"
-            android:exported="false"
-            android:screenOrientation="landscape">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".cam2"
             android:exported="false"
             android:screenOrientation="landscape">
@@ -57,42 +137,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".literature"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".foreign_geo"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".chinese_geo"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".geography"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".social"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".applied"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".natural"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".religion"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".philo"
-            android:exported="false"
-            android:screenOrientation="landscape" />
         <activity
             android:name=".video"
             android:exported="false"
