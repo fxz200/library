@@ -16,6 +16,11 @@
 
 
     <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="150dp"
         android:onClick="back"
         android:id="@+id/btn_capture"
         android:layout_width="wrap_content"
@@ -26,10 +31,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="UsingOnClickInXml" />
+    <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="80dp"
+        android:onClick="back"
+        android:id="@+id/btn_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="停止導航"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UsingOnClickInXml" />
     <ImageView
         android:src="@drawable/f1_001"
-        android:layout_width="300dp"
-        android:layout_height="170dp"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
         tools:ignore="MissingConstraints" />
 
 
