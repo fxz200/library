@@ -33,7 +33,7 @@
                 tools:ignore="OnClick,UsingOnClickInXml"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/total"
+                android:id="@+id/totaltitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -44,19 +44,6 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <TextView
-                android:id="@+id/f1001"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
-
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

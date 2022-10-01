@@ -54,149 +54,149 @@
             android:layout_height="350dp"
             android:layout_marginLeft="65dp">
 
-                <Button
-                    android:id="@+id/total"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="total"
-                    android:text="@string/total"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/total"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="total"
+                android:text="@string/total"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/philo"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/total"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="philo"
-                    android:text="@string/philo"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/philo"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/total"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="philo"
+                android:text="@string/philo"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/religion"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/philo"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="religion"
-                    android:text="@string/religion"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/religion"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/philo"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="religion"
+                android:text="@string/religion"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/natural"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@+id/total"
-                    android:background="@drawable/a2b38b_green"
-                    android:onClick="natural"
-                    android:text="@string/natural"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/natural"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/total"
+                android:background="@drawable/a2b38b_green"
+                android:onClick="natural"
+                android:text="@string/natural"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/applied"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/natural"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/philo"
-                    android:background="@drawable/a2b38b_green"
-                    android:onClick="applied"
-                    android:text="@string/applied"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/applied"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/natural"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/philo"
+                android:background="@drawable/a2b38b_green"
+                android:onClick="applied"
+                android:text="@string/applied"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/social"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/applied"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/religion"
-                    android:background="@drawable/a2b38b_green"
-                    android:onClick="social"
-                    android:text="@string/social"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/social"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/applied"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/religion"
+                android:background="@drawable/a2b38b_green"
+                android:onClick="social"
+                android:text="@string/social"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/geography"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@+id/natural"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="geography"
-                    android:text="@string/geography"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/geography"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/natural"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="geography"
+                android:text="@string/geography"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/chinese_geo"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/geography"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/applied"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="chinese_geo"
-                    android:text="@string/chinese_geo"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/chinese_geo"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/geography"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/applied"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="chinese_geo"
+                android:text="@string/chinese_geo"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/foreign_geo"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/chinese_geo"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/social"
-                    android:background="@drawable/c6d0ba_round"
-                    android:onClick="foreign_geo"
-                    android:text="@string/foreign_geo"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/foreign_geo"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/chinese_geo"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/social"
+                android:background="@drawable/c6d0ba_round"
+                android:onClick="foreign_geo"
+                android:text="@string/foreign_geo"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/literature"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@+id/geography"
-                    android:background="@drawable/a2b38b_green"
-                    android:onClick="literature"
-                    android:text="@string/literature"
-                    android:textSize="20sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/literature"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/geography"
+                android:background="@drawable/a2b38b_green"
+                android:onClick="literature"
+                android:text="@string/literature"
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
 
-                <Button
-                    android:id="@+id/art"
-                    android:layout_width="135dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/literature"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/chinese_geo"
-                    android:background="@drawable/a2b38b_green"
-                    android:onClick="art"
-                    android:text="@string/art"
-                    android:textSize="21sp"
-                    tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:id="@+id/art"
+                android:layout_width="135dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/literature"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/chinese_geo"
+                android:background="@drawable/a2b38b_green"
+                android:onClick="art"
+                android:text="@string/art"
+                android:textSize="21sp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

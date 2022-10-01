@@ -28,8 +28,8 @@
         tools:ignore="UsingOnClickInXml" />
     <ImageView
         android:src="@drawable/f1_001"
-        android:layout_width="200dp"
-        android:layout_height="130dp"
+        android:layout_width="300dp"
+        android:layout_height="170dp"
         tools:ignore="MissingConstraints" />
 
 
