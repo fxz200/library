@@ -30,7 +30,7 @@ class usersetting : AppCompatActivity() {
     }
 
     fun aboutus(view: View) {
-        val intent = Intent(this,applied::class.java)
+        val intent = Intent(this,aboutus::class.java)
         startActivity(intent)
     }
 
