@@ -45,6 +45,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <Button
+            android:onClick="b_1"
+            android:id="@+id/b1"
+            android:text="善本、稿本、精鈔本、紀念藏"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:ignore="OnClick,UsingOnClickInXml" />
+
     </LinearLayout>
 </RelativeLayout>
 

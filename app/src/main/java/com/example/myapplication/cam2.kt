@@ -11,6 +11,8 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -22,7 +24,12 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_cam2.*
+import kotlinx.android.synthetic.main.activity_cam2.view.*
+import kotlinx.android.synthetic.main.activity_monitor.view.*
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -120,11 +127,45 @@ class cam2 : AppCompatActivity() {
         Toast.makeText(this, "未取得相機權限", Toast.LENGTH_SHORT).show()
 
     }
+    class Bookshelf(
+        var ID:Int=0,
+        var big:String="",
+        var num:String="",
+        var pic:String="",
+        var small:String="",
+    ){
+
+    }
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cam2)
+        //////////
+        val db = FirebaseFirestore.getInstance()
 
+
+        val imageView : ImageView = findViewById(R.id.image)
+        val bundle = intent.extras
+        val datanum = bundle?.getString("datanum")
+        db.collection("bookshelf").document("${datanum}")
+            .get()
+            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
+                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
+
+                if (bookshelf != null) {
+                    imageView.setImageResource(R.drawable.f1_002)
+                    //val pic="R.drawable.${bookshelf.pic}"
+                    //imageView.setImageResource(pic as Int)
+
+
+
+                }
+            }
+
+
+
+        /////////
         if (allPermissionsGranted()) { startCamera()
         } else {
             ActivityCompat.requestPermissions(

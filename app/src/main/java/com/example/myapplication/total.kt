@@ -16,4 +16,12 @@ class total : AppCompatActivity() {
         val intent = Intent(this, find::class.java)
         startActivity(intent)
     }
+
+    fun b_1(view: View) {
+        val bundle = Bundle()
+        bundle.putString("datanum", "1B01")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
 }

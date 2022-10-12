@@ -26,6 +26,13 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
+            android:name=".score"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".find2"
             android:exported="false"
             android:screenOrientation="landscape">

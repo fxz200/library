@@ -47,11 +47,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="UsingOnClickInXml" />
+
+
+
     <ImageView
+        android:id="@+id/image"
         android:src="@drawable/f1_001"
         android:layout_width="200dp"
         android:layout_height="130dp"
         tools:ignore="MissingConstraints" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
