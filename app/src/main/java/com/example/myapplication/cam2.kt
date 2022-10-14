@@ -1,9 +1,7 @@
 package com.example.myapplication
 
 import android.Manifest
-import android.accessibilityservice.GestureDescription
 import android.annotation.SuppressLint
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -12,7 +10,6 @@ import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -26,10 +23,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_cam2.*
-import kotlinx.android.synthetic.main.activity_cam2.view.*
-import kotlinx.android.synthetic.main.activity_monitor.view.*
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -154,7 +148,11 @@ class cam2 : AppCompatActivity() {
                 val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
 
                 if (bookshelf != null) {
-                    imageView.setImageResource(R.drawable.f1_002)
+                    val pic=bookshelf.pic;
+                    //val PIC="R.drawable.${pic}";
+                    val mDrawableName = "${pic}"
+                    val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
+                    imageView.setImageResource(resID);
                     //val pic="R.drawable.${bookshelf.pic}"
                     //imageView.setImageResource(pic as Int)
 

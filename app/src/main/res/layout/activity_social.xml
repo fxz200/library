@@ -45,6 +45,97 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_2_16"
+                android:id="@+id/b1"
+                android:text="社會科學總論、統計"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_2_17"
+                android:id="@+id/b2"
+                android:text="教育"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_2_18"
+                android:id="@+id/b3"
+                android:text="禮俗、民族學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_2_19"
+                android:id="@+id/b4"
+                android:text="社會學、家庭社區"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_2_20"
+                android:id="@+id/b5"
+                android:text="社會工作、社會革命"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b3"
+                android:layout_below="@+id/b2"
+                android:onClick="b_3_1"
+                android:id="@+id/b6"
+                android:text="經濟、貨幣"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b4"
+                android:onClick="b_3_2"
+                android:id="@+id/b7"
+                android:text="政治學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b5"
+                android:layout_below="@+id/b1"
+                android:onClick="b_3_3"
+                android:id="@+id/b8"
+                android:text="國際關係"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b6"
+                android:layout_below="@+id/b2"
+                android:onClick="b_3_4"
+                android:id="@+id/b9"
+                android:text="法律"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b7"
+                android:onClick="b_3_5"
+                android:id="@+id/b10"
+                android:text="軍事"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

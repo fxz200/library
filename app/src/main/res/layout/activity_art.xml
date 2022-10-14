@@ -45,6 +45,59 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_7_1"
+                android:id="@+id/b1"
+                android:text="音樂"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_7_2"
+                android:id="@+id/b2"
+                android:text="建築藝術、雕塑"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_7_3"
+                android:id="@+id/b3"
+                android:text="繪畫、書法"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_7_4"
+                android:id="@+id/b4"
+                android:text="攝影"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_7_5"
+                android:id="@+id/b5"
+                android:text="電腦美術、應用美術、技藝"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b2"
+                android:onClick="b_7_6"
+                android:id="@+id/b6"
+                android:text="戲劇、電影"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

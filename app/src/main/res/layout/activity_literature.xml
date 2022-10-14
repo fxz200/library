@@ -45,6 +45,146 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_6_1"
+                android:id="@+id/b1"
+                android:text="散文總集、婦女作品總集"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_6_2"
+                android:id="@+id/b2"
+                android:text="別集"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_6_3"
+                android:id="@+id/b3"
+                android:text="各地方文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_6_4"
+                android:id="@+id/b4"
+                android:text="中國詩"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_6_5"
+                android:id="@+id/b5"
+                android:text="詞、曲、散文"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b3"
+                android:layout_below="@+id/b2"
+                android:onClick="b_6_6"
+                android:id="@+id/b6"
+                android:text="函牘及雜說"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b4"
+                android:onClick="b_6_7"
+                android:id="@+id/b7"
+                android:text="小說"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b5"
+                android:layout_below="@+id/b1"
+                android:onClick="b_6_8"
+                android:id="@+id/b8"
+                android:text="民間、東方文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b6"
+                android:layout_below="@+id/b2"
+                android:onClick="b_6_9"
+                android:id="@+id/b9"
+                android:text="日本文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b7"
+                android:onClick="b_6_10"
+                android:id="@+id/b10"
+                android:text="韓國、台灣文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b8"
+                android:layout_below="@+id/b1"
+                android:onClick="b_6_11"
+                android:id="@+id/b11"
+                android:text="印度、東南亞文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b9"
+                android:layout_below="@+id/b2"
+                android:onClick="b_6_12"
+                android:id="@+id/b12"
+                android:text="英國、美國文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b10"
+                android:onClick="b_6_13"
+                android:id="@+id/b13"
+                android:text="歐洲、俄國文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b11"
+                android:layout_below="@+id/b1"
+                android:onClick="b_6_14"
+                android:id="@+id/b14"
+                android:text="美洲、非洲各國文學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b12"
+                android:layout_below="@+id/b2"
+                android:onClick="b_6_15"
+                android:id="@+id/b15"
+                android:text="新聞學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

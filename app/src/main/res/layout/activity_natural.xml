@@ -13,37 +13,85 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/bar_green"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:gravity="center"
-                android:text="@string/back"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:background="@null"
+                android:gravity="center"
+                android:onClick="back"
+                android:text="@string/back"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:onClick="back"
-                tools:ignore="OnClick,UsingOnClickInXml"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
             <TextView
                 android:id="@+id/naturaltitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="18dp"
                 android:background="@null"
                 android:gravity="center"
                 android:text="@string/natural2"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="18dp"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_2_5"
+                android:id="@+id/b1"
+                android:text="自然科學總論"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_2_6"
+                android:id="@+id/b2"
+                android:text="數學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_2_7"
+                android:id="@+id/b3"
+                android:text="天文地理"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_2_8"
+                android:id="@+id/b4"
+                android:text="地理、化學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_2_9"
+                android:id="@+id/b5"
+                android:text="地學、生態、生物學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -45,6 +45,18 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+
+                android:onClick="b_3_6"
+                android:id="@+id/b10"
+                android:text="史學、地理學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

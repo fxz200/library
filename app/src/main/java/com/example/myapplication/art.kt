@@ -16,4 +16,35 @@ class art : AppCompatActivity() {
         val intent = Intent(this, find::class.java)
         startActivity(intent)
     }
+
+    fun b_7_1(view: View) { val bundle = Bundle()
+        bundle.putString("datanum", "7B01")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
+    fun b_7_2(view: View) {val bundle = Bundle()
+        bundle.putString("datanum", "7B02")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
+    fun b_7_3(view: View) {val bundle = Bundle()
+        bundle.putString("datanum", "7B03")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
+    fun b_7_4(view: View) {val bundle = Bundle()
+        bundle.putString("datanum", "7B04")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
+    fun b_7_5(view: View) {val bundle = Bundle()
+        bundle.putString("datanum", "7B05")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
+    fun b_7_6(view: View) {val bundle = Bundle()
+        bundle.putString("datanum", "7B06")
+        val intent = Intent(this, cam2::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)}
 }

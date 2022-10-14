@@ -45,6 +45,50 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_3_7"
+                android:id="@+id/b1"
+                android:text="中國通史"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_3_8"
+                android:id="@+id/b2"
+                android:text="中國各朝代歷史"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_3_9"
+                android:id="@+id/b3"
+                android:text="中國文化史"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_3_10"
+                android:id="@+id/b4"
+                android:text="中國史料"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_3_11"
+                android:id="@+id/b5"
+                android:text="中國地方志"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

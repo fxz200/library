@@ -44,16 +44,157 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
+
         </RelativeLayout>
-        <Button
-            android:onClick="b_1"
-            android:id="@+id/b1"
-            android:text="善本、稿本、精鈔本、紀念藏"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            tools:ignore="OnClick,UsingOnClickInXml" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:onClick="b_1"
+                android:id="@+id/b1"
+                android:text="善本、稿本、精鈔本、紀念藏"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b1"
+                android:onClick="b_2"
+                android:id="@+id/b2"
+                android:text="革命文庫"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_below="@+id/b2"
+                android:onClick="b_3"
+                android:id="@+id/b3"
+                android:text="禁書"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b1"
+                android:onClick="b_4"
+                android:id="@+id/b4"
+                android:text="圖書學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b2"
+                android:layout_below="@+id/b1"
+                android:onClick="b_5"
+                android:id="@+id/b5"
+                android:text="私家藏書、國學"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b3"
+                android:layout_below="@+id/b2"
+                android:onClick="b_6"
+                android:id="@+id/b6"
+                android:text="古籍"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+            <Button
+                android:layout_toRightOf="@+id/b4"
+                android:onClick="b_7"
+                android:id="@+id/b7"
+                android:text="各國漢學研究"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b5"
+                android:layout_below="@+id/b1"
+                android:onClick="b_8"
+                android:id="@+id/b8"
+                android:text="類書、百科全書"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b6"
+                android:layout_below="@+id/b2"
+                android:onClick="b_9"
+                android:id="@+id/b9"
+                android:text="學刊、青少年學生雜誌"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b7"
+                android:onClick="b_10"
+                android:id="@+id/b10"
+                android:text="普通年鑑、普通會社"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b8"
+                android:layout_below="@+id/b1"
+                android:onClick="b_11"
+                android:id="@+id/b11"
+                android:text="博物院"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b9"
+                android:layout_below="@+id/b2"
+                android:onClick="b_12"
+                android:id="@+id/b12"
+                android:text="論集、雜說"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b10"
+                android:onClick="b_13"
+                android:id="@+id/b13"
+                android:text="叢書"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b11"
+                android:layout_below="@+id/b1"
+                android:onClick="b_14"
+                android:id="@+id/b14"
+                android:text="四庫全書"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+            <Button
+                android:layout_toRightOf="@+id/b12"
+                android:layout_below="@+id/b2"
+                android:onClick="b_15"
+                android:id="@+id/b15"
+                android:text="群經"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+
+        </RelativeLayout>
+
+
+
 
     </LinearLayout>
+
+
 </RelativeLayout>
 
 
