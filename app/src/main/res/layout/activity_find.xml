@@ -63,6 +63,7 @@
                 android:onClick="total"
                 android:text="@string/total"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -75,6 +76,7 @@
                 android:onClick="philo"
                 android:text="@string/philo"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -87,6 +89,7 @@
                 android:onClick="religion"
                 android:text="@string/religion"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -98,6 +101,7 @@
                 android:layout_toRightOf="@+id/total"
                 android:background="@drawable/a2b38b_green"
                 android:onClick="natural"
+                android:textStyle="bold"
                 android:text="@string/natural"
                 android:textSize="20sp"
                 tools:ignore="OnClick,UsingOnClickInXml" />
@@ -114,6 +118,7 @@
                 android:onClick="applied"
                 android:text="@string/applied"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -128,6 +133,7 @@
                 android:onClick="social"
                 android:text="@string/social"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -141,6 +147,7 @@
                 android:onClick="geography"
                 android:text="@string/geography"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -155,6 +162,7 @@
                 android:onClick="chinese_geo"
                 android:text="@string/chinese_geo"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -169,6 +177,7 @@
                 android:onClick="foreign_geo"
                 android:text="@string/foreign_geo"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -182,6 +191,7 @@
                 android:onClick="literature"
                 android:text="@string/literature"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -195,7 +205,8 @@
                 android:background="@drawable/a2b38b_green"
                 android:onClick="art"
                 android:text="@string/art"
-                android:textSize="21sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
         </RelativeLayout>
     </LinearLayout>

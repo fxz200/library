@@ -26,7 +26,7 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
-            android:name=".find2"
+            android:name=".finish"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data

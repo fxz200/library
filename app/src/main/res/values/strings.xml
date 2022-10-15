@@ -82,6 +82,32 @@
     <string name="search_a2_1">複雜</string>
     <string name="search_a2_2">普通</string>
     <string name="search_a2_3">簡單</string>
+    <string name="search_q3">認為在查詢類別可以改進的地方。</string>
+    <string name="search_a3hint">沒有的話填寫「無」即可</string>
+    <string name="follow_title">＊引導模式＊</string>
+    <string name="follow_q1">在本次體驗之前，是否自行在圖書館尋找過書籍？</string>
+    <string name="follow_a1_1">有找過</string>
+    <string name="follow_a1_2">沒有找過</string>
+    <string name="follow_q2">透過本次的引導，是否增加您找書的效率？</string>
+    <string name="follow_a2_1">效率提升</string>
+    <string name="follow_a2_2">效率下降</string>
+    <string name="follow_a2_3">沒有改變</string>
+    <string name="follow_q3">在引導過程中，地圖的標示是否清楚明瞭？</string>
+    <string name="follow_a3_1">清楚</string>
+    <string name="follow_a3_2">不太清楚，</string>
+    <string name="follow_a3_2hint">原因</string>
+    <string name="follow_q4">在引導過程中，操作是否流暢（有無閃退、頁面錯誤等問題）？</string>
+    <string name="follow_a4_1">流暢</string>
+    <string name="follow_a4_2">不流暢，</string>
+    <string name="follow_a4_2hint">請留下您遇到的問題</string>
+    <string name="whole_title">整體評分</string>
+    <string name="whole_q1">您對這次體驗的評分？（5分滿分）</string>
+    <string name="whole_a1_1">1分</string>
+    <string name="whole_a1_2">2分</string>
+    <string name="whole_a1_3">3分</string>
+    <string name="whole_a1_4">4分</string>
+    <string name="whole_a1_5">5分</string>
+    <string name="thanks">謝謝您的配合填寫，期待您再次體驗～</string>
 
 
 </resources>

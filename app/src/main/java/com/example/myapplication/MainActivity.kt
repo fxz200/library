@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun qrcode(view: View) {
-        val intent = Intent(this,find::class.java)
+        val intent = Intent(this,qrcode::class.java)
         startActivity(intent)
     }
 }
