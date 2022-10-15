@@ -47,7 +47,7 @@
     <string name="aboutus3">指導老師：金凱儀 老師</string>
     <string name="aboutustitle">ABOUT US</string>
     <string name="givefb">請在此留下您的反饋～</string>
-    <string name="big">"選擇大類別"</string>
+    <string name="big">選擇大類別</string>
     <string name="total">001 ~ 099\n總類</string>
     <string name="total2">001 ~ 099 總類</string>
     <string name="philo">100 ~ 100\n哲學類</string>
@@ -70,5 +70,18 @@
     <string name="literature2">835 ~ 890 文學類</string>
     <string name="art">910 ~ 989\n藝術類</string>
     <string name="art2">910 ~ 989 藝術類</string>
+    <string name="finish">完成回饋</string>
+    <string name="finish_title">恭喜您順利抵達書櫃！</string>
+    <string name="finish_title2">為了打造嶄新的體驗，請協助完成以下的回饋調查，謝謝您的配合！</string>
+    <string name="search_qtitle">＊查詢書籍＊</string>
+    <string name="search_q1">在查詢書籍類別時，是否可以順利找到類別？</string>
+    <string name="search_a1_1">可以迅速找到</string>
+    <string name="search_a1_2">需要一些時間才能找到</string>
+    <string name="search_a1_3">無法找到</string>
+    <string name="search_q2">在找尋書籍類別時，您認為在操作方面的複雜程度。</string>
+    <string name="search_a2_1">複雜</string>
+    <string name="search_a2_2">普通</string>
+    <string name="search_a2_3">簡單</string>
+
 
 </resources>

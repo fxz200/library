@@ -21,7 +21,7 @@
         android:background="@drawable/round_button"
         android:layout_marginLeft="550dp"
         android:layout_marginBottom="150dp"
-        android:onClick="back"
+        android:onClick="finish"
         android:id="@+id/btn_capture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

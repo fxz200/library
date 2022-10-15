@@ -7,13 +7,17 @@ import android.content.Intent
 import android.text.Html
 import android.view.View
 import android.widget.Toast
+import com.example.myapplication.databinding.ActivityFeedbackBinding
+import com.example.myapplication.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
     }
 
     fun BASE(view: View) {

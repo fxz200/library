@@ -206,9 +206,9 @@ class cam2 : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
 
     }
-    fun back(view: View) {
+    fun finish(view: View) {
 
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,finish::class.java)
         startActivity(intent)
     }
 }
