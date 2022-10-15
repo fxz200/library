@@ -234,7 +234,7 @@
                             android:layout_below="@+id/follow_qtitle"
                             android:layout_marginTop="8dp"
                             android:layout_marginLeft="50dp"
-                            android:text="@string/search_q1"
+                            android:text="@string/follow_q1"
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
