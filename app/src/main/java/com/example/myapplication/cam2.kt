@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -37,12 +38,14 @@ class cam2 : AppCompatActivity() {
         private val REQUIRED_PERMISSIONS = arrayOf(
             Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO
+
         )
     }
 
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+
     }
 
 
@@ -52,6 +55,7 @@ class cam2 : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        startCamera()
     }
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
@@ -60,22 +64,17 @@ class cam2 : AppCompatActivity() {
         super.onStart()
         // 畫面開始時檢查權限
         onClickRequestPermission()
+        startCamera()
     }
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
     { isGranted: Boolean ->
         if (isGranted) {
             onAgree()
+            startCamera()
         } else {
             if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                // 被拒絕太多次，無法開啟請求權限視窗
-                AlertDialog.Builder(this)
-                    .setTitle("需要相機權限")
-                    .setMessage("這個APP需要相機權限，因為被拒絕太多次，無法自動給予權限，請至設定手動開啟")
-                    .setPositiveButton("Ok") { _, _ ->
-                        openPermissionSettings()
-                    }
-                    .setNeutralButton("No") { _, _ -> onDisagree() }
-                    .show()
+                startCamera()
+
             }
         }
     }
@@ -84,6 +83,7 @@ class cam2 : AppCompatActivity() {
         val uri = Uri.fromParts("package", packageName, null)
         intent.data = uri
         startActivity(intent)
+        startCamera()
     }
     //取得權限
     private fun onClickRequestPermission() {
@@ -103,10 +103,12 @@ class cam2 : AppCompatActivity() {
                     .setPositiveButton("Ok") { _, _ -> requestPermissionLauncher.launch(Manifest.permission.CAMERA) }
                     .setNeutralButton("No") { _, _ -> onDisagree() }
                     .show()
+                startCamera()
 
             }
             else -> {
                 requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+                startCamera()
             }
         }
     }
@@ -119,6 +121,17 @@ class cam2 : AppCompatActivity() {
 
     private fun onDisagree() {
         Toast.makeText(this, "未取得相機權限", Toast.LENGTH_SHORT).show()
+        startCamera()
+
+    }
+    class record(
+        var count:Int=0,
+        var id:String="",
+        var start_time:String="",
+        var time:Int=0,
+        var type_big:String="",
+        var type_small:String="",
+    ){
 
     }
     class Bookshelf(
@@ -136,34 +149,7 @@ class cam2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cam2)
         //////////
-        val db = FirebaseFirestore.getInstance()
 
-
-        val imageView : ImageView = findViewById(R.id.image)
-        val bundle = intent.extras
-        val datanum = bundle?.getString("datanum")
-        db.collection("bookshelf").document("${datanum}")
-            .get()
-            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
-                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
-
-                if (bookshelf != null) {
-                    val pic=bookshelf.pic;
-                    //val PIC="R.drawable.${pic}";
-                    val mDrawableName = "${pic}"
-                    val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
-                    imageView.setImageResource(resID);
-                    //val pic="R.drawable.${bookshelf.pic}"
-                    //imageView.setImageResource(pic as Int)
-
-
-
-                }
-            }
-
-
-
-        /////////
         if (allPermissionsGranted()) { startCamera()
         } else {
             ActivityCompat.requestPermissions(
@@ -206,9 +192,37 @@ class cam2 : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
 
     }
+    var check=0;
     fun finish(view: View) {
+        if (check>0){
 
-        val intent = Intent(this,finish::class.java)
+            val intent = Intent(this,finish::class.java)
+            startActivity(intent)
+        }
+
+        val db = FirebaseFirestore.getInstance()
+        val imageView : ImageView = findViewById(R.id.image)
+        val bundle = intent.extras
+        val datanum = bundle?.getString("datanum")
+        db.collection("bookshelf").document("${datanum}")
+            .get()
+            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
+                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
+                if (bookshelf != null) {
+                    val pic=bookshelf.pic;
+                    val mDrawableName = "${pic}"
+                    val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
+                    imageView.setImageResource(resID);
+                }
+            }
+        check=1;
+        val button_change :Button=findViewById(R.id.btn_capture)
+        button_change.setText("抵達")
+
+    }
+
+    fun back(view: View) {
+        val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
 }
