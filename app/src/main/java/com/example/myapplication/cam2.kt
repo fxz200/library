@@ -2,9 +2,11 @@ package com.example.myapplication
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -13,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -26,13 +29,24 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_cam2.*
 import java.io.File
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 
 typealias LumaListener = (luma: Double) -> Unit
 class cam2 : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun time() {
+        val current = LocalDateTime.now()
 
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
+        val formatted = current.format(formatter)
+
+        println("当前日期和时间为: $formatted")
+    }
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(
@@ -124,11 +138,27 @@ class cam2 : AppCompatActivity() {
         startCamera()
 
     }
-    class record(
+    class GlobalVariable : Application() {
+        companion object {
+            //存放變數
+            private var start_time: String = ""
+
+            //修改 變數値
+            fun setName(name: String){
+                this.start_time = start_time
+            }
+
+            //取得 變數值
+            fun getName(): String{
+                return start_time
+            }
+        }
+    }
+    class Record(
         var count:Int=0,
         var id:String="",
         var start_time:String="",
-        var time:Int=0,
+        var end_time:String="",
         var type_big:String="",
         var type_small:String="",
     ){
@@ -143,6 +173,8 @@ class cam2 : AppCompatActivity() {
     ){
 
     }
+    val record=Record()
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -150,6 +182,13 @@ class cam2 : AppCompatActivity() {
         setContentView(R.layout.activity_cam2)
         //////////
 
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
+
+        val start_time= current.format(formatter)
+        record.start_time=start_time
+
+        //////////
         if (allPermissionsGranted()) { startCamera()
         } else {
             ActivityCompat.requestPermissions(
@@ -192,15 +231,23 @@ class cam2 : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
 
     }
+    val db = FirebaseFirestore.getInstance()
     var check=0;
     fun finish(view: View) {
         if (check>0){
 
+            val current = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
+            val end_time = current.format(formatter)
+            record.end_time=end_time
+            record.id="test"
+            record.count=1
+            db.collection("record").add(record)
             val intent = Intent(this,finish::class.java)
             startActivity(intent)
         }
 
-        val db = FirebaseFirestore.getInstance()
+        //val db = FirebaseFirestore.getInstance()
         val imageView : ImageView = findViewById(R.id.image)
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
@@ -213,6 +260,9 @@ class cam2 : AppCompatActivity() {
                     val mDrawableName = "${pic}"
                     val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
                     imageView.setImageResource(resID);
+                    record.type_big=bookshelf.big
+                    record.type_small=bookshelf.small
+
                 }
             }
         check=1;
@@ -221,8 +271,15 @@ class cam2 : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun back(view: View) {
         val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
+        startActivity(intent);
+        time();
+
     }
+
+
+
+
 }
