@@ -148,7 +148,10 @@
         <activity
             android:name=".feedback"
             android:exported="false"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
         <activity
             android:name=".monitor"
             android:exported="false"
@@ -156,7 +159,10 @@
         <activity
             android:name=".qrcode"
             android:exported="false"
-            android:screenOrientation="landscape" />
+
+            android:screenOrientation="landscape" >
+
+        </activity>
         <activity
             android:name=".read"
             android:exported="false"
