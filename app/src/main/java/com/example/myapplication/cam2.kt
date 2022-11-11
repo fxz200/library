@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -181,7 +182,25 @@ class cam2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cam2)
         //////////
+        val bundle = intent.extras
+        val datanum = bundle?.getString("datanum")
+        val textView : TextView = findViewById(R.id.floor)
+        db.collection("bookshelf").document("${datanum}")
+            .get()
+            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
+                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
+                if (bookshelf != null) {
+                    val id=bookshelf.ID
+                    val id_str = "${id}"
+                    val floor=id_str.substring(0,1)
+                    val floor_text="請到${floor}樓"
+                    textView.setText(floor_text)
 
+                    record.type_big=bookshelf.big
+                    record.type_small=bookshelf.small
+
+                }
+            }
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
 
@@ -248,9 +267,11 @@ class cam2 : AppCompatActivity() {
         }
 
         //val db = FirebaseFirestore.getInstance()
+        val textView : TextView = findViewById(R.id.floor)
         val imageView : ImageView = findViewById(R.id.image)
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
+        textView.setText("")
         db.collection("bookshelf").document("${datanum}")
             .get()
             .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
@@ -260,8 +281,8 @@ class cam2 : AppCompatActivity() {
                     val mDrawableName = "${pic}"
                     val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
                     imageView.setImageResource(resID);
-                    record.type_big=bookshelf.big
-                    record.type_small=bookshelf.small
+                    //record.type_big=bookshelf.big
+                    //record.type_small=bookshelf.small
 
                 }
             }
