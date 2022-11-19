@@ -49,53 +49,89 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:onClick="b_29"
                 android:id="@+id/b1"
                 android:text="宗教總論"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b1"
                 android:onClick="b_30"
                 android:id="@+id/b2"
                 android:text="佛教--經典、生活"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b2"
                 android:onClick="b_2_1"
                 android:id="@+id/b3"
                 android:text="佛教--寺廟、傳記"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/b3"
                 android:onClick="b_2_2"
                 android:id="@+id/b4"
                 android:text="道教"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b2"
-                android:layout_below="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+
+                android:layout_below="@+id/b4"
                 android:onClick="b_2_3"
                 android:id="@+id/b5"
                 android:text="基督教"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b3"
-                android:layout_below="@+id/b2"
+
                 android:onClick="b_2_4"
                 android:id="@+id/b6"
                 android:text="其他宗教"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
         </RelativeLayout>
 

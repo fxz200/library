@@ -52,44 +52,74 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:onClick="b_2_5"
                 android:id="@+id/b1"
                 android:text="自然科學總論"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b1"
                 android:onClick="b_2_6"
                 android:id="@+id/b2"
                 android:text="數學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b2"
                 android:onClick="b_2_7"
                 android:id="@+id/b3"
                 android:text="天文地理"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/b3"
                 android:onClick="b_2_8"
                 android:id="@+id/b4"
                 android:text="地理、化學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b2"
-                android:layout_below="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+
+                android:layout_below="@+id/b4"
                 android:onClick="b_2_9"
                 android:id="@+id/b5"
                 android:text="地學、生態、生物學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
         </RelativeLayout>

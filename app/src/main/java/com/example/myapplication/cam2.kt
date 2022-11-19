@@ -139,22 +139,7 @@ class cam2 : AppCompatActivity() {
         startCamera()
 
     }
-    class GlobalVariable : Application() {
-        companion object {
-            //存放變數
-            private var start_time: String = ""
 
-            //修改 變數値
-            fun setName(name: String){
-                this.start_time = start_time
-            }
-
-            //取得 變數值
-            fun getName(): String{
-                return start_time
-            }
-        }
-    }
     class Record(
         var count:Int=0,
         var id:String="",
@@ -184,6 +169,7 @@ class cam2 : AppCompatActivity() {
         //////////
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
+
         val textView : TextView = findViewById(R.id.floor)
         db.collection("bookshelf").document("${datanum}")
             .get()
@@ -195,7 +181,6 @@ class cam2 : AppCompatActivity() {
                     val floor=id_str.substring(0,1)
                     val floor_text="請到${floor}樓"
                     textView.setText(floor_text)
-
                     record.type_big=bookshelf.big
                     record.type_small=bookshelf.small
 
@@ -252,6 +237,7 @@ class cam2 : AppCompatActivity() {
     }
     val db = FirebaseFirestore.getInstance()
     var check=0;
+    @RequiresApi(Build.VERSION_CODES.O)
     fun finish(view: View) {
         if (check>0){
 

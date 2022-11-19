@@ -49,12 +49,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
-
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:onClick="b_3_6"
                 android:id="@+id/b10"
                 android:text="史學、地理學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
         </RelativeLayout>
     </LinearLayout>

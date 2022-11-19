@@ -49,119 +49,197 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:onClick="b_16"
                 android:id="@+id/b1"
                 android:text="哲學總論"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b1"
                 android:onClick="b_17"
                 android:id="@+id/b2"
                 android:text="思想學術"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_below="@+id/b2"
                 android:onClick="b_18"
                 android:id="@+id/b3"
                 android:text="人文學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/b3"
                 android:onClick="b_19"
                 android:id="@+id/b4"
                 android:text="中國哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_toRightOf="@+id/b2"
-                android:layout_below="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+
+                android:layout_below="@+id/b4"
                 android:onClick="b_20"
                 android:id="@+id/b5"
                 android:text="現代哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b3"
                 android:layout_below="@+id/b2"
                 android:onClick="b_21"
                 android:id="@+id/b6"
                 android:text="東方、西洋哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b4"
                 android:onClick="b_22"
                 android:id="@+id/b7"
                 android:text="古代哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b5"
                 android:layout_below="@+id/b1"
                 android:onClick="b_23"
                 android:id="@+id/b8"
                 android:text="中世、近世哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b6"
                 android:layout_below="@+id/b2"
                 android:onClick="b_24"
                 android:id="@+id/b9"
                 android:text="各國哲學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_toRightOf="@+id/b7"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_toRightOf="@+id/b3"
                 android:onClick="b_25"
                 android:id="@+id/b10"
                 android:text="論理學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_below="@id/b3"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_toRightOf="@+id/b8"
-                android:layout_below="@+id/b1"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/a2b38b_green"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_toRightOf="@+id/b3"
+                android:layout_below="@+id/b4"
                 android:onClick="b_26"
                 android:id="@+id/b11"
                 android:text="心理學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_toRightOf="@+id/b9"
-                android:layout_below="@+id/b2"
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
+                android:layout_toRightOf="@+id/b6"
+                android:layout_below="@+id/b1"
                 android:onClick="b_27"
                 android:id="@+id/b12"
                 android:text="美學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_marginLeft="14dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/c6d0ba_round"
+                android:layout_width="127dp"
+                android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b10"
                 android:onClick="b_28"
                 android:id="@+id/b13"
                 android:text="倫理學"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
 
