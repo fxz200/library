@@ -111,14 +111,12 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q1"
                             android:layout_below="@+id/search_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <RadioButton
-                                android:checked="true"
                                 android:id="@+id/search_a1_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -159,7 +157,6 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q2"
                             android:layout_below="@id/search_q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -174,7 +171,6 @@
                                 android:layout_marginTop="5dp"
                                 android:textSize="18sp"/>
                             <RadioButton
-                                android:checked="true"
                                 android:id="@+id/search_a2_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -206,7 +202,6 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <EditText
-
                             android:id="@+id/search_a3"
                             android:layout_width="450dp"
                             android:layout_height="40dp"
@@ -243,13 +238,11 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q4"
                             android:layout_below="@+id/follow_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:checked="true"
                                 android:id="@+id/follow_a1_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -281,14 +274,12 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q5"
                             android:layout_below="@id/follow_q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/follow_a2_1"
-                                android:checked="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/follow_a2_1"
@@ -328,7 +319,6 @@
                             android:textSize="20sp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q6"
                             android:layout_below="@id/follow_q3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -338,7 +328,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/follow_a3_1"
-                                android:checked="true"
                                 android:layout_marginLeft="100dp"
                                 android:layout_below="@+id/follow_q3"
                                 android:layout_marginTop="5dp"
@@ -372,7 +361,6 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/q7"
                             android:layout_below="@id/follow_q4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -382,7 +370,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/follow_a4_1"
-                                android:checked="true"
                                 android:layout_marginLeft="100dp"
                                 android:layout_below="@+id/follow_q4"
                                 android:layout_marginTop="5dp"
@@ -434,7 +421,6 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
-                            android:id="@+id/score"
                             android:layout_below="@+id/whole_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -464,7 +450,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/whole_a1_3"
-                                android:checked="true"
                                 android:layout_toRightOf="@+id/whole_a1_2"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginTop="5dp"
