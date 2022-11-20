@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     fun READMOD(view: View) {
 
-        val intent = Intent(this,finish::class.java)
+        val intent = Intent(this,ScanActivity::class.java)
         startActivity(intent)
     }
     fun HELP(view: View) {
