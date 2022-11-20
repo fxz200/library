@@ -89,6 +89,17 @@
     <string name="follow_a4_2">不流暢，</string>
     <string name="follow_a4_2hint">請留下您遇到的問題</string>
     <string name="whole_title">＊整體評分＊</string>
+    <string name="search_q1">在查詢書籍類別時，是否可以順利找到類別？</string>
+    <string name="search_a1_1">可以迅速找到</string>
+    <string name="search_a1_2">需要一些時間才能找到</string>
+    <string name="search_a1_3">無法找到</string>
+    <string name="follow_q1">在本次體驗之前，是否自行在圖書館尋找過書籍？</string>
+    <string name="follow_a1_1">有找過</string>
+    <string name="follow_a1_2">沒有找過</string>
+    <string name="follow_q2">透過本次的引導，是否增加您找書的效率？</string>
+    <string name="follow_a2_1">效率提升</string>
+    <string name="follow_a2_2">效率下降</string>
+    <string name="follow_a2_3">沒有改變</string>
     <string name="whole_q1">您對這次體驗的評分？（5分滿分）</string>
     <string name="whole_a1_1">1分</string>
     <string name="whole_a1_2">2分</string>
