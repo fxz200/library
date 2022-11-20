@@ -111,6 +111,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q1"
                             android:layout_below="@+id/search_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -157,6 +158,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q2"
                             android:layout_below="@id/search_q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -238,6 +240,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q4"
                             android:layout_below="@+id/follow_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -274,6 +277,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q5"
                             android:layout_below="@id/follow_q2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -319,6 +323,7 @@
                             android:textSize="20sp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q6"
                             android:layout_below="@id/follow_q3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -361,6 +366,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/q7"
                             android:layout_below="@id/follow_q4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -421,6 +427,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/black"/>
                         <RadioGroup
+                            android:id="@+id/score"
                             android:layout_below="@+id/whole_q1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
