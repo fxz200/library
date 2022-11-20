@@ -112,6 +112,7 @@ dependencies {
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
     implementation 'com.google.ar.sceneform:core:1.5.0'
 
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.5'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.3.1'
 
 

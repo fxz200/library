@@ -4,7 +4,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+
     <uses-feature
         android:name="android.hardware.camera.ar"
         android:required="true" />
@@ -18,7 +18,6 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,13 +25,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
-        <activity
-            android:name=".ScanActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".finish"
             android:exported="false"
@@ -156,7 +148,10 @@
         <activity
             android:name=".feedback"
             android:exported="false"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
         <activity
             android:name=".monitor"
             android:exported="false"
@@ -164,7 +159,10 @@
         <activity
             android:name=".qrcode"
             android:exported="false"
-            android:screenOrientation="landscape"></activity>
+
+            android:screenOrientation="landscape" >
+
+        </activity>
         <activity
             android:name=".read"
             android:exported="false"
@@ -203,8 +201,6 @@
         <meta-data
             android:name="com.google.android.ar.API_KEY"
             android:value="你的 API key" />
-        <meta-data android:name="com.google.ar.core" android:value="required" />
-
     </application>
 
 </manifest>

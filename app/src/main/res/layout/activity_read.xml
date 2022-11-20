@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="center"
-                android:text="@string/read"
+                android:text="@string/about"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="18dp"
                 android:textColor="@color/white"
@@ -47,9 +48,137 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
+            android:layout_height="fill_parent">
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/library_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/librarytime_title"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+                    <ImageView
+                        android:id="@+id/opentime"
+                        android:layout_below="@+id/library_time"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="220dp"
+                        android:src="@drawable/library_opentime"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/eat_q"
+                        android:text="@string/eat_q"
+                        android:layout_below="@+id/opentime"
+                        android:layout_marginLeft="70dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/eat_a"
+                        android:text="@string/eat_a"
+                        android:layout_below="@+id/eat_q"
+                        android:layout_marginLeft="90dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/borrow_q"
+                        android:text="@string/borrow_q"
+                        android:layout_below="@+id/eat_a"
+                        android:layout_marginLeft="70dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="13dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/borrow_a"
+                        android:text="@string/borrow_a"
+                        android:layout_below="@+id/borrow_q"
+                        android:layout_marginLeft="90dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/periodicals_q"
+                        android:text="@string/periodicals_q"
+                        android:layout_below="@+id/borrow_a"
+                        android:layout_marginLeft="70dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="13dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/periodicals_a"
+                        android:text="@string/periodicals_a"
+                        android:layout_below="@+id/periodicals_q"
+                        android:layout_marginLeft="90dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/print_q"
+                        android:text="@string/print_q"
+                        android:layout_below="@+id/periodicals_a"
+                        android:layout_marginLeft="70dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="13dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/print_a"
+                        android:text="@string/print_a"
+                        android:layout_below="@+id/print_q"
+                        android:layout_marginLeft="90dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dense_q"
+                        android:text="@string/dense_q"
+                        android:layout_below="@+id/print_a"
+                        android:layout_marginLeft="70dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="13dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dense_a"
+                        android:text="@string/dense_a"
+                        android:layout_below="@+id/dense_q"
+                        android:layout_marginLeft="90dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"/>
+
+
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

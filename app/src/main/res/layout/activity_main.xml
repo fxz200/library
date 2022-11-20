@@ -159,7 +159,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@id/base"
                 android:onClick="READMOD"
-                android:text="@string/readmod"
+                android:text="@string/about"
                 android:textSize="20sp"
                 tools:ignore="OnClick,UsingOnClickInXml">
 

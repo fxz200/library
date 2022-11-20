@@ -3,7 +3,6 @@
     <string name="base">基本資料+設定</string>
     <string name="fav">我的最愛</string>
     <string name="history">學習紀錄</string>
-    <string name="readmod">Read模式</string>
     <string name="ar">實境互動</string>
     <string name="help">教學手冊</string>
     <string name="search">查詢類別</string>
@@ -28,7 +27,7 @@
     <string name="main">首頁</string>
     <string name="account">帳號</string>
     <string name="password">密碼</string>
-    <string name="read">閱讀模式</string>
+    <string name="about">圖書館QA</string>
     <string name="video">教學影片</string>
     <string name="question">常見問題</string>
     <string name="login">登入</string>
@@ -72,12 +71,8 @@
     <string name="art2">910 ~ 989 藝術類</string>
     <string name="finish">完成回饋</string>
     <string name="finish_title">恭喜您順利抵達書櫃！</string>
-    <string name="finish_title2">為了打造嶄新的體驗，請協助完成以下的回饋調查，謝謝您的配合！</string>
+    <string name="finish_title2">為了打造嶄新的體驗，請協助完成以下回饋調查，謝謝您的配合！</string>
     <string name="search_qtitle">＊查詢書籍＊</string>
-    <string name="search_q1">在查詢書籍類別時，是否可以順利找到類別？</string>
-    <string name="search_a1_1">可以迅速找到</string>
-    <string name="search_a1_2">需要一些時間才能找到</string>
-    <string name="search_a1_3">無法找到</string>
     <string name="search_q2">在找尋書籍類別時，您認為在操作方面的複雜程度。</string>
     <string name="search_a2_1">複雜</string>
     <string name="search_a2_2">普通</string>
@@ -85,13 +80,6 @@
     <string name="search_q3">認為在查詢類別可以改進的地方。</string>
     <string name="search_a3hint">沒有的話填寫「無」即可</string>
     <string name="follow_title">＊引導模式＊</string>
-    <string name="follow_q1">在本次體驗之前，是否自行在圖書館尋找過書籍？</string>
-    <string name="follow_a1_1">有找過</string>
-    <string name="follow_a1_2">沒有找過</string>
-    <string name="follow_q2">透過本次的引導，是否增加您找書的效率？</string>
-    <string name="follow_a2_1">效率提升</string>
-    <string name="follow_a2_2">效率下降</string>
-    <string name="follow_a2_3">沒有改變</string>
     <string name="follow_q3">在引導過程中，地圖的標示是否清楚明瞭？</string>
     <string name="follow_a3_1">清楚</string>
     <string name="follow_a3_2">不太清楚，</string>
@@ -100,7 +88,18 @@
     <string name="follow_a4_1">流暢</string>
     <string name="follow_a4_2">不流暢，</string>
     <string name="follow_a4_2hint">請留下您遇到的問題</string>
-    <string name="whole_title">整體評分</string>
+    <string name="whole_title">＊整體評分＊</string>
+    <string name="search_q1">在查詢書籍類別時，是否可以順利找到類別？</string>
+    <string name="search_a1_1">可以迅速找到</string>
+    <string name="search_a1_2">需要一些時間才能找到</string>
+    <string name="search_a1_3">無法找到</string>
+    <string name="follow_q1">在本次體驗之前，是否自行在圖書館尋找過書籍？</string>
+    <string name="follow_a1_1">有找過</string>
+    <string name="follow_a1_2">沒有找過</string>
+    <string name="follow_q2">透過本次的引導，是否增加您找書的效率？</string>
+    <string name="follow_a2_1">效率提升</string>
+    <string name="follow_a2_2">效率下降</string>
+    <string name="follow_a2_3">沒有改變</string>
     <string name="whole_q1">您對這次體驗的評分？（5分滿分）</string>
     <string name="whole_a1_1">1分</string>
     <string name="whole_a1_2">2分</string>
@@ -108,6 +107,15 @@
     <string name="whole_a1_4">4分</string>
     <string name="whole_a1_5">5分</string>
     <string name="thanks">謝謝您的配合填寫，期待您再次體驗～</string>
-
-
+    <string name="librarytime_title">111學年度第一學期 圖書館開放時間</string>
+    <string name="periodicals_q">Q:圖書館是否有期刊？</string>
+    <string name="periodicals_a">A:有，圖書館的期刊區位於本館五樓的期刊室。</string>
+    <string name="eat_q">Q:圖書館是否可以飲食？</string>
+    <string name="eat_a">A:館內嚴禁攜帶食物飲料、寵物、吸菸、張貼文宣、毀損物品，及以物品預佔席位。</string>
+    <string name="borrow_q">Q:圖書館借書期限為幾天？</string>
+    <string name="borrow_a">A:大學部學生可借50本書，期限為4週（28天），續借後最長借期為12週（28天）。</string>
+    <string name="print_q">Q:圖書館的影印區位於何處？</string>
+    <string name="print_a">A:在本館3F的資訊檢索區及書庫4B、7B皆有影印區開放使用。</string>
+    <string name="dense_q">Q:圖書館的密集書庫位於何處？</string>
+    <string name="dense_a">A:密集書庫為於第一教研大樓的地下一樓，但必須從圖書館書庫2B進入。\n&#160;&#160;&#160;密集書庫的主要功能在於節省空間，所採用的書架並非一般的固定式書架，\n&#160;&#160;&#160;而是採用移動式書架，通常用為典藏罕用圖書，大都採用閉架式管理。</string>
 </resources>
