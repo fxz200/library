@@ -66,13 +66,13 @@
             android:layout_marginLeft="85dp"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:onClick="test"
+            android:onClick="tosignup"
             android:textColor="@color/button_green"
             tools:ignore="OnClick,UsingOnClickInXml"/>
         <Button
             android:id="@+id/tologin"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
             android:layout_below="@id/passenter"
             android:layout_toRightOf="@+id/tosignup"
             android:layout_marginLeft="50dp"
@@ -80,6 +80,8 @@
             android:background="@drawable/round_button"
             android:text="@string/tologin"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="25sp"
+            android:onClick="tologin"
+            tools:ignore="OnClick,UsingOnClickInXml"/>
     </RelativeLayout>
 </RelativeLayout>
