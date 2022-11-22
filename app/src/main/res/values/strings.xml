@@ -11,7 +11,7 @@
     <string name="userinfo">學號:09170215\n姓名:呂艾艾\n</string>
     <string name="user_setting">用戶設定</string>
     <string name="user_name">呂艾庭</string>
-    <string name="student_num">學號：09170242</string>
+    <string name="student_num">學號：</string>
     <string name="subject">系級：巨資二B</string>
     <string name="gender">性別：女</string>
     <string name="edit">編輯</string>
@@ -120,6 +120,9 @@
     <string name="dense_a">A:密集書庫為於第一教研大樓的地下一樓，但必須從圖書館書庫2B進入。\n&#160;&#160;&#160;密集書庫的主要功能在於節省空間，所採用的書架並非一般的固定式書架，\n&#160;&#160;&#160;而是採用移動式書架，通常用為典藏罕用圖書，大都採用閉架式管理。</string>
     <string name="loginhint">學號</string>
     <string name="passwordhint">密碼</string>
+    <string name="passwordsign">密碼：</string>
     <string name="tosignup">點我註冊</string>
     <string name="tologin">登入</string>
+    <string name="email">電子信箱：</string>
+    <string name="signup">註冊</string>
 </resources>

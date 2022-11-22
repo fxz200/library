@@ -54,7 +54,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="47dp"
             android:hint="@string/passwordhint"
-            />
+            android:inputType="textPassword" />
         <TextView
             android:id="@+id/tosignup"
             android:layout_width="wrap_content"
