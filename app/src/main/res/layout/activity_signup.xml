@@ -82,7 +82,8 @@
             android:layout_below="@+id/passenter"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="2dp"
-            android:layout_toRightOf="@+id/email" />
+            android:layout_toRightOf="@+id/email"
+            android:inputType="textEmailAddress"/>
 
         <Button
             android:id="@+id/sign"
@@ -94,6 +95,8 @@
             android:background="@drawable/round_button"
             android:text="@string/signup"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="login"
+            tools:ignore="OnClick,UsingOnClickInXml"/>
     </RelativeLayout>
 </RelativeLayout>
