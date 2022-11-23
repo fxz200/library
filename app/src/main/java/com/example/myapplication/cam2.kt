@@ -28,6 +28,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.snapshots
 import kotlinx.android.synthetic.main.activity_cam2.*
 import java.io.File
 import java.time.LocalDateTime
@@ -159,6 +161,7 @@ class cam2 : AppCompatActivity() {
     ){
 
     }
+    var id=GlobalVariable.getName()
     val record=Record()
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
@@ -171,6 +174,8 @@ class cam2 : AppCompatActivity() {
         val datanum = bundle?.getString("datanum")
 
         val textView : TextView = findViewById(R.id.floor)
+
+
         db.collection("bookshelf").document("${datanum}")
             .get()
             .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
@@ -186,6 +191,26 @@ class cam2 : AppCompatActivity() {
 
                 }
             }
+        ///
+        println("***********************************")
+        db.collection("record")
+            .whereEqualTo("id",id)
+            .orderBy("count", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { document->
+                val count=document.toObjects(Record::class.java)
+                println("*************************************")
+                println(count)
+                if(count.any()==false){
+                    record.count=1
+                }
+                else{
+                    println("*************************************")
+                    println(count[0].count)
+                    record.count=count[0].count+1
+                }
+            }
+        println("***********************************")
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
 
@@ -245,8 +270,13 @@ class cam2 : AppCompatActivity() {
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
             val end_time = current.format(formatter)
             record.end_time=end_time
-            record.id="test"
-            record.count=1
+            var id=GlobalVariable.getName()
+            record.id=id
+            
+
+
+
+
             db.collection("record").add(record)
             val intent = Intent(this,finish::class.java)
             startActivity(intent)
