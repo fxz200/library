@@ -179,7 +179,7 @@ class cam2 : AppCompatActivity() {
                     val id=bookshelf.ID
                     val id_str = "${id}"
                     val floor=id_str.substring(0,1)
-                    val floor_text="請到${floor}樓"
+                    val floor_text="  請到 ${floor} 樓  "
                     textView.setText(floor_text)
                     record.type_big=bookshelf.big
                     record.type_small=bookshelf.small

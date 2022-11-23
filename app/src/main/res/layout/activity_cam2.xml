@@ -49,23 +49,25 @@
         tools:ignore="UsingOnClickInXml" />
 
     <TextView
-        android:textSize="17sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btn_stop"
+        app:layout_constraintEnd_toEndOf="@id/image"
+        app:layout_constraintStart_toStartOf="@id/image"
         android:id="@+id/floor"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:layout_below="@id/image"
         android:layout_marginTop="1000dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:textStyle="bold"
+        android:background="@drawable/c6d0ba_round">
     </TextView>
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="250dp"
-        android:layout_height="146dp"
+        android:layout_width="300dp"
+        android:layout_height="171dp"
         android:src="@drawable/f4"
         tools:ignore="MissingConstraints" />
 

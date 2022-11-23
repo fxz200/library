@@ -26,6 +26,22 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
         <activity
+            android:name=".signup"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".login"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".finish"
             android:exported="false"
             android:screenOrientation="landscape">
@@ -148,10 +164,7 @@
         <activity
             android:name=".feedback"
             android:exported="false"
-            android:screenOrientation="landscape"
-            >
-
-        </activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".monitor"
             android:exported="false"
@@ -159,10 +172,7 @@
         <activity
             android:name=".qrcode"
             android:exported="false"
-
-            android:screenOrientation="landscape" >
-
-        </activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".read"
             android:exported="false"

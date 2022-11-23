@@ -207,7 +207,9 @@
                 android:text="@string/logout"
                 android:textColor="#880000"
                 android:textSize="17sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:onClick="out"
+                tools:ignore="OnClick,UsingOnClickInXml">
 
 
             </Button>
