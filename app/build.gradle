@@ -12,6 +12,19 @@ android {
         viewBinding = true
     }
     defaultConfig {
+        ndk {
+            /*
+            * Sceneform is available for the following ABIs: arm64-v8a, armv7a,
+            * x86_64 and x86. This sample app enables arm64-v8a to run on
+            * devices and x86 to run on the emulator. Your application should
+            * list the ABIs most appropriate to minimize APK size (arm64-v8a recommended).
+            */
+            abiFilters 'arm64-v8a', 'x86'
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
         applicationId "com.example.myapplication"
         minSdk 21
         targetSdk 33
@@ -20,6 +33,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     viewBinding{
         enabled true
     }
@@ -40,7 +54,13 @@ android {
 
 
 dependencies {
+    implementation 'com.google.ar.sceneform:core:1.15.0'
+    implementation 'com.google.ar:core:1.5.0'
 
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+
+
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0-beta1'
     implementation("androidx.activity:activity-ktx:1.6.0")
     implementation "androidx.camera:camera-extensions:1.2.0-beta02"
     implementation "androidx.camera:camera-camera2:1.2.0-beta02"
@@ -88,14 +108,13 @@ apply plugin: 'com.android.application'
 // Add this line
 apply plugin: 'com.google.gms.google-services'
 
-
 dependencies {
-
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform:core:1.5.0'
 
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.5'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.3.1'
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
-    implementation 'com.google.ar.sceneform:core:1.17.1'
+
 
     implementation 'com.google.firebase:firebase-database:20.0.6'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
@@ -111,5 +130,13 @@ dependencies {
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
 }
+
 repositories {
     mavenCentral()}
+apply plugin: 'com.google.ar.sceneform.plugin'
+sceneform.asset(
+        'sampledata/airplane/11803_Airplane_v1_l1.obj',
+        'default',
+        'sampledata/airplane/11803_Airplane_v1_l1.sfa',
+        'src/main/res/raw'
+)

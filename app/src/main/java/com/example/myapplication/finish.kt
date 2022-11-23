@@ -71,22 +71,23 @@ class finish : AppCompatActivity() {
         var search_a4_2hint=findViewById<EditText>(R.id.search_a4_2hint).text.toString().isEmpty()
         var score=score.findViewById<RadioButton>(score.checkedRadioButtonId).text.toString()
         println("**************************************")
-        if ((q3_empty==true)||(q6=="@string/follow_a3_2"&& search_a3_2hint==true)||(q7=="@string/follow_a4_2"&& search_a4_2hint==true)){
+        println(q6)
+        if ((q3_empty==true)||(q6=="不太清楚，"&& search_a3_2hint==true)||(q7=="不流暢"&& search_a4_2hint==true)){
             Toast.makeText(this, "給我填完整==", Toast.LENGTH_SHORT).show()
         }
         else{
             val q3=findViewById<EditText>(R.id.search_a3).text.toString()
-            if(q6=="@string/follow_a3_1" && q7=="@string/follow_a4_1"){
+            if(q6=="清楚" && q7=="流暢"){
                 val q2_3=""
                 val q2_4=""
                 data(q1,q2,q3,q4,q5,q6,q7,q2_3,q2_4,score)
             }
-            else if(q6=="@string/follow_a3_1" && q7=="@string/follow_a4_2"){
+            else if(q6=="清楚" && q7=="不流暢"){
                 val q2_3=""
                 val q2_4=findViewById<EditText>(R.id.search_a4_2hint).text.toString()
                 data(q1,q2,q3,q4,q5,q6,q7,q2_3,q2_4,score)
             }
-            else if(q6=="@string/follow_a3_2" && q7=="@string/follow_a4_1"){
+            else if(q6=="不太清楚，" && q7=="流暢"){
                 val q2_3=findViewById<EditText>(R.id.search_a3_2hint).text.toString()
                 val q2_4=""
                 data(q1,q2,q3,q4,q5,q6,q7,q2_3,q2_4,score)
