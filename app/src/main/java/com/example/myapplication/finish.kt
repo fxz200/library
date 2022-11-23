@@ -73,7 +73,7 @@ class finish : AppCompatActivity() {
         println("**************************************")
         println(q6)
         if ((q3_empty==true)||(q6=="不太清楚，"&& search_a3_2hint==true)||(q7=="不流暢"&& search_a4_2hint==true)){
-            Toast.makeText(this, "給我填完整==", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "請填寫完整!", Toast.LENGTH_SHORT).show()
         }
         else{
             val q3=findViewById<EditText>(R.id.search_a3).text.toString()
