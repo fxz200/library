@@ -48,6 +48,11 @@ class signup : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    fun tologin(view: View) {
+
+        val intent = Intent(this, login::class.java)
+        startActivity(intent)
+    }
 
 
 }

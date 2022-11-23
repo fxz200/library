@@ -16,7 +16,7 @@
             android:layout_height="250dp"
             android:src="@drawable/sculibrary"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="150dp"/>
+            android:layout_marginLeft="130dp"/>
         <ImageView
             android:id="@+id/login"
             android:layout_width="70dp"

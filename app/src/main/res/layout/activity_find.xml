@@ -52,7 +52,7 @@
         <RelativeLayout
             android:layout_width="600dp"
             android:layout_height="350dp"
-            android:layout_marginLeft="65dp">
+            android:layout_marginLeft="140dp">
 
             <Button
                 android:id="@+id/total"
@@ -71,7 +71,7 @@
                 android:layout_width="135dp"
                 android:layout_height="100dp"
                 android:layout_below="@+id/total"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="philo"
                 android:text="@string/philo"
@@ -84,7 +84,7 @@
                 android:layout_width="135dp"
                 android:layout_height="100dp"
                 android:layout_below="@+id/philo"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="religion"
                 android:text="@string/religion"
@@ -112,7 +112,7 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/natural"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/philo"
                 android:background="@drawable/a2b38b_green"
                 android:onClick="applied"
@@ -127,12 +127,12 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/applied"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/religion"
                 android:background="@drawable/a2b38b_green"
                 android:onClick="social"
                 android:text="@string/social"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -156,7 +156,7 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/geography"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/applied"
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="chinese_geo"
@@ -171,7 +171,7 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/chinese_geo"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/social"
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="foreign_geo"
@@ -200,7 +200,7 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/literature"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/chinese_geo"
                 android:background="@drawable/a2b38b_green"
                 android:onClick="art"

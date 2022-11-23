@@ -51,26 +51,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/b8"
+                android:background="@drawable/c6d0ba_round"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:onClick="b_1"
                 android:id="@+id/b1"
                 android:text="善本、稿本、精鈔本、紀念藏"
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/b8"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:background="@drawable/c6d0ba_round"
                 android:layout_below="@+id/b1"
                 android:onClick="b_2"
                 android:id="@+id/b2"
@@ -78,13 +80,14 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/b8"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:background="@drawable/c6d0ba_round"
                 android:layout_below="@+id/b2"
                 android:onClick="b_3"
                 android:id="@+id/b3"
@@ -92,28 +95,28 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/b8"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:background="@drawable/c6d0ba_round"
                 android:onClick="b_4"
                 android:id="@+id/b4"
                 android:text="圖書學"
                 android:layout_below="@id/b3"
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/b8"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:background="@drawable/c6d0ba_round"
                 android:layout_below="@+id/b4"
                 android:onClick="b_5"
                 android:id="@+id/b5"
@@ -121,14 +124,13 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b3"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/b2"
                 android:onClick="b_6"
                 android:id="@+id/b6"
@@ -137,14 +139,13 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
 
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b4"
+                android:layout_centerHorizontal="true"
                 android:onClick="b_7"
                 android:id="@+id/b7"
                 android:text="各國漢學研究"
@@ -152,14 +153,13 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b5"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/b1"
                 android:onClick="b_8"
                 android:id="@+id/b8"
@@ -168,14 +168,14 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b6"
+                android:layout_toRightOf="@+id/b10"
                 android:layout_below="@+id/b2"
                 android:onClick="b_9"
                 android:id="@+id/b9"
@@ -184,14 +184,13 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b3"
+                android:layout_centerHorizontal="true"
                 android:onClick="b_10"
                 android:id="@+id/b10"
                 android:text="普通年鑑、普通會社"
@@ -199,14 +198,13 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b3"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/b4"
                 android:onClick="b_11"
                 android:id="@+id/b11"
@@ -215,14 +213,14 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="40dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b6"
+                android:layout_toRightOf="@+id/b10"
                 android:layout_below="@+id/b3"
                 android:onClick="b_12"
                 android:id="@+id/b12"
@@ -231,30 +229,29 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:id="@+id/b13"
+                android:layout_marginLeft="40dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b10"
                 android:onClick="b_13"
-                android:id="@+id/b13"
                 android:text="叢書"
-
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
 
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="40dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b11"
+                android:layout_toRightOf="@+id/b10"
                 android:layout_below="@+id/b1"
                 android:onClick="b_14"
                 android:id="@+id/b14"
@@ -263,14 +260,14 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="40dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b6"
+                android:layout_toRightOf="@+id/b10"
                 android:layout_below="@+id/b4"
                 android:onClick="b_15"
                 android:id="@+id/b15"

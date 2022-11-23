@@ -49,12 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="200dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:onClick="b_2_16"
                 android:id="@+id/b1"
@@ -62,12 +62,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="200dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_below="@+id/b1"
                 android:onClick="b_2_17"
@@ -76,12 +76,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="200dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_below="@+id/b2"
                 android:onClick="b_2_18"
@@ -90,12 +90,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="200dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_below="@id/b3"
                 android:onClick="b_2_19"
@@ -104,12 +104,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="200dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
 
                 android:layout_below="@+id/b4"
@@ -119,12 +119,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="100dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b3"
                 android:layout_below="@+id/b2"
@@ -134,12 +134,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="100dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b4"
                 android:onClick="b_3_2"
@@ -149,12 +149,12 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="100dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b5"
                 android:layout_below="@+id/b1"
@@ -165,12 +165,12 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="100dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b3"
                 android:layout_below="@+id/b4"
@@ -181,18 +181,18 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
-                android:layout_marginLeft="14dp"
-                android:textSize="17sp"
+                android:layout_marginLeft="100dp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
-                android:layout_width="127dp"
+                android:layout_width="190dp"
                 android:layout_height="56dp"
                 android:layout_toRightOf="@+id/b3"
                 android:onClick="b_3_5"
                 android:id="@+id/b10"
                 android:text="軍事"
-        android:layout_below="@id/b3"
+                android:layout_below="@id/b3"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
         </RelativeLayout>
