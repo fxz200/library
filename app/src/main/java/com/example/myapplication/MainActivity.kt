@@ -9,8 +9,6 @@ import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.example.myapplication.databinding.ActivityFeedbackBinding
-import com.example.myapplication.databinding.ActivityMainBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

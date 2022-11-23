@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">行動式導覽</string>
     <string name="base">基本資料+設定</string>
     <string name="fav">我的最愛</string>
     <string name="history">學習紀錄</string>

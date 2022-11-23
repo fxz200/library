@@ -97,10 +97,13 @@ class finish : AppCompatActivity() {
                 data(q1,q2,q3,q4,q5,q6,q7,q2_3,q2_4,score)
             }
 
-
-
         }
 
 
+    }
+    fun back(view: View) {
+
+        val intent = Intent(this,cam2::class.java)
+        startActivity(intent)
     }
 }
