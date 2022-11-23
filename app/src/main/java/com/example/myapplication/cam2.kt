@@ -191,6 +191,7 @@ class cam2 : AppCompatActivity() {
 
                 }
             }
+        //
         println("***********************************")
         db.collection("record")
             .whereEqualTo("id",id)
