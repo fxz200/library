@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        val bundle = intent.extras
+        val id_get = bundle?.getString("id")
+        var id=GlobalVariable.setName("${id_get}")
+
     }
 
 
@@ -49,7 +53,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun qrcode(view: View) {
-        val intent = Intent(this,qrcode::class.java)
+        val bundle = intent.extras
+        val id_get = bundle?.getString("id")
+        var id=GlobalVariable.setName("${id_get}")
+        val intent = Intent(this, qrcode::class.java)
         startActivity(intent)
     }
     fun out(view: View) {

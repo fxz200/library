@@ -51,8 +51,15 @@ class login : AppCompatActivity() {
                             }
                             else{
                                 if(password==info[0].password){
-                                    val intent = Intent(this,MainActivity::class.java)
+
+
+                                    /////////////////////////
+                                    val bundle = Bundle()
+                                    bundle.putString("id", id)
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    intent.putExtras(bundle)
                                     startActivity(intent)
+                                    ///////////////////////
                                 }
                                 else{
                                     Toast.makeText(this, "密碼錯誤", Toast.LENGTH_SHORT).show()

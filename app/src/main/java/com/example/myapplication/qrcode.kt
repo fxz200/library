@@ -40,7 +40,9 @@ class qrcode : AppCompatActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             if (it.text == r){
-                val intent = Intent(this,find::class.java)
+
+                val intent = Intent(this, find::class.java)
+
                 startActivity(intent)
             }else{
                 runOnUiThread{
