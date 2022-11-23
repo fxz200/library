@@ -142,7 +142,7 @@ class cam2 : AppCompatActivity() {
 
     }
 
-    class Record(
+    data class Record(
         var count:Int=0,
         var id:String="",
         var start_time:String="",
@@ -161,7 +161,7 @@ class cam2 : AppCompatActivity() {
     ){
 
     }
-    var id=GlobalVariable.getName()
+
     val record=Record()
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
@@ -174,7 +174,7 @@ class cam2 : AppCompatActivity() {
         val datanum = bundle?.getString("datanum")
 
         val textView : TextView = findViewById(R.id.floor)
-
+        val db = FirebaseFirestore.getInstance()
 
         db.collection("bookshelf").document("${datanum}")
             .get()
@@ -191,26 +191,40 @@ class cam2 : AppCompatActivity() {
 
                 }
             }
-        ///
-        println("***********************************")
-        db.collection("record")
-            .whereEqualTo("id",id)
-            .orderBy("count", Query.Direction.DESCENDING)
-            .get()
-            .addOnSuccessListener { document->
-                val count=document.toObjects(Record::class.java)
-                println("*************************************")
-                println(count)
-                if(count.any()==false){
-                    record.count=1
+        val test=true
+        if(test==true){
+
+            val db = FirebaseFirestore.getInstance()
+            val id_global=GlobalVariable.getName()
+            ///////////////////////////////////////////////
+
+            println(id_global)
+            db.collection("record").whereEqualTo("id","${id_global}")
+                .get()
+                .addOnSuccessListener {document->
+                    if(document!=null){
+                        val counts=document.toObjects(Record::class.java)
+
+                        println("*************************************")
+                        println(counts)
+                        if(counts.any()==false){
+                            record.count=1
+                        }
+                        else{
+                            println("*************************************")
+                            println(counts.size)
+                            val num_count=counts.size+1
+                            record.count=num_count
+                        }
+                    }
+                    else{
+                        Toast.makeText(this, "missing", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                else{
-                    println("*************************************")
-                    println(count[0].count)
-                    record.count=count[0].count+1
-                }
-            }
-        println("***********************************")
+
+            ///////////////////////////////////////////////
+        }
+
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
 
@@ -260,7 +274,7 @@ class cam2 : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
 
     }
-    val db = FirebaseFirestore.getInstance()
+
     var check=0;
     @RequiresApi(Build.VERSION_CODES.O)
     fun finish(view: View) {
@@ -270,12 +284,12 @@ class cam2 : AppCompatActivity() {
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
             val end_time = current.format(formatter)
             record.end_time=end_time
-            var id=GlobalVariable.getName()
-            record.id=id
-            
+            val id_global=GlobalVariable.getName()
+            record.id=id_global
 
 
 
+            val db = FirebaseFirestore.getInstance()
 
             db.collection("record").add(record)
             val intent = Intent(this,finish::class.java)
@@ -283,6 +297,7 @@ class cam2 : AppCompatActivity() {
         }
 
         //val db = FirebaseFirestore.getInstance()
+        val db = FirebaseFirestore.getInstance()
         val textView : TextView = findViewById(R.id.floor)
         val imageView : ImageView = findViewById(R.id.image)
         val bundle = intent.extras
