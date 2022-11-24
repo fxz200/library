@@ -20,9 +20,10 @@
     <string name="feedb">您寶貴的反饋將是我們進步的動力！\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;歡迎給予指教～</string>
     <string name="info">關於我們</string>
     <string name="favorite">我的最愛</string>
-    <string name="title">書名：</string>
-    <string name="author">作者：</string>
-    <string name="where">館藏：</string>
+    <string name="date">使用時間：</string>
+    <string name="time">使用時長：</string>
+    <string name="bigtype">大類別：</string>
+    <string name="smalltype">小類別：</string>
     <string name="search2">查詢書籍</string>
     <string name="main">首頁</string>
     <string name="account">帳號</string>
