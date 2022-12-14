@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
+
 }
+apply plugin: 'com.google.ar.sceneform.plugin'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
@@ -56,7 +58,6 @@ android {
 dependencies {
     implementation 'com.google.ar.sceneform:core:1.15.0'
     implementation 'com.google.ar:core:1.5.0'
-
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
 
 
@@ -81,8 +82,7 @@ dependencies {
     // If you to use Camera Extensions
 
 
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
-    implementation 'com.google.ar.sceneform:core:1.17.1'
+
 
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation("androidx.activity:activity-ktx:1.6.0")
@@ -103,14 +103,13 @@ dependencies {
     implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
 
 }
-apply plugin: 'com.android.application'
 
-// Add this line
+apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
 
 dependencies {
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
-    implementation 'com.google.ar.sceneform:core:1.5.0'
+
 
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.5'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.3.1'
@@ -133,10 +132,12 @@ dependencies {
 
 repositories {
     mavenCentral()}
-apply plugin: 'com.google.ar.sceneform.plugin'
+
+
 sceneform.asset(
-        'sampledata/airplane/11803_Airplane_v1_l1.obj',
+        'sampledata/modles/11803_Airplane_v1_l1.obj',
         'default',
-        'sampledata/airplane/11803_Airplane_v1_l1.sfa',
-        'src/main/res/raw'
+        'sampledata/modles/11803_Airplane_v1_l1.sfa',
+        'src/main/res/raw',
+
 )

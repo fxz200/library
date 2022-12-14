@@ -8,6 +8,7 @@ buildscript {
         // Check that you have the following line (if not, add it):
         google()
         mavenCentral()  // Google's Maven repository
+        jcenter()
 
     }
 
@@ -42,3 +43,4 @@ allprojects {
         // ...
     }
 }
+
