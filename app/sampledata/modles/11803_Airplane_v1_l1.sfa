@@ -1,0 +1,223 @@
+{
+  materials: [
+    {
+      name: '11803_Airplane_body',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_body_diff',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.19425700000000001,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '11803_Airplane_wing_R',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_wing_big_R_diff',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '11803_Airplane_wing_details_R',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_wing_details_R_diff',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '11803_Airplane_tail',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_tail_diff',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '11803_Airplane_wing_details_L',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_wing_details_L_diff',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '11803_Airplane_wing_L',
+      parameters: [
+        {
+          baseColor: '11803_Airplane_wing_big_L_diff',
+        },
+        {
+          baseColorTint: [
+            0.7843,
+            0.7843,
+            0.7843,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/modles/11803_Airplane_v1_l1.obj',
+    name: '11803_Airplane_v1_l1',
+    recenter: 'root',
+    scale: 0.001237,
+  },
+  samplers: [
+    {
+      file: 'sampledata/modles\\11803_Airplane_body_diff.jpg',
+      name: '11803_Airplane_body_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_body_diff.jpg',
+    },
+    {
+      file: 'sampledata/modles\\11803_Airplane_wing_details_R_diff.jpg',
+      name: '11803_Airplane_wing_details_R_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_wing_details_R_diff.jpg',
+    },
+    {
+      file: 'sampledata/modles\\11803_Airplane_wing_big_R_diff.jpg',
+      name: '11803_Airplane_wing_big_R_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_wing_big_R_diff.jpg',
+    },
+    {
+      file: 'sampledata/modles\\11803_Airplane_tail_diff.jpg',
+      name: '11803_Airplane_tail_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_tail_diff.jpg',
+    },
+    {
+      file: 'sampledata/modles\\11803_Airplane_wing_big_L_diff.jpg',
+      name: '11803_Airplane_wing_big_L_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_wing_big_L_diff.jpg',
+    },
+    {
+      file: 'sampledata/modles\\11803_Airplane_wing_details_L_diff.jpg',
+      name: '11803_Airplane_wing_details_L_diff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '11803_Airplane_wing_details_L_diff.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

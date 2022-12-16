@@ -16,7 +16,10 @@
         android:name="android.hardware.camera"
         android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="33"
+        tools:ignore="GradleOverrides" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/sculibrary"
@@ -25,12 +28,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:replace="label,allowBackup">
+        <meta-data android:name="com.google.ar.core" android:value="required" />
         <activity
             android:name=".AR_test"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
+
+        </activity>
+        <activity
+            android:name=".login"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
         </activity>
         <activity
             android:name=".signup"
@@ -40,20 +56,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".login"
-            android:exported="true"
-            android:screenOrientation="landscape">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".finish"
             android:exported="false"
@@ -209,8 +212,15 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"></activity>
+            android:exported="true"
+            android:screenOrientation="landscape">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.ar.core"

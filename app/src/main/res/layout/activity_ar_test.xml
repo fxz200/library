@@ -5,15 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AR_test">
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
-        <fragment
-            android:id="@+id/ux_fragment"
-            android:name="com.google.ar.sceneform.ux.ArFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9"
-            tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_button"
+                    android:layout_marginLeft="550dp"
+                    android:layout_marginBottom="150dp"
+                    android:onClick="finish"
+                    android:id="@+id/btn_capture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="抵達樓層"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="OnClick,UsingOnClickInXml" />
+
+
+
 
 
 

@@ -2,7 +2,10 @@ package com.example.myapplication
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.ActivityManager
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -10,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -26,10 +30,19 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.ar.core.Anchor
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
+import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.rendering.ModelRenderable
+import com.google.ar.sceneform.rendering.Renderable
+import com.google.ar.sceneform.ux.ArFragment
+import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.snapshots
+import kotlinx.android.synthetic.main.activity_ar_test.*
 import kotlinx.android.synthetic.main.activity_cam2.*
 import java.io.File
 import java.time.LocalDateTime
@@ -41,6 +54,7 @@ import java.util.concurrent.Executors
 
 typealias LumaListener = (luma: Double) -> Unit
 class cam2 : AppCompatActivity() {
+    lateinit var arFragment: ArFragment
     @RequiresApi(Build.VERSION_CODES.O)
     private fun time() {
         val current = LocalDateTime.now()
@@ -50,20 +64,9 @@ class cam2 : AppCompatActivity() {
 
         println("当前日期和时间为: $formatted")
     }
-    companion object {
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(
-            Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO
-
-        )
-    }
 
 
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
 
-    }
 
 
     override fun onRequestPermissionsResult(
@@ -72,7 +75,7 @@ class cam2 : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        startCamera()
+
     }
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
@@ -81,16 +84,16 @@ class cam2 : AppCompatActivity() {
         super.onStart()
         // 畫面開始時檢查權限
         onClickRequestPermission()
-        startCamera()
+
     }
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
     { isGranted: Boolean ->
         if (isGranted) {
             onAgree()
-            startCamera()
+
         } else {
             if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                startCamera()
+
 
             }
         }
@@ -100,7 +103,7 @@ class cam2 : AppCompatActivity() {
         val uri = Uri.fromParts("package", packageName, null)
         intent.data = uri
         startActivity(intent)
-        startCamera()
+
     }
     //取得權限
     private fun onClickRequestPermission() {
@@ -108,7 +111,7 @@ class cam2 : AppCompatActivity() {
             ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                     == PackageManager.PERMISSION_GRANTED -> {
                 Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show()
-                startCamera()
+
             }
             ActivityCompat.shouldShowRequestPermissionRationale(
                 this,
@@ -120,12 +123,12 @@ class cam2 : AppCompatActivity() {
                     .setPositiveButton("Ok") { _, _ -> requestPermissionLauncher.launch(Manifest.permission.CAMERA) }
                     .setNeutralButton("No") { _, _ -> onDisagree() }
                     .show()
-                startCamera()
+
 
             }
             else -> {
                 requestPermissionLauncher.launch(Manifest.permission.CAMERA)
-                startCamera()
+
             }
         }
     }
@@ -133,12 +136,12 @@ class cam2 : AppCompatActivity() {
 
     private fun onAgree() {
         Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show()
-        startCamera()
+
     }
 
     private fun onDisagree() {
         Toast.makeText(this, "未取得相機權限", Toast.LENGTH_SHORT).show()
-        startCamera()
+
 
     }
 
@@ -168,7 +171,17 @@ class cam2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_cam2)
+        ////////AR////
+        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
+        arFragment.setOnTapArPlaneListener { hitresult: HitResult, plane: Plane, motionevent: MotionEvent? ->
+            if (plane.type != Plane.Type.HORIZONTAL_UPWARD_FACING)
+                return@setOnTapArPlaneListener
+            val anchor = hitresult.createAnchor()
+            placeObject(arFragment, anchor, R.raw.taro)
+        }
+
         //////////
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
@@ -232,13 +245,50 @@ class cam2 : AppCompatActivity() {
         record.start_time=start_time
 
         //////////
-        if (allPermissionsGranted()) { startCamera()
-        } else {
-            ActivityCompat.requestPermissions(
-                this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
-        }
-        cameraExecutor = Executors.newSingleThreadExecutor()
+
     }
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun placeObject(arFragment: ArFragment, anchor: Anchor, uri: Int) {
+        ModelRenderable.builder()
+            .setSource(arFragment.context, uri)
+            .build()
+            .thenAccept { modelRenderable: ModelRenderable -> addNodeToScene(arFragment, anchor, modelRenderable) }
+            .exceptionally { throwable: Throwable ->
+                Toast.makeText(arFragment.getContext(), "Error:$throwable.message", Toast.LENGTH_LONG).show();
+                return@exceptionally null
+            }
+    }
+    private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
+        val anchorNode = AnchorNode(anchor)
+        val node = TransformableNode(arFragment.transformationSystem)
+        node.renderable = renderable
+        node.setParent(anchorNode)
+        arFragment.arSceneView.scene.addChild(anchorNode)
+        node.select()
+    }
+
+    private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show()
+            activity.finish()
+            return false
+        }
+        val openGlVersionString = (activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
+            .deviceConfigurationInfo
+            .glEsVersion
+        if (openGlVersionString.toDouble() < MIN_OPENGL_VERSION) {
+            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
+                .show()
+            activity.finish()
+            return false
+        }
+        return true
+    }
+
+    companion object {
+        private const val MIN_OPENGL_VERSION = 3.0
+    }
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("RestrictedApi")
     private fun startCamera() {
 

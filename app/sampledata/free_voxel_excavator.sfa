@@ -1,0 +1,50 @@
+{
+  materials: [
+    {
+      name: 'palette',
+      parameters: [
+        {
+          baseColor: 'free_voxel_excavator',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/free_voxel_excavator.obj',
+    name: 'free_voxel_excavator',
+    recenter: 'root',
+    scale: 0.032258000000000002,
+  },
+  samplers: [
+    {
+      file: 'sampledata\\free_voxel_excavator.png',
+      name: 'free_voxel_excavator',
+      pipeline_name: 'free_voxel_excavator.png',
+    },
+  ],
+  version: '0.54:2',
+}
