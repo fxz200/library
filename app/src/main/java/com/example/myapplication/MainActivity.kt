@@ -14,7 +14,11 @@ import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
+    class Companion {
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.HONEYCOMB)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     fun BASE(view: View) {
         
-        val intent = Intent(this,usersetting::class.java)
+        val intent = Intent(this,MainActivity2::class.java)
         startActivity(intent)
     }
 

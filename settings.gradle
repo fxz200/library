@@ -13,5 +13,6 @@ pluginManagement {
    //     mavenCentral()
  //  }
 //}
-rootProject.name = "My Application"
+rootProject.name = " Application"
 include ':app'
+
