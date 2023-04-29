@@ -7,7 +7,20 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="33"
         tools:ignore="GradleOverrides" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--读文件-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--网络-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--访问网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--读取手机状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--GPS权限-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- bluetooth -->
@@ -22,7 +35,7 @@
         android:name="android.hardware.camera.ar"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.any" />
-
+    <uses-feature android:name="com.google.ar.core.depth" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -268,7 +281,7 @@
             android:value="required" />
         <meta-data
             android:name="com.google.android.ar.API_KEY"
-            android:value="你的 API key" />
+            android:value="AIzaSyBpFVfZlnZtkBhcbFYK8TqyJ_9g7ivA2PM" />
     </application>
 
 </manifest>

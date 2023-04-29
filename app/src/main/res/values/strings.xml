@@ -1,4 +1,10 @@
 <resources>
+    <string name="app_name_">ShareAnchor</string>
+    <string name="sync_start">开始同步</string>
+    <string name="sync_failed">同步完成</string>
+    <string name="sync_progress">同步进行中</string>
+    <string name="sync_over">同步成功</string>
+    <string name="empty"></string>
     <string name="app_name">行動式導覽</string>
     <string name="base">基本資料+設定</string>
     <string name="fav">我的最愛</string>

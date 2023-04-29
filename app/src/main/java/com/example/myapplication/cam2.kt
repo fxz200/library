@@ -1,6 +1,27 @@
 package com.example.myapplication
 
+
+
+
+
+
+
+
+
+
+
+import android.widget.EditText
+import android.widget.TextView
+
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
+
+
+
+
+
 import android.Manifest
+import com.google.ar.core.Anchor
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
@@ -11,14 +32,17 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.provider.Settings
+import android.text.Editable
 import android.util.Log
+import android.widget.Button
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View.inflate
+import android.view.ViewGroup
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -30,13 +54,15 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.ar.core.Anchor
-import com.google.ar.core.HitResult
-import com.google.ar.core.Plane
+import androidx.core.content.res.ComplexColorCompat.inflate
+import com.example.myapplication.databinding.ActivityAboutusBinding.inflate
+import com.google.ar.core.*
 import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.ux.ArFragment
+import com.google.ar.sceneform.ux.BaseArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -50,11 +76,48 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import javax.microedition.khronos.opengles.GL10
 
 
 typealias LumaListener = (luma: Double) -> Unit
 class cam2 : AppCompatActivity() {
-    lateinit var arFragment: ArFragment
+
+
+
+    var arFragment : CleanArFragment? = null
+    var model : ModelRenderable? = null //模型对象
+    var hostAnchor : Anchor? = null     //被绘制的锚点信息（代表本地设置的锚点或者云锚点）
+    /**
+     * 锚点状态机，只允许设置一个锚点，有多余锚点不允许添加
+     */
+    var currentStatus : AnchorStatus = AnchorStatus.EMPTY
+    var statusTip : TextView? = null;   //显示当前状态的提示框
+    var codeNo : EditText? = null       //显示云锚点 id 的编辑框
+    var cleanBtn : Button? = null       //清理锚点按钮
+    var aynsBtn : Button? = null        //获取云锚点按钮
+    var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
+    val ClEAN_OVER = 0x1100             //清理界面锚点信号
+    val SYNC_START = 0x1101             //开始同步信号
+    val SYNC_OVER = 0x1102              //同步完成信号
+    val SYNC_FAILED = 0x1103            //同步失败信号
+    var handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
+        override fun handleMessage(msg : Message) {
+            if (msg.what == SYNC_OVER) {
+                statusTips.text = resources.getString(R.string.sync_over);
+                var toShowStr = msg.obj as String
+                codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
+            } else if (msg.what == SYNC_START) {
+                statusTips.text = resources.getString(R.string.sync_progress);
+            } else if (msg.what == SYNC_FAILED) {
+                statusTips.text = resources.getString(R.string.sync_failed);
+            } else if (msg.what == ClEAN_OVER) {
+                statusTips.text = resources.getString(R.string.empty);
+            }
+        }
+    }
+
+    /////////////////
     @RequiresApi(Build.VERSION_CODES.O)
     private fun time() {
         val current = LocalDateTime.now()
@@ -166,22 +229,25 @@ class cam2 : AppCompatActivity() {
     }
 
     val record=Record()
+
+
+
+
+
+
     @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_cam2)
         ////////AR////
-        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
-        arFragment.setOnTapArPlaneListener { hitresult: HitResult, plane: Plane, motionevent: MotionEvent? ->
-            if (plane.type != Plane.Type.HORIZONTAL_UPWARD_FACING)
-                return@setOnTapArPlaneListener
-            val anchor = hitresult.createAnchor()
-            placeObject(arFragment, anchor, R.raw.taro)
-        }
 
+        initAllCompenent()
+        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
+        arFragment!!.setOnTapArPlaneListener(listener)
+        cleanBtn!!.setOnClickListener(clickListener)
+        aynsBtn!!.setOnClickListener(clickListener)
         //////////
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
@@ -247,6 +313,152 @@ class cam2 : AppCompatActivity() {
         //////////
 
     }
+    ////////AR/////////
+    private var clickListener = object : View.OnClickListener {
+        override fun onClick(p0: View?) {
+            when(p0!!.id)
+            {
+                cleanBtn!!.id -> {
+                    println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+                    //因为存在线程处理状态机的状态，加了并发控制锁
+                    synchronized(currentStatus)
+                    {
+                        cleanAllNode()
+                        currentStatus = AnchorStatus.EMPTY      //每次清理锚点，置状态机为初始状态
+                        handler.sendEmptyMessage(ClEAN_OVER)    //通知界面改变提示信息
+                    }
+                }
+                aynsBtn!!.id -> {
+                    if (codeNo!!.text.length <= 0) {    //如果没有云锚点的索引 ID 不使用云锚点
+                        return
+                    }
+                    var str = codeNo!!.text.toString()
+                    arFragment!!.arSceneView.planeRenderer.isEnabled = false
+                    hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
+                    placeModel()
+                }
+            }
+        }
+    }
+
+    //清除界面锚点包括云锚点和本地锚点
+    private fun cleanAllNode() {
+        //没有节点被渲染，就不清空锚点集合
+        if (listNode.size == 0) {
+            return
+        }
+
+        //从界面清除被渲染的锚点
+        for (i in 0 .. listNode.lastIndex) {
+            arFragment!!.getArSceneView().getScene().removeChild(listNode.get(i))
+        }
+        //清空记录的渲染锚点集合
+        listNode.clear()
+    }
+
+    //界面空间映射，初始化模型资源
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun initAllCompenent() {
+        codeNo = editText
+        cleanBtn = clean
+        aynsBtn = ayns
+        statusTip = statusTips
+
+        ModelRenderable.builder().setSource(this, R.raw.taro)
+            .build().thenAccept { renderable -> model = renderable }
+            .exceptionally ({ it -> Log.e("XXX", "xxx"); null })
+    }
+
+
+
+
+    //设置放置模型的点击事件的监听器
+    var listener = object : BaseArFragment.OnTapArPlaneListener {
+        override fun onTapPlane(hitResult: HitResult?, plane: Plane?, motionEvent: MotionEvent?) {
+
+            //模型资源加载失败，不对锚点进行渲染处理
+            if (model == null)
+                return
+            synchronized(currentStatus)
+            {
+                //不是初始状态，不对锚点渲染模型，用于限制只有一个锚点模型
+                //不是初始状态即表明有一个锚点已经渲染
+                if (currentStatus != AnchorStatus.EMPTY) {
+                    return
+                }
+            }
+
+            //设置绘制的锚点为当前的本地锚点，同时将本地锚点同步至 google 的服务
+            hostAnchor = arFragment!!.arSceneView.session!!.hostCloudAnchor(hitResult!!.createAnchor())
+            run2Test()
+            placeModel()
+        }
+    }
+
+    //在锚点上渲染模型
+    private fun placeModel() {
+        var node = AnchorNode(hostAnchor)
+        arFragment!!.getArSceneView().getScene().addChild(node)
+        var andy = TransformableNode(arFragment!!.transformationSystem)
+        andy.setParent(node)
+        andy.renderable = model
+        andy.select()
+        listNode.add(node) //每次在界面上对锚点渲染（加载）3D 模型，就将当前被操作的锚点记录下来
+    }
+
+    //开线程获取本地锚点的同步状态（同时刷新状态机）
+    private fun run2Test() {
+        Thread(object : Runnable {
+            override fun run() {
+                //只要状态机线程跑起来，就设置状态机为同步中的状态
+                synchronized(currentStatus)
+                {
+                    currentStatus = AnchorStatus.HOSTING
+                }
+                //通知界面刷新同步中的状态提示
+                handler.sendEmptyMessage(SYNC_START)
+
+                //死循环检测锚点同步状态（暂时未发现回调）
+                loop@while (true) {
+                    Log.e("XXX", "keep running")
+                    Thread.sleep(1000)
+                    var tag = SYNC_START
+                    var showTip = ""
+                    synchronized(currentStatus)
+                    {
+
+                        if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.SUCCESS) {
+                            //同步完成，并且成功
+                            currentStatus = AnchorStatus.HOSTED     //调整状态机为同步完成
+                            Log.e("XXX", "run2Test 1 currentStatus = " + currentStatus)
+                            tag = SYNC_OVER
+                            showTip = hostAnchor!!.cloudAnchorId
+                        } else if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.TASK_IN_PROGRESS) {
+                            //同步中的状态不做任何处理，也不跳出死循环
+                        } else {
+                            //同步完成，但是失败
+                            currentStatus = AnchorStatus.HOST_FAILED  //调整状态机为同步失败
+                            Log.e("XXX", "run2Test 2 currentStatus = " + currentStatus)
+                            showTip = "" + hostAnchor!!.cloudAnchorState
+                            tag = SYNC_FAILED
+                        }
+                    }
+                    when (tag){
+                        SYNC_OVER, SYNC_FAILED -> {
+                            var msg = handler.obtainMessage()
+                            msg.what = tag
+                            msg.obj = showTip
+                            handler.sendMessage(msg)
+                            break@loop
+                        }
+                    }
+                }
+            }
+        }).start()
+    }
+
+
+    ////////////////
     @RequiresApi(Build.VERSION_CODES.N)
     private fun placeObject(arFragment: ArFragment, anchor: Anchor, uri: Int) {
         ModelRenderable.builder()
@@ -276,7 +488,7 @@ class cam2 : AppCompatActivity() {
         val openGlVersionString = (activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
             .deviceConfigurationInfo
             .glEsVersion
-        if (openGlVersionString.toDouble() < MIN_OPENGL_VERSION) {
+        if (openGlVersionString.toDouble() < 3.0) {
             Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
                 .show()
             activity.finish()
@@ -285,45 +497,10 @@ class cam2 : AppCompatActivity() {
         return true
     }
 
-    companion object {
-        private const val MIN_OPENGL_VERSION = 3.0
-    }
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("RestrictedApi")
-    private fun startCamera() {
 
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
-        cameraProviderFuture.addListener(Runnable {
-
-
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(previewView.surfaceProvider)
-                }
-
-            imageCapture = ImageCapture.Builder()
-                .build()
-
-
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview
-                )
-
-            } catch (exc: Exception) {
-                Log.e(TAG, "Use case binding failed", exc)
-            }
-
-        }, ContextCompat.getMainExecutor(this))
-
-    }
 
     var check=0;
     @RequiresApi(Build.VERSION_CODES.O)

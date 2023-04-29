@@ -165,7 +165,7 @@
     file: 'sampledata/texture/TARO_1.FBX',
     name: 'TARO_1',
     recenter: 'root',
-    scale: 2.9922300000000002,
+    scale: 7,
   },
   samplers: [
     {
