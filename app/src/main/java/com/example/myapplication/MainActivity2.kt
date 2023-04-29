@@ -15,6 +15,8 @@ import org.altbeacon.beacon.BeaconManager
 import org.altbeacon.beacon.MonitorNotifier
 import android.content.Intent
 import com.example.myapplication.BeaconScanPermissionsActivity
+import kotlinx.android.synthetic.main.activity_main2.*
+import org.altbeacon.beacon.Region
 
 class MainActivity2 : AppCompatActivity() {
     lateinit var beaconListView: ListView
@@ -34,7 +36,7 @@ class MainActivity2 : AppCompatActivity() {
         // observer will be called each time the monitored regionState changes (inside vs. outside region)
         regionViewModel.regionState.observe(this, monitoringObserver)
         // observer will be called each time a new list of beacons is ranged (typically ~1 second in the foreground)
-        regionViewModel.rangedBeacons.observe(this, rangingObserver)
+        regionViewModel.rangedBeacons.observe(this, rangingObserver2)
         rangingButton = findViewById<Button>(R.id.rangingButton)
         monitoringButton = findViewById<Button>(R.id.monitoringButton)
         beaconListView = findViewById<ListView>(R.id.beaconList)
@@ -58,6 +60,7 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 
     val monitoringObserver = Observer<Int> { state ->
         var dialogTitle = "已偵測到Beacon"
@@ -84,17 +87,46 @@ class MainActivity2 : AppCompatActivity() {
         alertDialog?.show()
     }
 
-    val rangingObserver = Observer<Collection<Beacon>> { beacons ->
-        Log.d(TAG, "附近有 ${beacons.count()} 個beacon")
-        if (BeaconManager.getInstanceForApplication(this).rangedRegions.size > 0) {
-            beaconCountTextView.text = "附近有 ${beacons.count()} 個beacon"
-            beaconListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
-                beacons
-                    .sortedBy { it.distance }
+//    val rangingObserver = Observer<Collection<Beacon>> { beacons ->
+        //Log.d(TAG, "附近有 ${beacons.count()} 個beacon")
+        //if (BeaconManager.getInstanceForApplication(this).rangedRegions.size > 0) {
+           // beaconCountTextView.text = "附近有 ${beacons.count()} 個beacon"
+           // beaconListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
+                //beacons
+                //    .sortedBy { it.distance}
+                 //   .map { "${it.id1}\nid2: ${it.id2} id3:  rssi: ${it.rssi}\nest. distance: ${it.distance} m" }.toTypedArray())
+      //  }
+    //}
 
-                    .map { "${it.id1}\nid2: ${it.id2} id3:  rssi: ${it.rssi}\nest. distance: ${it.distance} m" }.toTypedArray())
+
+    val rangingObserver2 = Observer<Collection<Beacon>> { beacons ->
+        if (beacons.isNotEmpty()) {
+            val nearestBeacon = beacons.iterator().next()
+            val distance = nearestBeacon.distance
+            Log.d(TAG, "距離: ${distance} m")
+            if (distance < 0.4) {
+                runOnUiThread {
+                    hi.text = "hello"
+                }
+            }else{
+                runOnUiThread{
+                    hi.text = "hi"
+                }
+
+            }
+            if (BeaconManager.getInstanceForApplication(this).rangedRegions.size > 0) {
+                beaconCountTextView.text = "附近有 ${beacons.count()} 個beacon"
+                beaconListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
+                    beacons
+                        .sortedBy { it.distance}
+                        .map { "${it.id1}\nid2: ${it.id2} id3:  rssi: ${it.rssi}\nest. distance: ${it.distance} m" }.toTypedArray())
+            }
         }
     }
+
+
+
+
 
     fun rangingButtonTapped(view: View) {
         val beaconManager = BeaconManager.getInstanceForApplication(this)
