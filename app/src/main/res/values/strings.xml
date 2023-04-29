@@ -133,4 +133,5 @@
     <string name="email">電子信箱：</string>
     <string name="signup">註冊</string>
     <string name="alreadysignup">已有帳號</string>
+    <string name="hi">hi</string>
 </resources>

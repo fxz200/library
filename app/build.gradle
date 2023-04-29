@@ -93,19 +93,13 @@ dependencies {
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
-sceneform.asset('sampledata/modles/11803_Airplane_v1_l1.obj', // 'Source Asset Path' specified during import.
-        'default',                    // 'Material Path' specified during import.
-        'sampledata/modles/11803_Airplane_v1_l1.sfa', // '.sfa Output Path' specified during import.
-        'src/main/res/raw/air')      // '.sfb Output Path' specified during import.
 
-sceneform.asset('sampledata/free_voxel_excavator.obj', // 'Source Asset Path' specified during import.
-        'default',                    // 'Material Path' specified during import.
-        'sampledata/free_voxel_excavator.sfa', // '.sfa Output Path' specified during import.
-        'src/main/res/raw/free_voxel_excavator')
-sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specified during import.
-        'default',                    // 'Material Path' specified during import.
-        'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
-        'src/main/res/raw/taro')
+
+
+//sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specified during import.
+  //      'default',                    // 'Material Path' specified during import.
+    //    'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
+      //  'src/main/res/raw/taro')
 dependencies {
 
 
@@ -130,5 +124,4 @@ dependencies {
 }
 repositories {
     mavenCentral()}
-
 
