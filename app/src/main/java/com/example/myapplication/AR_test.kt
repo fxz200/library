@@ -33,7 +33,7 @@ class AR_test : AppCompatActivity() {
             if (plane.type != Plane.Type.HORIZONTAL_UPWARD_FACING)
                 return@setOnTapArPlaneListener
             val anchor = hitresult.createAnchor()
-            placeObject(arFragment, anchor, R.raw.taro)
+            //placeObject(arFragment, anchor, R.raw.taro)
         }
 
 

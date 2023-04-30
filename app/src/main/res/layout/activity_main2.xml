@@ -21,8 +21,8 @@
             android:layout_height="20dp"
             android:gravity="center_horizontal" />
         <TextView
-            android:id="@+id/hi"
-            android:text="@string/hi"
+            android:id="@+id/beaconshow"
+            android:text="@string/beaconshow"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="20dp"
