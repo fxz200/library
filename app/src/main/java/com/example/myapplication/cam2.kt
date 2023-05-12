@@ -1,22 +1,10 @@
 package com.example.myapplication
 
-
-
-
-
-
-
-
-
-
-
 import android.widget.EditText
 import android.widget.TextView
 
 import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
-
-
 
 
 
@@ -79,9 +67,20 @@ import java.util.concurrent.Executors
 import javax.microedition.khronos.opengles.GL10
 
 
+import android.widget.ArrayAdapter
+import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_main2.*
+import org.altbeacon.beacon.Beacon
+import org.altbeacon.beacon.BeaconManager
+import org.altbeacon.beacon.MonitorNotifier
+
+
+
+
 typealias LumaListener = (luma: Double) -> Unit
 class cam2 : AppCompatActivity() {
-
+    lateinit var beaconReferenceApplication: BeaconReferenceApplication
+    var alertDialog: android.app.AlertDialog? = null
 
 
     var arFragment : CleanArFragment? = null
@@ -310,7 +309,10 @@ class cam2 : AppCompatActivity() {
         val start_time= current.format(formatter)
         record.start_time=start_time
 
-        //////////
+        //////////Beacon/////////
+        beaconReferenceApplication = application as BeaconReferenceApplication
+        val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
+        regionViewModel.rangedBeacons.observe(this, distanceRange3538)
 
     }
     ////////AR/////////
@@ -552,11 +554,39 @@ class cam2 : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun back(view: View) {
-        val intent = Intent(this,finish::class.java)
+        val intent = Intent(this,MainActivity::class.java)
         startActivity(intent);
         time();
 
     }
+
+    val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
+    val major = 10001
+    val minor1 = 3538
+    val minor2 = 2911
+    val minor3 = 2912
+
+
+
+    val distanceRange3538 = Observer<Collection<Beacon>> { beacons ->
+        if (beacons.isNotEmpty()) {
+            val nearestBeacon = beacons.iterator().next()
+            val distance = nearestBeacon.distance
+            Log.d(MainActivity2.TAG, "距離: ${distance} m")
+            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
+                if (distance < 0.3) {
+                    runOnUiThread {
+                        beacon.text = "我是3538"
+                    }
+                } else {
+                    runOnUiThread {
+                        beacon.text = "大於0.4公尺"
+                    }
+                }
+            }
+        }
+    }
+
 
 
 

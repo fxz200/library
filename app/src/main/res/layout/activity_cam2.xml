@@ -126,6 +126,23 @@
         >
     </TextView>
 
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="300dp"
+        android:id="@+id/beacon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"

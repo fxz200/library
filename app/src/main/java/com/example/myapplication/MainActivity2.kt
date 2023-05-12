@@ -17,6 +17,9 @@ import android.content.Intent
 import com.example.myapplication.BeaconScanPermissionsActivity
 import kotlinx.android.synthetic.main.activity_main2.*
 import org.altbeacon.beacon.Region
+import org.altbeacon.beacon.Identifier
+import java.util.UUID
+
 
 class MainActivity2 : AppCompatActivity() {
     lateinit var beaconListView: ListView
@@ -38,6 +41,7 @@ class MainActivity2 : AppCompatActivity() {
         // observer will be called each time a new list of beacons is ranged (typically ~1 second in the foreground)
         regionViewModel.rangedBeacons.observe(this, rangingObserver)
         regionViewModel.rangedBeacons.observe(this, distanceRange)
+        regionViewModel.rangedBeacons.observe(this, distanceRange2)
         rangingButton = findViewById<Button>(R.id.rangingButton)
         monitoringButton = findViewById<Button>(R.id.monitoringButton)
         beaconListView = findViewById<ListView>(R.id.beaconList)
@@ -95,32 +99,71 @@ class MainActivity2 : AppCompatActivity() {
             beaconListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
                 beacons
                     .sortedBy { it.distance}
-                    .map { "${it.id1}\nid2: ${it.id2} id3:  rssi: ${it.rssi}\nest. distance: ${it.distance} m" }.toTypedArray())
+                    .map { "${it.id1}\nid2: ${it.id2} id3: ${it.id3} rssi: ${it.rssi}\nest. distance: ${it.distance} m" }.toTypedArray())
         }
     }
 
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
-    val minor = 3538
+    val minor1 = 3538
+    val minor2 = 2911
+    val minor3 = 2912
+
+
 
     val distanceRange = Observer<Collection<Beacon>> { beacons ->
         if (beacons.isNotEmpty()) {
             val nearestBeacon = beacons.iterator().next()
             val distance = nearestBeacon.distance
             Log.d(TAG, "距離: ${distance} m")
-            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor) {
+            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
                 if (distance < 0.4) {
                     runOnUiThread {
-                        beaconshow.text = "小於0.4公尺"
+                        beaconshow1.text = "我是3538"
                     }
                 } else {
                     runOnUiThread {
-                        beaconshow.text = "大於0.4公尺"
+                        beaconshow1.text = "大於0.4公尺"
+                    }
+                }
+            }
+            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor2) {
+                if (distance < 0.4) {
+                    runOnUiThread {
+                        beaconshow2.text = "我是2911"
+                    }
+                } else {
+                    runOnUiThread {
+                        beaconshow2.text = "大於0.4公尺"
                     }
                 }
             }
         }
     }
+
+    val distanceRange2 = Observer<Collection<Beacon>> { beacons ->
+        if (beacons.isNotEmpty()) {
+            val nearestBeacon = beacons.iterator().next()
+            val distance = nearestBeacon.distance
+            Log.d(TAG, "距離: ${distance} m")
+            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor3) {
+                if (distance < 0.4) {
+                    runOnUiThread {
+                        beaconshow3.text = "我是3538"
+                    }
+                } else {
+                    runOnUiThread {
+                        beaconshow3.text = "大於0.4公尺"
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
 
 
 
@@ -175,6 +218,11 @@ class MainActivity2 : AppCompatActivity() {
         val PERMISSION_REQUEST_BLUETOOTH_SCAN = 1
         val PERMISSION_REQUEST_BLUETOOTH_CONNECT = 2
         val PERMISSION_REQUEST_FINE_LOCATION = 3
+    }
+    fun back(view: View) {
+
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
 
 }

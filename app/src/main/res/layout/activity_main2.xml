@@ -21,8 +21,36 @@
             android:layout_height="20dp"
             android:gravity="center_horizontal" />
         <TextView
-            android:id="@+id/beaconshow"
-            android:text="@string/beaconshow"
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/back"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:onClick="back"
+            tools:ignore="OnClick,UsingOnClickInXml"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/beaconshow1"
+            android:text="@string/beaconshow1"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/beaconshow2"
+            android:text="@string/beaconshow2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/beaconshow3"
+            android:text="@string/beaconshow3"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="20dp"

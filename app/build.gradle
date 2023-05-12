@@ -96,10 +96,10 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 
 
 
-//sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specified during import.
-  //      'default',                    // 'Material Path' specified during import.
-    //    'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
-      //  'src/main/res/raw/taro')
+sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/taro')
 dependencies {
 
 

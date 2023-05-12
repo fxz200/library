@@ -169,24 +169,24 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\TARO_face.png',
+      file: 'sampledata/texture/TARO_face.png',
       name: 'TARO_face',
-      pipeline_name: 'texture\\TARO_face.png',
+      pipeline_name: 'texture/TARO_face.png',
     },
     {
-      file: 'sampledata/texture\\TARO_body.png',
+      file: 'sampledata/texture/TARO_body.png',
       name: 'TARO_body',
-      pipeline_name: 'texture\\TARO_body.png',
+      pipeline_name: 'texture/TARO_body.png',
     },
     {
-      file: 'sampledata/texture\\collar.png',
+      file: 'sampledata/texture/collar.png',
       name: 'collar',
-      pipeline_name: 'texture\\collar.png',
+      pipeline_name: 'texture/collar.png',
     },
     {
-      file: 'sampledata/texture\\TARO_logo.png',
+      file: 'sampledata/texture/TARO_logo.png',
       name: 'TARO_logo',
-      pipeline_name: 'texture\\TARO_logo.png',
+      pipeline_name: 'texture/TARO_logo.png',
     },
   ],
   version: '0.54:2',
