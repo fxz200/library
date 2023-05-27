@@ -366,9 +366,9 @@ class cam2 : AppCompatActivity() {
         aynsBtn = ayns
         statusTip = statusTips
 
-        //ModelRenderable.builder().setSource(this, R.raw.taro)
-          //  .build().thenAccept { renderable -> model = renderable }
-            //.exceptionally ({ it -> Log.e("XXX", "xxx"); null })
+        ModelRenderable.builder().setSource(this, R.raw.taro)
+            .build().thenAccept { renderable -> model = renderable }
+            .exceptionally ({ it -> Log.e("XXX", "xxx"); null })
     }
 
 
