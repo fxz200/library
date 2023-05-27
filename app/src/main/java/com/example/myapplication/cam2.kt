@@ -373,7 +373,6 @@ class cam2 : AppCompatActivity() {
 
 
 
-
     //设置放置模型的点击事件的监听器
     var listener = object : BaseArFragment.OnTapArPlaneListener {
         override fun onTapPlane(hitResult: HitResult?, plane: Plane?, motionEvent: MotionEvent?) {
@@ -568,6 +567,26 @@ class cam2 : AppCompatActivity() {
 
 
 
+ //   val distanceRange = Observer<Collection<Beacon>> { beacons ->
+   //     if (beacons.isNotEmpty()) {
+     //       val nearestBeacon = beacons.iterator().next()
+       //     val distance = nearestBeacon.distance
+         //   Log.d(MainActivity2.TAG, "距離: ${distance} m")
+           // if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
+             //   if (distance < 0.3) {
+               //     runOnUiThread {
+                 //       beaconshow1.text = "yes"
+                   // }
+                //} else {
+                  //  runOnUiThread {
+                    //    beaconshow1.text = "no"
+                    //}
+           //     }
+        //    }
+     //   }
+ //   }
+
+
     val distanceRange3538 = Observer<Collection<Beacon>> { beacons ->
         if (beacons.isNotEmpty()) {
             val nearestBeacon = beacons.iterator().next()
@@ -586,9 +605,4 @@ class cam2 : AppCompatActivity() {
             }
         }
     }
-
-
-
-
-
 }

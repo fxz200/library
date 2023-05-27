@@ -163,12 +163,6 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
     fun rangingButtonTapped(view: View) {
         val beaconManager = BeaconManager.getInstanceForApplication(this)
         if (beaconManager.rangedRegions.size == 0) {
