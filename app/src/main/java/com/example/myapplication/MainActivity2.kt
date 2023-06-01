@@ -15,6 +15,7 @@ import org.altbeacon.beacon.BeaconManager
 import org.altbeacon.beacon.MonitorNotifier
 import android.content.Intent
 import com.example.myapplication.BeaconScanPermissionsActivity
+import kotlinx.android.synthetic.main.activity_cam2.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import org.altbeacon.beacon.Region
 import org.altbeacon.beacon.Identifier
@@ -41,7 +42,7 @@ class MainActivity2 : AppCompatActivity() {
         // observer will be called each time a new list of beacons is ranged (typically ~1 second in the foreground)
         regionViewModel.rangedBeacons.observe(this, rangingObserver)
         regionViewModel.rangedBeacons.observe(this, distanceRange)
-        regionViewModel.rangedBeacons.observe(this, distanceRange2)
+        //regionViewModel.rangedBeacons.observe(this, distanceRange2)
         rangingButton = findViewById<Button>(R.id.rangingButton)
         monitoringButton = findViewById<Button>(R.id.monitoringButton)
         beaconListView = findViewById<ListView>(R.id.beaconList)
@@ -105,60 +106,47 @@ class MainActivity2 : AppCompatActivity() {
 
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
-    val minor1 = 3538
-    val minor2 = 2911
+    val minor1 = 3203
+    val minor2 = 3538
     val minor3 = 2912
+    val minor4 = 3204
+    val minor5 = 3223
 
 
 
     val distanceRange = Observer<Collection<Beacon>> { beacons ->
-        if (beacons.isNotEmpty()) {
-            val nearestBeacon = beacons.iterator().next()
-            val distance = nearestBeacon.distance
-            Log.d(TAG, "距離: ${distance} m")
-            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
-                if (distance < 0.4) {
-                    runOnUiThread {
-                        beaconshow1.text = "我是3538"
-                    }
-                } else {
-                    runOnUiThread {
-                        beaconshow1.text = "大於0.4公尺"
-                    }
-                }
+        for (beacon in beacons) {
+            val distance = beacon.distance
+            val id1 = beacon.id1
+            val id2 = beacon.id2
+            val id3 = beacon.id3
+
+            Log.d(TAG, "Beacon ID: $id1 $id2 $id3")
+            Log.d(TAG, "距離: $distance m")
+
+            // 根據 Beacon 的標識進行相應的處理
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
+                beaconshow1.text = "1"
             }
-            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor2) {
-                if (distance < 0.4) {
-                    runOnUiThread {
-                        beaconshow2.text = "我是2911"
-                    }
-                } else {
-                    runOnUiThread {
-                        beaconshow2.text = "大於0.4公尺"
-                    }
-                }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                beaconshow2.text = "2"
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
+                beaconshow3.text = "3"
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
+                beaconshow4.text = "4"
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
+                beaconshow5.text = "5"
             }
         }
     }
 
-    val distanceRange2 = Observer<Collection<Beacon>> { beacons ->
-        if (beacons.isNotEmpty()) {
-            val nearestBeacon = beacons.iterator().next()
-            val distance = nearestBeacon.distance
-            Log.d(TAG, "距離: ${distance} m")
-            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor3) {
-                if (distance < 0.4) {
-                    runOnUiThread {
-                        beaconshow3.text = "我是3538"
-                    }
-                } else {
-                    runOnUiThread {
-                        beaconshow3.text = "大於0.4公尺"
-                    }
-                }
-            }
-        }
-    }
+
+
+
+
 
 
 

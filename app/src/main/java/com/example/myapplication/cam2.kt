@@ -73,6 +73,7 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import org.altbeacon.beacon.Beacon
 import org.altbeacon.beacon.BeaconManager
 import org.altbeacon.beacon.MonitorNotifier
+import java.util.concurrent.atomic.AtomicInteger
 
 
 
@@ -312,7 +313,8 @@ class cam2 : AppCompatActivity() {
         //////////Beacon/////////
         beaconReferenceApplication = application as BeaconReferenceApplication
         val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
-        regionViewModel.rangedBeacons.observe(this, distanceRange3538)
+        regionViewModel.rangedBeacons.observe(this, distanceRange)
+        //regionViewModel.rangedBeacons.observe(this, distanceRange2)
 
     }
     ////////AR/////////
@@ -561,48 +563,103 @@ class cam2 : AppCompatActivity() {
 
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
-    val minor1 = 3538
-    val minor2 = 2911
+    val minor1 = 3203
+    val minor2 = 3538
     val minor3 = 2912
+    val minor4 = 3204
+    val minor5 = 3223
 
+    var beacon1InRange = false
+    var beacon2InRange = false
+    var beacon3InRange = false
+    var beacon4InRange = false
+    var beacon5InRange = false
 
+    val lock = Object()
+    val trueCount = AtomicInteger(0)
 
- //   val distanceRange = Observer<Collection<Beacon>> { beacons ->
-   //     if (beacons.isNotEmpty()) {
-     //       val nearestBeacon = beacons.iterator().next()
-       //     val distance = nearestBeacon.distance
-         //   Log.d(MainActivity2.TAG, "距離: ${distance} m")
-           // if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
-             //   if (distance < 0.3) {
-               //     runOnUiThread {
-                 //       beaconshow1.text = "yes"
-                   // }
-                //} else {
-                  //  runOnUiThread {
-                    //    beaconshow1.text = "no"
-                    //}
-           //     }
-        //    }
-     //   }
- //   }
+    val distanceRange = Observer<Collection<Beacon>> { beacons ->
+        for (beacon in beacons) {
+            val distance = beacon.distance
+            val id1 = beacon.id1
+            val id2 = beacon.id2
+            val id3 = beacon.id3
 
+            Log.d(MainActivity2.TAG, "Beacon ID: $id1 $id2 $id3")
+            Log.d(MainActivity2.TAG, "距離: $distance m")
 
-    val distanceRange3538 = Observer<Collection<Beacon>> { beacons ->
-        if (beacons.isNotEmpty()) {
-            val nearestBeacon = beacons.iterator().next()
-            val distance = nearestBeacon.distance
-            Log.d(MainActivity2.TAG, "距離: ${distance} m")
-            if (nearestBeacon.id1.toString() == uuid && nearestBeacon.id2.toInt() == major && nearestBeacon.id3.toInt() == minor1) {
-                if (distance < 0.3) {
-                    runOnUiThread {
-                        beacon.text = "我是3538"
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
+                if (distance < 2) {
+                    runOnUiThread{
+                        beacon1InRange = true
+                        beacon1.text = "1"
                     }
                 } else {
                     runOnUiThread {
-                        beacon.text = "大於0.4公尺"
+                        beacon1InRange = false
+                        beacon1.text = "11"
+                    }
+                }
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                if (distance < 2) {
+                    runOnUiThread{
+                        beacon2InRange = true
+                        beacon2.text = "2"
+                    }
+                } else {
+                    runOnUiThread {
+                        beacon2InRange = false
+                        beacon2.text = "22"
+                    }
+                }
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
+                if (distance < 2) {
+                    runOnUiThread{
+                        beacon3InRange = true
+                        beacon3.text = "3"
+                    }
+                } else {
+                    runOnUiThread{
+                        beacon3InRange = false
+                        beacon3.text = "33"
+                    }
+                }
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
+                if (distance < 2) {
+                    runOnUiThread{
+                        beacon4InRange = true
+                        beacon4.text = "4"
+                    }
+                } else {
+                    runOnUiThread{
+                        beacon4InRange = false
+                        beacon4.text = "44"
+                    }
+                }
+
+            }
+            if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
+                if (distance < 2) {
+                    runOnUiThread{
+                        beacon5InRange = true
+                        beacon5.text = "5"
+                    }
+                } else {
+                    runOnUiThread{
+                        beacon5InRange = false
+                        beacon5.text = "55"
                     }
                 }
             }
         }
     }
+
+
+
+
+
+
 }

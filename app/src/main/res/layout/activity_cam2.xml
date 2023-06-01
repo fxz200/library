@@ -130,9 +130,94 @@
         android:textSize="20sp"
         android:textColor="@color/white"
         android:background="@drawable/round_button"
+        android:layout_marginLeft="450dp"
+        android:layout_marginBottom="300dp"
+        android:id="@+id/beacon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="500dp"
+        android:layout_marginBottom="300dp"
+        android:id="@+id/beacon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
         android:layout_marginLeft="550dp"
         android:layout_marginBottom="300dp"
-        android:id="@+id/beacon"
+        android:id="@+id/beacon3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="450dp"
+        android:layout_marginBottom="250dp"
+        android:id="@+id/beacon4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="500dp"
+        android:layout_marginBottom="250dp"
+        android:id="@+id/beacon5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/beaconshow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="250dp"
+        android:id="@+id/beacon6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
