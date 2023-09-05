@@ -41,16 +41,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,read::class.java)
         startActivity(intent)
     }
-    fun HELP(view: View) {
-
-        val intent = Intent(this,help::class.java)
-        startActivity(intent)
-    }
-    fun HIS(view: View) {
-
-        val intent = Intent(this,history::class.java)
-        startActivity(intent)
-    }
 
     fun SEARCH(view: View) {
         val intent = Intent(this,search::class.java)

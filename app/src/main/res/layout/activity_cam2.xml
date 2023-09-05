@@ -75,6 +75,7 @@
         android:layout_toRightOf="@+id/clean"
         android:id="@+id/ayns"
         tools:ignore="MissingConstraints" />
+    
 
     <Button
         android:textSize="17sp"
@@ -113,12 +114,12 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/btn_stop"
-        app:layout_constraintEnd_toEndOf="@id/image"
-        app:layout_constraintStart_toStartOf="@id/image"
+        app:layout_constraintEnd_toEndOf="@id/librarymap"
+        app:layout_constraintStart_toStartOf="@id/librarymap"
         android:id="@+id/floor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image"
+        android:layout_below="@id/librarymap"
         android:layout_marginTop="1000dp"
         tools:ignore="MissingConstraints"
         android:textStyle="bold"
@@ -229,11 +230,12 @@
     </TextView>
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/librarymap"
         android:layout_width="300dp"
         android:layout_height="171dp"
         android:src="@drawable/f4"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"/>
+
 
 
 

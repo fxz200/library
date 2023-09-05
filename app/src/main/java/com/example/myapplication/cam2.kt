@@ -65,6 +65,7 @@ import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import javax.microedition.khronos.opengles.GL10
+import android.widget.ImageView
 
 
 import android.widget.ArrayAdapter
@@ -116,6 +117,9 @@ class cam2 : AppCompatActivity() {
             }
         }
     }
+    private lateinit var imageView: ImageView
+    private var isImageVisible = true
+
 
     /////////////////
     @RequiresApi(Build.VERSION_CODES.O)
@@ -241,6 +245,11 @@ class cam2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_cam2)
+
+        imageView = findViewById(R.id.librarymap)
+        imageView.setOnClickListener{
+            toggleImageVisibility()
+        }
         ////////AR////
 
         initAllCompenent()
@@ -301,6 +310,8 @@ class cam2 : AppCompatActivity() {
                     }
                 }
 
+
+
             ///////////////////////////////////////////////
         }
 
@@ -316,8 +327,15 @@ class cam2 : AppCompatActivity() {
         regionViewModel.rangedBeacons.observe(this, distanceRange)
         //regionViewModel.rangedBeacons.observe(this, distanceRange2)
 
+
     }
+
+
+
     ////////AR/////////
+
+
+
     private var clickListener = object : View.OnClickListener {
         override fun onClick(p0: View?) {
             when(p0!!.id)
@@ -506,6 +524,9 @@ class cam2 : AppCompatActivity() {
 
 
     var check=0;
+
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     fun finish(view: View) {
         if (check>0){
@@ -529,7 +550,7 @@ class cam2 : AppCompatActivity() {
         //val db = FirebaseFirestore.getInstance()
         val db = FirebaseFirestore.getInstance()
         val textView : TextView = findViewById(R.id.floor)
-        val imageView : ImageView = findViewById(R.id.image)
+        val imageView : ImageView = findViewById(R.id.librarymap)
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
         textView.setText("")
@@ -545,6 +566,7 @@ class cam2 : AppCompatActivity() {
                     //record.type_big=bookshelf.big
                     //record.type_small=bookshelf.small
 
+
                 }
             }
         check=1;
@@ -552,6 +574,16 @@ class cam2 : AppCompatActivity() {
         button_change.setText("抵達")
 
     }
+     fun toggleImageVisibility() {
+        if (isImageVisible) {
+            imageView.visibility = View.INVISIBLE
+        } else {
+            imageView.visibility = View.VISIBLE
+        }
+        isImageVisible = !isImageVisible
+    }
+
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun back(view: View) {
@@ -589,7 +621,7 @@ class cam2 : AppCompatActivity() {
             Log.d(MainActivity2.TAG, "距離: $distance m")
 
             if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
-                if (distance < 2) {
+                if (distance < 4) {
                     runOnUiThread{
                         beacon1InRange = true
                         beacon1.text = "1"
@@ -602,7 +634,7 @@ class cam2 : AppCompatActivity() {
                 }
             }
             if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
-                if (distance < 2) {
+                if (distance < 4) {
                     runOnUiThread{
                         beacon2InRange = true
                         beacon2.text = "2"
@@ -615,7 +647,7 @@ class cam2 : AppCompatActivity() {
                 }
             }
             if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
-                if (distance < 2) {
+                if (distance < 4) {
                     runOnUiThread{
                         beacon3InRange = true
                         beacon3.text = "3"
@@ -628,7 +660,7 @@ class cam2 : AppCompatActivity() {
                 }
             }
             if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
-                if (distance < 2) {
+                if (distance < 4) {
                     runOnUiThread{
                         beacon4InRange = true
                         beacon4.text = "4"
@@ -642,7 +674,7 @@ class cam2 : AppCompatActivity() {
 
             }
             if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
-                if (distance < 2) {
+                if (distance < 4) {
                     runOnUiThread{
                         beacon5InRange = true
                         beacon5.text = "5"
@@ -651,6 +683,19 @@ class cam2 : AppCompatActivity() {
                     runOnUiThread{
                         beacon5InRange = false
                         beacon5.text = "55"
+                    }
+                }
+            }
+            if (beacon1InRange && beacon2InRange && beacon3InRange && beacon4InRange && beacon5InRange) {
+                runOnUiThread{
+                    synchronized(lock){
+                        beacon6.text= "all"
+                    }
+                }
+            } else {
+                runOnUiThread{
+                    synchronized(lock){
+                        beacon6.text= "no"
                     }
                 }
             }
