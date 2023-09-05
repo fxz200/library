@@ -245,7 +245,7 @@ class cam2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_cam2)
-
+///////////////////////////////////////////////////////////////////////
         imageView = findViewById(R.id.librarymap)
         imageView.setOnClickListener{
             toggleImageVisibility()
@@ -574,6 +574,7 @@ class cam2 : AppCompatActivity() {
         button_change.setText("抵達")
 
     }
+    ///////////////////////////
      fun toggleImageVisibility() {
         if (isImageVisible) {
             imageView.visibility = View.INVISIBLE
