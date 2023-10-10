@@ -9,6 +9,7 @@ import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import kotlinx.android.synthetic.main.activity_main.comicmod
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -55,6 +56,11 @@ class MainActivity : AppCompatActivity() {
     }
     fun out(view: View) {
         val intent = Intent(this,login::class.java)
+        startActivity(intent)
+    }
+
+    fun COMIC(view: View) {
+        val intent = Intent(this,comic::class.java)
         startActivity(intent)
     }
 

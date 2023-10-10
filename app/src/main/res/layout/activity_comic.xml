@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cam2">
+    tools:context=".comic">
 
     <fragment
         android:layout_width="match_parent"
@@ -75,24 +75,8 @@
         android:layout_toRightOf="@+id/clean"
         android:id="@+id/ayns"
         tools:ignore="MissingConstraints" />
-    
 
-    <Button
-        android:textSize="17sp"
-        android:textColor="@color/white"
-        android:background="@drawable/round_button"
-        android:layout_marginLeft="550dp"
-        android:layout_marginBottom="160dp"
-        android:onClick="finish"
-        android:id="@+id/btn_capture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="抵達樓層"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="OnClick,UsingOnClickInXml" />
+
     <Button
         android:textSize="17sp"
         android:textColor="@color/white"
@@ -104,54 +88,78 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="停止導航"
+        android:text="@string/end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick,UsingOnClickInXml" />
-
-    <TextView
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/btn_capture"
-        app:layout_constraintEnd_toEndOf="@id/librarymap"
-        app:layout_constraintStart_toStartOf="@id/librarymap"
-        android:id="@+id/floor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/librarymap"
-        android:layout_marginTop="0dp"
-        tools:ignore="MissingConstraints"
-        android:textStyle="bold"
-        android:background="@drawable/c6d0ba_round"
-        >
-    </TextView>
-
+<!--
     <ImageView
-        android:id="@+id/librarymap"
-        android:layout_width="300dp"
-        android:layout_height="171dp"
-        android:src="@drawable/f4"
-        tools:ignore="MissingConstraints"/>
+        android:id="@+id/message"
+        android:layout_width="435dp"
+        android:layout_height="240dp"
+        android:src="@drawable/message_2"
+        tools:ignore="MissingConstraints"/> -->
+
 
     <TextView
-        android:textSize="17sp"
-        android:textColor="@color/black"
         android:id="@+id/comicinfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="-390dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="300dp"
+        android:layout_width="325dp"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
+        android:layout_marginTop="55dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
         android:textStyle="bold"
-        android:background="@drawable/c6d0ba_round">
-    </TextView>
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></TextView>
 
+    <TextView
+        android:id="@+id/comicinfo2"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></TextView>
 
-
+    <TextView
+        android:id="@+id/comicinfo3"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></TextView>
+    <TextView
+        android:id="@+id/comicinfo4"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="205dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></TextView>
 
 
 

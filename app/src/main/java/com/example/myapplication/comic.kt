@@ -6,14 +6,11 @@ import android.widget.TextView
 import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
 
-
-
 import android.Manifest
 import com.google.ar.core.Anchor
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -28,22 +25,14 @@ import android.util.Log
 import android.widget.Button
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.inflate
-import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.CameraXThreads.TAG
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ComplexColorCompat.inflate
-import com.example.myapplication.databinding.ActivityAboutusBinding.inflate
 import com.google.ar.core.*
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Node
@@ -54,43 +43,31 @@ import com.google.ar.sceneform.ux.BaseArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.snapshots
 import kotlinx.android.synthetic.main.activity_ar_test.*
 import kotlinx.android.synthetic.main.activity_cam2.*
 import java.io.File
 import java.time.LocalDateTime
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import javax.microedition.khronos.opengles.GL10
 import android.widget.ImageView
-
-
-import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_comic.comicinfo2
+import kotlinx.android.synthetic.main.activity_comic.comicinfo3
+import kotlinx.android.synthetic.main.activity_comic.comicinfo4
 import kotlinx.android.synthetic.main.activity_main2.*
 import org.altbeacon.beacon.Beacon
 import org.altbeacon.beacon.BeaconManager
-import org.altbeacon.beacon.MonitorNotifier
-import java.util.concurrent.atomic.AtomicInteger
 
 
 
-
-typealias LumaListener = (luma: Double) -> Unit
-class cam2 : AppCompatActivity() {
+class comic : AppCompatActivity() {
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
     var alertDialog: android.app.AlertDialog? = null
 
-
     var arFragment : CleanArFragment? = null
     var model : ModelRenderable? = null //模型对象
-    var hostAnchor : Anchor? = null     //被绘制的锚点信息（代表本地设置的锚点或者云锚点）
-    /**
-     * 锚点状态机，只允许设置一个锚点，有多余锚点不允许添加
-     */
+    var hostAnchor : Anchor? = null
+
     var currentStatus : AnchorStatus = AnchorStatus.EMPTY
     var statusTip : TextView? = null;   //显示当前状态的提示框
     var codeNo : EditText? = null       //显示云锚点 id 的编辑框
@@ -117,24 +94,6 @@ class cam2 : AppCompatActivity() {
             }
         }
     }
-    private lateinit var imageView: ImageView
-    private var isImageVisible = true
-
-
-    /////////////////
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun time() {
-        val current = LocalDateTime.now()
-
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
-        val formatted = current.format(formatter)
-
-        println("当前日期和时间为: $formatted")
-    }
-
-
-
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -147,6 +106,7 @@ class cam2 : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
@@ -172,7 +132,6 @@ class cam2 : AppCompatActivity() {
         startActivity(intent)
 
     }
-    //取得權限
     private fun onClickRequestPermission() {
         when {
             ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -199,8 +158,6 @@ class cam2 : AppCompatActivity() {
             }
         }
     }
-
-
     private fun onAgree() {
         Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show()
 
@@ -212,129 +169,42 @@ class cam2 : AppCompatActivity() {
 
     }
 
-    data class Record(
-        var count:Int=0,
-        var id:String="",
-        var start_time:String="",
-        var end_time:String="",
-        var type_big:String="",
-        var type_small:String="",
-    ){
-
-    }
-    class Bookshelf(
-        var ID:Int=0,
-        var big:String="",
-        var num:String="",
-        var pic:String="",
-        var small:String="",
-    ){
-
-    }
-
-    val record=Record()
-
-
-
 
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
-        setContentView(R.layout.activity_cam2)
-
-        imageView = findViewById(R.id.librarymap)
-        imageView.setOnClickListener{
-            toggleImageVisibility()
-        }
-        ////////AR////
+        setContentView(R.layout.activity_comic)
 
         initAllCompenent()
         arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
         arFragment!!.setOnTapArPlaneListener(listener)
         cleanBtn!!.setOnClickListener(clickListener)
         aynsBtn!!.setOnClickListener(clickListener)
-        //////////
-        val bundle = intent.extras
-        val datanum = bundle?.getString("datanum")
 
-        val textView : TextView = findViewById(R.id.floor)
+
+
+        val textView : TextView = findViewById(R.id.comicinfo)
         val db = FirebaseFirestore.getInstance()
+        val collectionRef = db.collection("comic")
 
-        db.collection("bookshelf").document("${datanum}")
+        collectionRef
+            .whereEqualTo("ID", detectedValue)
             .get()
-            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
-                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
-                if (bookshelf != null) {
-                    val id=bookshelf.ID
-                    val id_str = "${id}"
-                    val floor=id_str.substring(0,1)
-                    val floor_text="  請搭乘電梯至 ${floor} 樓  "
-                    textView.setText(floor_text)
-                    record.type_big=bookshelf.big
-                    record.type_small=bookshelf.small
-
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    val documentId = document.id
+                    val pop1 = document.getString("pop1")
+                    textView.setText(pop1)
                 }
             }
-        val test=true
-        if(test==true){
 
-            val db = FirebaseFirestore.getInstance()
-            val id_global=GlobalVariable.getName()
-            ///////////////////////////////////////////////
-
-            println(id_global)
-            db.collection("record").whereEqualTo("id","${id_global}")
-                .get()
-                .addOnSuccessListener {document->
-                    if(document!=null){
-                        val counts=document.toObjects(Record::class.java)
-
-                        println("*************************************")
-                        println(counts)
-                        if(counts.any()==false){
-                            record.count=1
-                        }
-                        else{
-                            println("*************************************")
-                            println(counts.size)
-                            val num_count=counts.size+1
-                            record.count=num_count
-                        }
-                    }
-                    else{
-                        Toast.makeText(this, "missing", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-
-
-            ///////////////////////////////////////////////
-        }
-
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
-
-        val start_time= current.format(formatter)
-        record.start_time=start_time
-
-        //////////Beacon/////////
         beaconReferenceApplication = application as BeaconReferenceApplication
         val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
         regionViewModel.rangedBeacons.observe(this, distanceRange)
-        //regionViewModel.rangedBeacons.observe(this, distanceRange2)
-
-
     }
-
-
-
-    ////////AR/////////
-
-
 
     private var clickListener = object : View.OnClickListener {
         override fun onClick(p0: View?) {
@@ -363,7 +233,6 @@ class cam2 : AppCompatActivity() {
         }
     }
 
-    //清除界面锚点包括云锚点和本地锚点
     private fun cleanAllNode() {
         //没有节点被渲染，就不清空锚点集合
         if (listNode.size == 0) {
@@ -378,7 +247,6 @@ class cam2 : AppCompatActivity() {
         listNode.clear()
     }
 
-    //界面空间映射，初始化模型资源
     @RequiresApi(Build.VERSION_CODES.N)
     private fun initAllCompenent() {
         codeNo = editText
@@ -416,7 +284,6 @@ class cam2 : AppCompatActivity() {
         }
     }
 
-    //在锚点上渲染模型
     private fun placeModel() {
         var node = AnchorNode(hostAnchor)
         arFragment!!.getArSceneView().getScene().addChild(node)
@@ -478,8 +345,6 @@ class cam2 : AppCompatActivity() {
         }).start()
     }
 
-
-    ////////////////
     @RequiresApi(Build.VERSION_CODES.N)
     private fun placeObject(arFragment: ArFragment, anchor: Anchor, uri: Int) {
         ModelRenderable.builder()
@@ -523,80 +388,15 @@ class cam2 : AppCompatActivity() {
     @SuppressLint("RestrictedApi")
 
 
-    var check=0;
-
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun finish(view: View) {
-        if (check>0){
-
-            val current = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
-            val end_time = current.format(formatter)
-            record.end_time=end_time
-            val id_global=GlobalVariable.getName()
-            record.id=id_global
-
-
-
-            val db = FirebaseFirestore.getInstance()
-
-            db.collection("record").add(record)
-            val intent = Intent(this,finish::class.java)
-            startActivity(intent)
-        }
-
-        //val db = FirebaseFirestore.getInstance()
-        val db = FirebaseFirestore.getInstance()
-        val textView : TextView = findViewById(R.id.floor)
-        val imageView : ImageView = findViewById(R.id.librarymap)
-        val bundle = intent.extras
-        val datanum = bundle?.getString("datanum")
-        textView.setText("")
-        db.collection("bookshelf").document("${datanum}")
-            .get()
-            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
-                val bookshelf = documentSnapshot.toObject(Bookshelf::class.java)
-                if (bookshelf != null) {
-                    val pic=bookshelf.pic;
-                    val mDrawableName = "${pic}"
-                    val resID = resources.getIdentifier(mDrawableName, "drawable", packageName)
-                    imageView.setImageResource(resID);
-                    //record.type_big=bookshelf.big
-                    //record.type_small=bookshelf.small
-
-
-                }
-            }
-        check=1;
-        val button_change :Button=findViewById(R.id.btn_capture)
-        button_change.setText("抵達")
-
-    }
-     fun toggleImageVisibility() {
-        if (isImageVisible) {
-            imageView.visibility = View.INVISIBLE
-        } else {
-            imageView.visibility = View.VISIBLE
-        }
-        isImageVisible = !isImageVisible
-    }
-
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
     fun back(view: View) {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent);
-        time();
-
     }
 
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
-    val minor1 = 2912
-    val minor2 = 2908
+    val minor1 = 2902
+    val minor2 = 2912
     val minor3 = 3223
     val minor4 = 2903
     val minor5 = 1846
@@ -607,6 +407,7 @@ class cam2 : AppCompatActivity() {
     var beacon4InRange = false
     var beacon5InRange = false
 
+    var detectedValue: Int? = null
 
     val distanceRange = Observer<Collection<Beacon>> { beacons ->
         if (beacons.isNotEmpty()) {
@@ -622,12 +423,12 @@ class cam2 : AppCompatActivity() {
                 if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
                     if (distance < 2) {
                         runOnUiThread {
+                            comicinfo.text = ""
+                            comicinfo2.text = "歡迎來到漫畫區"
+                            comicinfo3.text = ""
+                            comicinfo4.text = ""
                             beacon1InRange = true
-                            comicinfo.text = "歡迎來到漫畫區"
-                            var str = "ua-be730ffd5325c030f76875dc7f10374f"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
+                            detectedValue = minor1
                         }
                     }
                 }
@@ -635,12 +436,12 @@ class cam2 : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
                     if (distance < 2) {
                         runOnUiThread {
+                            comicinfo.text = "《犬夜叉》 冒險、愛情、妖怪"
+                            comicinfo2.text = "故事圍繞著犬夜叉以及他的冒險夥伴一同尋找四魂之玉碎片，對抗強大的妖怪奈落。"
+                            comicinfo3.text = "《遊戲王》 戰鬥、卡牌遊戲"
+                            comicinfo4.text = "故事圍繞著主角武藤遊戲，他在玩各種競技型遊戲時，被附身的古埃及遊戲精靈法老所引導，一同參加卡片遊戲「遊戲王」的冒險。"
                             beacon2InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
+                            detectedValue = minor2
                         }
                     }
                 }
@@ -648,25 +449,25 @@ class cam2 : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
                     if (distance < 2) {
                         runOnUiThread {
+                            comicinfo.text = "《美少女戰士》 少女、魔法"
+                            comicinfo2.text = "故事講述青少女主角月野兔與她的朋友們，她們具有超能力和魔法，化身水手服美少女戰士對抗邪惡勢力。"
+                            comicinfo3.text = "《家有賤狗》 家庭、友情、幽默"
+                            comicinfo4.text = "一位單身父親丹尼‧坦納，他在妻子去世後獨自撫養三個女兒。為了照顧女兒，他請了朋友傑西、兄弟喬伊，共同居住在一個名為「Full House」的三層樓房子中。"
                             beacon3InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
+                            detectedValue = minor3
                         }
                     }
                 }
-                //290
+                //2903
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
                     if (distance < 2) {
                         runOnUiThread {
+                            comicinfo.text = "《笑傲江湖》 武俠、金庸"
+                            comicinfo2.text = "故事背景是中國古代的江湖世界，各種武功流派和門派爭鬥不斷。故事圍繞著令狐沖展開，他在江湖中歷經艱難，結識了各種人物，涉足了各個門派，最終成為一名武林高手。"
+                            comicinfo3.text = ""
+                            comicinfo4.text = ""
                             beacon4InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
+                            detectedValue = minor4
                         }
                     }
                 }
@@ -674,16 +475,19 @@ class cam2 : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
                     if (distance < 2) {
                         runOnUiThread {
+                            comicinfo.text = "《航海王》 冒險、友情、正義、自由 "
+                            comicinfo2.text = "描述海賊蒙其·D·魯夫 想要得到「ONE PIECE」和成為「海賊王」為夢想而出海向「偉大的航道」航行的海洋冒險故事。"
+                            comicinfo3.text = "《妖怪手錶》 妖怪、友情、冒險"
+                            comicinfo4.text = "故事講述主人公偶然發現一枚特殊的妖怪手錶，使他能看到妖怪世界。他與各種妖怪成為朋友。他們一起冒險，解決問題，同時揭示了妖怪的秘密。"
                             beacon5InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
+                            detectedValue = minor5
+
                         }
                     }
                 }
             }
         }
     }
+
+
 }

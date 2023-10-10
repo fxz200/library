@@ -137,4 +137,6 @@
     <string name="beaconshow2">hello</string>
     <string name="beaconshow3">who</string>
     <string name="beaconshow4">不要再壞掉了</string>
+    <string name="comicenter">漫畫區導覽</string>
+    <string name="end">停止導覽</string>
 </resources>
