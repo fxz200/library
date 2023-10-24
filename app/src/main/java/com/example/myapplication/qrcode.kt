@@ -26,7 +26,8 @@ class qrcode : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
-        val r ="4"
+        val find ="4"
+        val a ="2"
         val e = "QRCODE錯誤，請至圖書館入口掃描。"
 
         codeScanner = CodeScanner(this, scannerView)
@@ -39,12 +40,16 @@ class qrcode : AppCompatActivity() {
         codeScanner.isFlashEnabled = false
 
         codeScanner.decodeCallback = DecodeCallback {
-            if (it.text == r){
+            if (it.text == find){
 
                 val intent = Intent(this, find::class.java)
 
                 startActivity(intent)
-            }else{
+            } else if (it.text == a){
+                val intent = Intent(this, comic::class.java)
+
+                startActivity(intent)
+            } else{
                 runOnUiThread{
                     textScanResult.text = e
                 }

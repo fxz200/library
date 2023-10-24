@@ -63,7 +63,7 @@ import org.altbeacon.beacon.BeaconManager
 class comic : AppCompatActivity() {
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
     var alertDialog: android.app.AlertDialog? = null
-
+/*
     var arFragment : CleanArFragment? = null
     var model : ModelRenderable? = null //模型对象
     var hostAnchor : Anchor? = null
@@ -106,7 +106,7 @@ class comic : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-
+*/
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
@@ -177,13 +177,13 @@ class comic : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_comic)
-
+/*
         initAllCompenent()
         arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
         arFragment!!.setOnTapArPlaneListener(listener)
         cleanBtn!!.setOnClickListener(clickListener)
         aynsBtn!!.setOnClickListener(clickListener)
-
+*/
 
 
         val textView : TextView = findViewById(R.id.comicinfo)
@@ -205,7 +205,7 @@ class comic : AppCompatActivity() {
         val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
         regionViewModel.rangedBeacons.observe(this, distanceRange)
     }
-
+/*
     private var clickListener = object : View.OnClickListener {
         override fun onClick(p0: View?) {
             when(p0!!.id)
@@ -364,7 +364,7 @@ class comic : AppCompatActivity() {
         arFragment.arSceneView.scene.addChild(anchorNode)
         node.select()
     }
-
+*/
     private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show()
@@ -390,6 +390,11 @@ class comic : AppCompatActivity() {
 
     fun back(view: View) {
         val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent);
+    }
+
+    fun qrcode(view: View) {
+        val intent = Intent(this,qrcode::class.java)
         startActivity(intent);
     }
 
