@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_qrcode.*
 import org.altbeacon.beacon.Beacon
 import org.altbeacon.beacon.BeaconManager
 import androidx.lifecycle.Observer
+import com.example.myapplication.comicqrcode
 
 
 
@@ -43,8 +44,15 @@ class qrcode : AppCompatActivity() {
 
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val find ="4"
-        val a ="2"
-        val e = "QRCODE錯誤，請至圖書館入口掃描。"
+        val a1 ="1-1"
+        val a2 = "1-2"
+        val a3 = "1-3"
+        val a4 = "1-4"
+        val b1 = "2-1"
+        val b2 = "2-2"
+        val b3 = "2-3"
+        val e = "QRCODE錯誤，請重新掃描。"
+
 
         codeScanner = CodeScanner(this, scannerView)
 
@@ -61,16 +69,43 @@ class qrcode : AppCompatActivity() {
                 val intent = Intent(this, find::class.java)
 
                 startActivity(intent)
-            } else if (it.text == a){
+            } else if (it.text == a1){
                 val intent = Intent(this, comic::class.java)
-
                 startActivity(intent)
+                comicqrcode.book = a1
+            } else if (it.text == a2){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = a2
+            } else if (it.text == a3){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = a3
+            }else if (it.text == a4){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = a4
+            } else if (it.text == b1){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = b1
+            } else if (it.text == b2){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = b2
+            } else if (it.text == b3){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = b3
             } else{
                 runOnUiThread{
                     textScanResult.text = e
                 }
             }
         }
+
+
+
         codeScanner.errorCallback = ErrorCallback {
             runOnUiThread{
                 Toast.makeText(this, "Error:${it.message}", Toast.LENGTH_LONG).show()
@@ -187,8 +222,8 @@ class qrcode : AppCompatActivity() {
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
     val minor1 = 2902
-    val minor2 = 3203   //2908
-    val minor3 = 2912   //3223
+    val minor2 = 2908   //2908
+    val minor3 = 3223   //3223
     val minor4 = 2903
     val minor5 = 1846
 
@@ -242,7 +277,7 @@ class qrcode : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有2個QRCODE"
+                            textScanResult.text = "此區域有3個QRCODE"
                             beacon4InRange = true
                         }
                     }
@@ -251,7 +286,7 @@ class qrcode : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有2個QRCODE"
+                            textScanResult.text = "此區域有3個QRCODE"
                             beacon5InRange = true
 
                         }

@@ -59,27 +59,28 @@
 
     <TextView
         android:id="@+id/comicinfo"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text="@string/app_name"
+        android:background="@drawable/c6d0ba_round"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"></TextView>
 
     <TextView
         android:id="@+id/comicinfo2"
-        android:layout_width="325dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="90dp"
         android:textColor="@color/black"
+        android:background="@drawable/deep_green"
         android:textSize="17sp"
-        android:textStyle="bold"
         android:text="@string/app_name"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,34 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"></TextView>
 
-    <TextView
-        android:id="@+id/comicinfo3"
-        android:layout_width="325dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="175dp"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:text="@string/app_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"></TextView>
-    <TextView
-        android:id="@+id/comicinfo4"
-        android:layout_width="325dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="205dp"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:text="@string/app_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"></TextView>
+
 
 
 
