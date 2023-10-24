@@ -27,7 +27,7 @@
             android:onClick="qrcode"
             android:paddingLeft="10dp"
             android:text="@string/qrcode2"
-            android:textColor="#696969"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             tools:ignore="OnClick,UsingOnClickInXml">
@@ -73,6 +73,7 @@
                 android:onClick="BASE"
                 android:text="@string/base"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
@@ -100,6 +101,7 @@
                 android:onClick="SEARCH"
                 android:text="@string/search"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
@@ -125,6 +127,7 @@
                 android:onClick="READMOD"
                 android:text="@string/about"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>
@@ -150,6 +153,7 @@
                 android:onClick="COMIC"
                 android:text="@string/comicenter"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:ignore="OnClick,UsingOnClickInXml">
 
             </TextView>

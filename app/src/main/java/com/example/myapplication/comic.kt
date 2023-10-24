@@ -55,58 +55,61 @@ import kotlinx.android.synthetic.main.activity_comic.comicinfo2
 import kotlinx.android.synthetic.main.activity_comic.comicinfo3
 import kotlinx.android.synthetic.main.activity_comic.comicinfo4
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_qrcode.textScanResult
 import org.altbeacon.beacon.Beacon
 import org.altbeacon.beacon.BeaconManager
 
 
 
 class comic : AppCompatActivity() {
-    lateinit var beaconReferenceApplication: BeaconReferenceApplication
-    var alertDialog: android.app.AlertDialog? = null
 /*
-    var arFragment : CleanArFragment? = null
-    var model : ModelRenderable? = null //模型对象
-    var hostAnchor : Anchor? = null
+    lateinit var beaconReferenceApplication: BeaconReferenceApplication
+    */
+    var alertDialog: android.app.AlertDialog? = null
+    /*
+        var arFragment : CleanArFragment? = null
+        var model : ModelRenderable? = null //模型对象
+        var hostAnchor : Anchor? = null
 
-    var currentStatus : AnchorStatus = AnchorStatus.EMPTY
-    var statusTip : TextView? = null;   //显示当前状态的提示框
-    var codeNo : EditText? = null       //显示云锚点 id 的编辑框
-    var cleanBtn : Button? = null       //清理锚点按钮
-    var aynsBtn : Button? = null        //获取云锚点按钮
-    var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
-    val ClEAN_OVER = 0x1100             //清理界面锚点信号
-    val SYNC_START = 0x1101             //开始同步信号
-    val SYNC_OVER = 0x1102              //同步完成信号
-    val SYNC_FAILED = 0x1103            //同步失败信号
-    var handler = @SuppressLint("HandlerLeak")
-    object : Handler() {
-        override fun handleMessage(msg : Message) {
-            if (msg.what == SYNC_OVER) {
-                statusTips.text = resources.getString(R.string.sync_over);
-                var toShowStr = msg.obj as String
-                codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
-            } else if (msg.what == SYNC_START) {
-                statusTips.text = resources.getString(R.string.sync_progress);
-            } else if (msg.what == SYNC_FAILED) {
-                statusTips.text = resources.getString(R.string.sync_failed);
-            } else if (msg.what == ClEAN_OVER) {
-                statusTips.text = resources.getString(R.string.empty);
+        var currentStatus : AnchorStatus = AnchorStatus.EMPTY
+        var statusTip : TextView? = null;   //显示当前状态的提示框
+        var codeNo : EditText? = null       //显示云锚点 id 的编辑框
+        var cleanBtn : Button? = null       //清理锚点按钮
+        var aynsBtn : Button? = null        //获取云锚点按钮
+        var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
+        val ClEAN_OVER = 0x1100             //清理界面锚点信号
+        val SYNC_START = 0x1101             //开始同步信号
+        val SYNC_OVER = 0x1102              //同步完成信号
+        val SYNC_FAILED = 0x1103            //同步失败信号
+        var handler = @SuppressLint("HandlerLeak")
+        object : Handler() {
+            override fun handleMessage(msg : Message) {
+                if (msg.what == SYNC_OVER) {
+                    statusTips.text = resources.getString(R.string.sync_over);
+                    var toShowStr = msg.obj as String
+                    codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
+                } else if (msg.what == SYNC_START) {
+                    statusTips.text = resources.getString(R.string.sync_progress);
+                } else if (msg.what == SYNC_FAILED) {
+                    statusTips.text = resources.getString(R.string.sync_failed);
+                } else if (msg.what == ClEAN_OVER) {
+                    statusTips.text = resources.getString(R.string.empty);
+                }
             }
         }
-    }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+        ) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-    }
-    private var imageCapture: ImageCapture? = null
-    private lateinit var outputDirectory: File
-    private lateinit var cameraExecutor: ExecutorService
-*/
+        }
+        private var imageCapture: ImageCapture? = null
+        private lateinit var outputDirectory: File
+        private lateinit var cameraExecutor: ExecutorService
+    */
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
@@ -205,7 +208,7 @@ class comic : AppCompatActivity() {
         beaconReferenceApplication = application as BeaconReferenceApplication
         val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
         regionViewModel.rangedBeacons.observe(this, distanceRange)
-        */
+*/
     }
 /*
     private var clickListener = object : View.OnClickListener {
@@ -399,6 +402,83 @@ class comic : AppCompatActivity() {
         val intent = Intent(this,qrcode::class.java)
         startActivity(intent);
     }
+    /*
+    val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
+    val major = 10001
+    val minor1 = 2902
+    val minor2 = 3203   //2908
+    val minor3 = 3223
+    val minor4 = 2903
+    val minor5 = 1846
+
+    var beacon1InRange = false
+    var beacon2InRange = false
+    var beacon3InRange = false
+    var beacon4InRange = false
+    var beacon5InRange = false
+
+
+
+    val distanceRange = Observer<Collection<Beacon>> { beacons ->
+        if (beacons.isNotEmpty()) {
+            val nearestBeacon = beacons.minByOrNull { it.distance }
+
+            if (nearestBeacon != null) {
+                val distance = nearestBeacon.distance
+                val id1 = nearestBeacon.id1
+                val id2 = nearestBeacon.id2
+                val id3 = nearestBeacon.id3
+
+                //2902
+                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            comicinfo.text = ""
+                            beacon1InRange = true
+                        }
+                    }
+                }
+                //2908
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            comicinfo.text = ""
+                            beacon2InRange = true
+                        }
+                    }
+                }
+                //3223
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            comicinfo.text = ""
+                            beacon3InRange = true
+                        }
+                    }
+                }
+                //2903
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            comicinfo.text = ""
+                            beacon4InRange = true
+                        }
+                    }
+                }
+                //1846
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            comicinfo.text = ""
+                            beacon5InRange = true
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+*/
 
 
 

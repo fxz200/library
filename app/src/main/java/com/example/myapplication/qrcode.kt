@@ -25,7 +25,9 @@ import androidx.lifecycle.Observer
 
 
 class qrcode : AppCompatActivity() {
+
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
+
     var alertDialog: android.app.AlertDialog? = null
 
     private lateinit var codeScanner: CodeScanner
@@ -185,8 +187,8 @@ class qrcode : AppCompatActivity() {
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
     val major = 10001
     val minor1 = 2902
-    val minor2 = 2912
-    val minor3 = 3223
+    val minor2 = 3203   //2908
+    val minor3 = 2912   //3223
     val minor4 = 2903
     val minor5 = 1846
 
@@ -195,8 +197,6 @@ class qrcode : AppCompatActivity() {
     var beacon3InRange = false
     var beacon4InRange = false
     var beacon5InRange = false
-
-    var detectedValue: Int? = null
 
 
 
@@ -214,9 +214,8 @@ class qrcode : AppCompatActivity() {
                 if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = ""
+                            textScanResult.text = "歡迎來到漫畫區"
                             beacon1InRange = true
-                            detectedValue = minor1
                         }
                     }
                 }
@@ -224,19 +223,18 @@ class qrcode : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = ""
+                            textScanResult.text = "此區域有4個QRCODE"
                             beacon2InRange = true
-                            detectedValue = minor2
                         }
                     }
                 }
+
                 //3223
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = ""
+                            textScanResult.text = "此區域有4個QRCODE"
                             beacon3InRange = true
-                            detectedValue = minor3
                         }
                     }
                 }
@@ -244,9 +242,8 @@ class qrcode : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = ""
+                            textScanResult.text = "此區域有2個QRCODE"
                             beacon4InRange = true
-                            detectedValue = minor4
                         }
                     }
                 }
@@ -254,9 +251,8 @@ class qrcode : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = ""
+                            textScanResult.text = "此區域有2個QRCODE"
                             beacon5InRange = true
-                            detectedValue = minor5
 
                         }
                     }
@@ -264,7 +260,4 @@ class qrcode : AppCompatActivity() {
             }
         }
     }
-
-
-
 }

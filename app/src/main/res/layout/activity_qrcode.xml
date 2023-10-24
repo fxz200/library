@@ -67,6 +67,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:onClick="test"
+                android:textColor="@color/black"
                 tools:ignore="OnClick,UsingOnClickInXml"/>
 
 
