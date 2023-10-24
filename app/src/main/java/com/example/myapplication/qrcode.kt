@@ -1,23 +1,32 @@
 package com.example.myapplication
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
 import kotlinx.android.synthetic.main.activity_qrcode.*
+import org.altbeacon.beacon.Beacon
+import org.altbeacon.beacon.BeaconManager
+import androidx.lifecycle.Observer
+
 
 
 class qrcode : AppCompatActivity() {
+    lateinit var beaconReferenceApplication: BeaconReferenceApplication
+    var alertDialog: android.app.AlertDialog? = null
 
     private lateinit var codeScanner: CodeScanner
 
@@ -25,6 +34,11 @@ class qrcode : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
+
+        beaconReferenceApplication = application as BeaconReferenceApplication
+        val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
+        regionViewModel.rangedBeacons.observe(this, distanceRange)
+
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val find ="4"
         val a ="2"
@@ -149,8 +163,7 @@ class qrcode : AppCompatActivity() {
     }
 
 
-
-        override fun onResume(){
+    override fun onResume(){
         super.onResume()
         codeScanner.startPreview()
     }
@@ -168,5 +181,90 @@ class qrcode : AppCompatActivity() {
         val intent = Intent(this,find::class.java)
         startActivity(intent)
     }
+
+    val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
+    val major = 10001
+    val minor1 = 2902
+    val minor2 = 2912
+    val minor3 = 3223
+    val minor4 = 2903
+    val minor5 = 1846
+
+    var beacon1InRange = false
+    var beacon2InRange = false
+    var beacon3InRange = false
+    var beacon4InRange = false
+    var beacon5InRange = false
+
+    var detectedValue: Int? = null
+
+
+
+    val distanceRange = Observer<Collection<Beacon>> { beacons ->
+        if (beacons.isNotEmpty()) {
+            val nearestBeacon = beacons.minByOrNull { it.distance }
+
+            if (nearestBeacon != null) {
+                val distance = nearestBeacon.distance
+                val id1 = nearestBeacon.id1
+                val id2 = nearestBeacon.id2
+                val id3 = nearestBeacon.id3
+
+                //2902
+                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            textScanResult.text = ""
+                            beacon1InRange = true
+                            detectedValue = minor1
+                        }
+                    }
+                }
+                //2908
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            textScanResult.text = ""
+                            beacon2InRange = true
+                            detectedValue = minor2
+                        }
+                    }
+                }
+                //3223
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            textScanResult.text = ""
+                            beacon3InRange = true
+                            detectedValue = minor3
+                        }
+                    }
+                }
+                //2903
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            textScanResult.text = ""
+                            beacon4InRange = true
+                            detectedValue = minor4
+                        }
+                    }
+                }
+                //1846
+                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
+                    if (distance < 2) {
+                        runOnUiThread {
+                            textScanResult.text = ""
+                            beacon5InRange = true
+                            detectedValue = minor5
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 
 }

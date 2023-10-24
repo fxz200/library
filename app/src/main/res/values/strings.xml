@@ -44,7 +44,7 @@
     <string name="use">應用指南</string>
     <string name="logout">登出</string>
     <string name="back">&#160;<![CDATA[<]]>&#160;&#160;</string>
-    <string name="plaesescan">請掃描入口QRCODE進行路線引導。</string>
+    <string name="plaesescan">請掃描QRCODE</string>
     <string name="monitorset">顯示器設定</string>
     <string name="blank">&#160;</string>
     <string name="send">送出</string>
