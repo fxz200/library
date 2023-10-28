@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun COMIC(view: View) {
-        val intent = Intent(this,qrcode::class.java)
+        val intent = Intent(this,comic::class.java)
         startActivity(intent)
     }
 

@@ -51,6 +51,11 @@ import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
 import android.widget.ImageView
 import androidx.lifecycle.Observer
+import bottom_sheet
+import com.budiyev.android.codescanner.AutoFocusMode
+import com.budiyev.android.codescanner.CodeScanner
+import com.budiyev.android.codescanner.CodeScannerView
+import com.budiyev.android.codescanner.ScanMode
 import kotlinx.android.synthetic.main.activity_comic.comicinfo2
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_qrcode.textScanResult
@@ -60,55 +65,10 @@ import com.example.myapplication.comicqrcode
 
 
 
-class comic : AppCompatActivity() {
-/*
-    lateinit var beaconReferenceApplication: BeaconReferenceApplication
-    */
+class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
+
     var alertDialog: android.app.AlertDialog? = null
-    /*
-        var arFragment : CleanArFragment? = null
-        var model : ModelRenderable? = null //模型对象
-        var hostAnchor : Anchor? = null
 
-        var currentStatus : AnchorStatus = AnchorStatus.EMPTY
-        var statusTip : TextView? = null;   //显示当前状态的提示框
-        var codeNo : EditText? = null       //显示云锚点 id 的编辑框
-        var cleanBtn : Button? = null       //清理锚点按钮
-        var aynsBtn : Button? = null        //获取云锚点按钮
-        var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
-        val ClEAN_OVER = 0x1100             //清理界面锚点信号
-        val SYNC_START = 0x1101             //开始同步信号
-        val SYNC_OVER = 0x1102              //同步完成信号
-        val SYNC_FAILED = 0x1103            //同步失败信号
-        var handler = @SuppressLint("HandlerLeak")
-        object : Handler() {
-            override fun handleMessage(msg : Message) {
-                if (msg.what == SYNC_OVER) {
-                    statusTips.text = resources.getString(R.string.sync_over);
-                    var toShowStr = msg.obj as String
-                    codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
-                } else if (msg.what == SYNC_START) {
-                    statusTips.text = resources.getString(R.string.sync_progress);
-                } else if (msg.what == SYNC_FAILED) {
-                    statusTips.text = resources.getString(R.string.sync_failed);
-                } else if (msg.what == ClEAN_OVER) {
-                    statusTips.text = resources.getString(R.string.empty);
-                }
-            }
-        }
-
-        override fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<out String>,
-            grantResults: IntArray
-        ) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        }
-        private var imageCapture: ImageCapture? = null
-        private lateinit var outputDirectory: File
-        private lateinit var cameraExecutor: ExecutorService
-    */
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
@@ -133,6 +93,11 @@ class comic : AppCompatActivity() {
         intent.data = uri
         startActivity(intent)
 
+    }
+    fun TEST(view: View) {
+        val bottomSheetFragment = bottom_sheet()
+        bottomSheetFragment.listener = this@comic
+        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
     }
     private fun onClickRequestPermission() {
         when {
@@ -183,196 +148,12 @@ class comic : AppCompatActivity() {
 
         val bookvalue = comicqrcode.book
         qrcodebookshelf(bookvalue)
-/*
-        initAllCompenent()
-        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
-        arFragment!!.setOnTapArPlaneListener(listener)
-        cleanBtn!!.setOnClickListener(clickListener)
-        aynsBtn!!.setOnClickListener(clickListener)
-*/
 
-/*
-        val textView : TextView = findViewById(R.id.comicinfo)
-        val db = FirebaseFirestore.getInstance()
-        val collectionRef = db.collection("comic")
 
-       collectionRef
-            .whereEqualTo("ID", detectedValue)
-            .get()
-            .addOnSuccessListener { querySnapshot ->
-                for (document in querySnapshot.documents) {
-                    val documentId = document.id
-                    val pop1 = document.getString("pop1")
-                    textView.setText(pop1)
-                }
-            }
-*/
-/*
-        beaconReferenceApplication = application as BeaconReferenceApplication
-        val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
-        regionViewModel.rangedBeacons.observe(this, distanceRange)
-*/
-    }
-/*
-    private var clickListener = object : View.OnClickListener {
-        override fun onClick(p0: View?) {
-            when(p0!!.id)
-            {
-                cleanBtn!!.id -> {
-                    println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-                    //因为存在线程处理状态机的状态，加了并发控制锁
-                    synchronized(currentStatus)
-                    {
-                        cleanAllNode()
-                        currentStatus = AnchorStatus.EMPTY      //每次清理锚点，置状态机为初始状态
-                        handler.sendEmptyMessage(ClEAN_OVER)    //通知界面改变提示信息
-                    }
-                }
-                aynsBtn!!.id -> {
-                    if (codeNo!!.text.length <= 0) {    //如果没有云锚点的索引 ID 不使用云锚点
-                        return
-                    }
-                    var str = codeNo!!.text.toString()
-                    arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                    hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                    placeModel()
-                }
-            }
-        }
+
+
     }
 
-    private fun cleanAllNode() {
-        //没有节点被渲染，就不清空锚点集合
-        if (listNode.size == 0) {
-            return
-        }
-
-        //从界面清除被渲染的锚点
-        for (i in 0 .. listNode.lastIndex) {
-            arFragment!!.getArSceneView().getScene().removeChild(listNode.get(i))
-        }
-        //清空记录的渲染锚点集合
-        listNode.clear()
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun initAllCompenent() {
-        codeNo = editText
-        cleanBtn = clean
-        aynsBtn = ayns
-        statusTip = statusTips
-
-        ModelRenderable.builder().setSource(this, R.raw.taro)
-            .build().thenAccept { renderable -> model = renderable }
-            .exceptionally ({ it -> Log.e("XXX", "xxx"); null })
-    }
-
-
-
-    //设置放置模型的点击事件的监听器
-    var listener = object : BaseArFragment.OnTapArPlaneListener {
-        override fun onTapPlane(hitResult: HitResult?, plane: Plane?, motionEvent: MotionEvent?) {
-
-            //模型资源加载失败，不对锚点进行渲染处理
-            if (model == null)
-                return
-            synchronized(currentStatus)
-            {
-                //不是初始状态，不对锚点渲染模型，用于限制只有一个锚点模型
-                //不是初始状态即表明有一个锚点已经渲染
-                if (currentStatus != AnchorStatus.EMPTY) {
-                    return
-                }
-            }
-
-            //设置绘制的锚点为当前的本地锚点，同时将本地锚点同步至 google 的服务
-            hostAnchor = arFragment!!.arSceneView.session!!.hostCloudAnchor(hitResult!!.createAnchor())
-            run2Test()
-            placeModel()
-        }
-    }
-
-    private fun placeModel() {
-        var node = AnchorNode(hostAnchor)
-        arFragment!!.getArSceneView().getScene().addChild(node)
-        var andy = TransformableNode(arFragment!!.transformationSystem)
-        andy.setParent(node)
-        andy.renderable = model
-        andy.select()
-        listNode.add(node) //每次在界面上对锚点渲染（加载）3D 模型，就将当前被操作的锚点记录下来
-    }
-
-    //开线程获取本地锚点的同步状态（同时刷新状态机）
-    private fun run2Test() {
-        Thread(object : Runnable {
-            override fun run() {
-                //只要状态机线程跑起来，就设置状态机为同步中的状态
-                synchronized(currentStatus)
-                {
-                    currentStatus = AnchorStatus.HOSTING
-                }
-                //通知界面刷新同步中的状态提示
-                handler.sendEmptyMessage(SYNC_START)
-
-                //死循环检测锚点同步状态（暂时未发现回调）
-                loop@while (true) {
-                    Log.e("XXX", "keep running")
-                    Thread.sleep(1000)
-                    var tag = SYNC_START
-                    var showTip = ""
-                    synchronized(currentStatus)
-                    {
-
-                        if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.SUCCESS) {
-                            //同步完成，并且成功
-                            currentStatus = AnchorStatus.HOSTED     //调整状态机为同步完成
-                            Log.e("XXX", "run2Test 1 currentStatus = " + currentStatus)
-                            tag = SYNC_OVER
-                            showTip = hostAnchor!!.cloudAnchorId
-                        } else if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.TASK_IN_PROGRESS) {
-                            //同步中的状态不做任何处理，也不跳出死循环
-                        } else {
-                            //同步完成，但是失败
-                            currentStatus = AnchorStatus.HOST_FAILED  //调整状态机为同步失败
-                            Log.e("XXX", "run2Test 2 currentStatus = " + currentStatus)
-                            showTip = "" + hostAnchor!!.cloudAnchorState
-                            tag = SYNC_FAILED
-                        }
-                    }
-                    when (tag){
-                        SYNC_OVER, SYNC_FAILED -> {
-                            var msg = handler.obtainMessage()
-                            msg.what = tag
-                            msg.obj = showTip
-                            handler.sendMessage(msg)
-                            break@loop
-                        }
-                    }
-                }
-            }
-        }).start()
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun placeObject(arFragment: ArFragment, anchor: Anchor, uri: Int) {
-        ModelRenderable.builder()
-            .setSource(arFragment.context, uri)
-            .build()
-            .thenAccept { modelRenderable: ModelRenderable -> addNodeToScene(arFragment, anchor, modelRenderable) }
-            .exceptionally { throwable: Throwable ->
-                Toast.makeText(arFragment.getContext(), "Error:$throwable.message", Toast.LENGTH_LONG).show();
-                return@exceptionally null
-            }
-    }
-    private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
-        val anchorNode = AnchorNode(anchor)
-        val node = TransformableNode(arFragment.transformationSystem)
-        node.renderable = renderable
-        node.setParent(anchorNode)
-        arFragment.arSceneView.scene.addChild(anchorNode)
-        node.select()
-    }
-*/
     private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show()
@@ -405,12 +186,20 @@ class comic : AppCompatActivity() {
         val intent = Intent(this,qrcode::class.java)
         startActivity(intent);
     }
-
+    var a1trigger=false
+    var a2trigger=false
+    var a3trigger=false
+    var a4trigger=false
+    var b1trigger=false
+    var b2trigger=false
+    var b3trigger=false
     fun qrcodebookshelf(book: String) {
         val bookValue = comicqrcode.book
+
         when (bookValue) {
             "1-1" -> {
                 runOnUiThread {
+                    a1trigger=true
                     comicinfo.text = "《犬夜叉》"
                     comicinfo2.text = "故事圍繞著主角武藤遊戲，他在玩各種競技型遊戲時，被附身的古埃及遊戲精靈法老所引導，一同參加卡片遊戲「遊戲王」的冒險。"
                 }
@@ -454,89 +243,10 @@ class comic : AppCompatActivity() {
         }
     }
 
+    override fun onSelectDialog(select: String) {
+        Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
 
 
-
-
-
-    /*
-    val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
-    val major = 10001
-    val minor1 = 2902
-    val minor2 = 3203   //2908
-    val minor3 = 3223
-    val minor4 = 2903
-    val minor5 = 1846
-
-    var beacon1InRange = false
-    var beacon2InRange = false
-    var beacon3InRange = false
-    var beacon4InRange = false
-    var beacon5InRange = false
-
-
-
-    val distanceRange = Observer<Collection<Beacon>> { beacons ->
-        if (beacons.isNotEmpty()) {
-            val nearestBeacon = beacons.minByOrNull { it.distance }
-
-            if (nearestBeacon != null) {
-                val distance = nearestBeacon.distance
-                val id1 = nearestBeacon.id1
-                val id2 = nearestBeacon.id2
-                val id3 = nearestBeacon.id3
-
-                //2902
-                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            comicinfo.text = ""
-                            beacon1InRange = true
-                        }
-                    }
-                }
-                //2908
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            comicinfo.text = ""
-                            beacon2InRange = true
-                        }
-                    }
-                }
-                //3223
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            comicinfo.text = ""
-                            beacon3InRange = true
-                        }
-                    }
-                }
-                //2903
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            comicinfo.text = ""
-                            beacon4InRange = true
-                        }
-                    }
-                }
-                //1846
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            comicinfo.text = ""
-                            beacon5InRange = true
-
-                        }
-                    }
-                }
-            }
-        }
     }
-*/
-
-
 
 }

@@ -217,7 +217,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.myapplication.cam2"
+            android:name="com.example.myapplication.cam2_nomap"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -225,9 +225,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.myapplication.video"
+            android:name="com.example.myapplication.cam2"
             android:exported="false"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name="com.example.myapplication.aboutus"
             android:exported="false"
@@ -249,14 +254,7 @@
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="Instantiatable" />
-        <activity
-            android:name="com.example.myapplication.history"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.example.myapplication.help"
-            android:exported="false"
-            android:screenOrientation="landscape" />
+
         <activity
             android:name="com.example.myapplication.search"
             android:exported="false"

@@ -1,20 +1,9 @@
 package com.example.myapplication
 
-import android.widget.EditText
-import android.widget.TextView
-
-import com.google.ar.core.HitResult
-import com.google.ar.core.Plane
-
-
-
 import android.Manifest
-import com.google.ar.core.Anchor
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
-import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -25,26 +14,31 @@ import android.os.Message
 import android.provider.Settings
 import android.text.Editable
 import android.util.Log
-import android.widget.Button
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.inflate
-import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.CameraXThreads.TAG
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.core.impl.Observable
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ComplexColorCompat.inflate
-import com.example.myapplication.databinding.ActivityAboutusBinding.inflate
-import com.google.ar.core.*
+import androidx.lifecycle.Observer
+import bottom_sheet
+import com.budiyev.android.codescanner.AutoFocusMode
+import com.budiyev.android.codescanner.CodeScanner
+import com.budiyev.android.codescanner.CodeScannerView
+import com.budiyev.android.codescanner.ErrorCallback
+import com.budiyev.android.codescanner.ScanMode
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.ar.core.Anchor
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.rendering.ModelRenderable
@@ -54,36 +48,24 @@ import com.google.ar.sceneform.ux.BaseArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.snapshots
-import kotlinx.android.synthetic.main.activity_ar_test.*
-import kotlinx.android.synthetic.main.activity_cam2.*
-import java.io.File
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import javax.microedition.khronos.opengles.GL10
-import android.widget.ImageView
-
-
-import android.widget.ArrayAdapter
-import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_cam2.ayns
+import kotlinx.android.synthetic.main.activity_cam2.clean
+import kotlinx.android.synthetic.main.activity_cam2.comicinfo
+import kotlinx.android.synthetic.main.activity_cam2.editText
+import kotlinx.android.synthetic.main.activity_cam2.statusTips
+import kotlinx.android.synthetic.main.bottom_sheet.bottom_sheet
 import org.altbeacon.beacon.Beacon
 import org.altbeacon.beacon.BeaconManager
+import org.w3c.dom.Text
+import java.io.File
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.concurrent.ExecutorService
 
-import java.util.concurrent.atomic.AtomicInteger
-
-
-
-
-typealias LumaListener = (luma: Double) -> Unit
-class cam2 : AppCompatActivity() {
+class cam2_nomap : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener {
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
     var alertDialog: android.app.AlertDialog? = null
-
+    private lateinit var codeScanner: CodeScanner
 
     var arFragment : CleanArFragment? = null
     var model : ModelRenderable? = null //模型对象
@@ -93,7 +75,7 @@ class cam2 : AppCompatActivity() {
      */
     var currentStatus : AnchorStatus = AnchorStatus.EMPTY
     var statusTip : TextView? = null;   //显示当前状态的提示框
-    var codeNo : EditText? = null       //显示云锚点 id 的编辑框
+    var codeNo : TextView? = null       //显示云锚点 id 的编辑框
     var cleanBtn : Button? = null       //清理锚点按钮
     var aynsBtn : Button? = null        //获取云锚点按钮
     var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
@@ -107,7 +89,7 @@ class cam2 : AppCompatActivity() {
             if (msg.what == SYNC_OVER) {
                 statusTips.text = resources.getString(R.string.sync_over);
                 var toShowStr = msg.obj as String
-                codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
+
             } else if (msg.what == SYNC_START) {
                 statusTips.text = resources.getString(R.string.sync_progress);
             } else if (msg.what == SYNC_FAILED) {
@@ -159,7 +141,11 @@ class cam2 : AppCompatActivity() {
             onAgree()
 
         } else {
-            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    Manifest.permission.CAMERA
+                )
+            ) {
 
 
             }
@@ -244,12 +230,19 @@ class cam2 : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
-        setContentView(R.layout.activity_cam2)
+        setContentView(R.layout.cam2_nomap)
 
-        imageView = findViewById(R.id.librarymap)
-        imageView.setOnClickListener{
-            toggleImageVisibility()
-        }
+
+
+        //imageView = findViewById(R.id.librarymap)
+        //imageView.setOnClickListener{
+            //toggleImageVisibility()
+        //}
+        ///QR///
+
+
+
+
         ////////AR////
 
         initAllCompenent()
@@ -283,7 +276,7 @@ class cam2 : AppCompatActivity() {
         if(test==true){
 
             val db = FirebaseFirestore.getInstance()
-            val id_global=GlobalVariable.getName()
+            val id_global= GlobalVariable.getName()
             ///////////////////////////////////////////////
 
             println(id_global)
@@ -363,6 +356,7 @@ class cam2 : AppCompatActivity() {
         }
     }
 
+
     //清除界面锚点包括云锚点和本地锚点
     private fun cleanAllNode() {
         //没有节点被渲染，就不清空锚点集合
@@ -381,7 +375,8 @@ class cam2 : AppCompatActivity() {
     //界面空间映射，初始化模型资源
     @RequiresApi(Build.VERSION_CODES.N)
     private fun initAllCompenent() {
-        codeNo = editText
+        val textView : TextView = findViewById(R.id.editText)
+        codeNo = textView
         cleanBtn = clean
         aynsBtn = ayns
         statusTip = statusTips
@@ -487,7 +482,11 @@ class cam2 : AppCompatActivity() {
             .build()
             .thenAccept { modelRenderable: ModelRenderable -> addNodeToScene(arFragment, anchor, modelRenderable) }
             .exceptionally { throwable: Throwable ->
-                Toast.makeText(arFragment.getContext(), "Error:$throwable.message", Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                    arFragment.getContext(),
+                    "Error:$throwable.message",
+                    Toast.LENGTH_LONG
+                ).show();
                 return@exceptionally null
             }
     }
@@ -506,7 +505,7 @@ class cam2 : AppCompatActivity() {
             activity.finish()
             return false
         }
-        val openGlVersionString = (activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
+        val openGlVersionString = (activity.getSystemService(ACTIVITY_SERVICE) as ActivityManager)
             .deviceConfigurationInfo
             .glEsVersion
         if (openGlVersionString.toDouble() < 3.0) {
@@ -525,7 +524,11 @@ class cam2 : AppCompatActivity() {
 
     var check=0;
 
-
+    fun TEST(view: View) {
+        val bottomSheetFragment = bottom_sheet()
+        bottomSheetFragment.listener = this@cam2_nomap
+        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun finish(view: View) {
@@ -535,7 +538,7 @@ class cam2 : AppCompatActivity() {
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
             val end_time = current.format(formatter)
             record.end_time=end_time
-            val id_global=GlobalVariable.getName()
+            val id_global= GlobalVariable.getName()
             record.id=id_global
 
 
@@ -543,7 +546,7 @@ class cam2 : AppCompatActivity() {
             val db = FirebaseFirestore.getInstance()
 
             db.collection("record").add(record)
-            val intent = Intent(this,finish::class.java)
+            val intent = Intent(this, finish::class.java)
             startActivity(intent)
         }
 
@@ -570,7 +573,7 @@ class cam2 : AppCompatActivity() {
                 }
             }
         check=1;
-        val button_change :Button=findViewById(R.id.btn_capture)
+        val button_change : Button =findViewById(R.id.btn_capture)
         button_change.setText("抵達")
 
     }
@@ -584,10 +587,9 @@ class cam2 : AppCompatActivity() {
     }
 
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     fun back(view: View) {
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent);
         time();
 
@@ -686,4 +688,27 @@ class cam2 : AppCompatActivity() {
             }
         }
     }
+    override fun onSelectDialog(select: String) {
+        Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
+        lateinit var codeScanner: CodeScanner
+        val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
+
+        codeScanner = CodeScanner(this, scannerView)
+        codeScanner.startPreview()
+        codeScanner.camera = CodeScanner.CAMERA_BACK
+        codeScanner.formats = CodeScanner.ALL_FORMATS
+        codeScanner.autoFocusMode = AutoFocusMode.SAFE
+        codeScanner.scanMode = ScanMode.SINGLE
+        codeScanner.isAutoFocusEnabled = true
+        codeScanner.isFlashEnabled = false
+        codeScanner.errorCallback = ErrorCallback {
+            runOnUiThread{
+                Toast.makeText(this, "Error:${it.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
+
+    }
+
 }

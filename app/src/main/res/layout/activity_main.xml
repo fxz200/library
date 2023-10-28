@@ -17,6 +17,7 @@
 
 
         <Button
+            android:id="@+id/mid"
             android:layout_width="220dp"
             android:layout_height="90dp"
             android:layout_centerHorizontal="true"
@@ -44,12 +45,14 @@
         >
 
         <RelativeLayout
-
+            android:id="@+id/wh"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="50dp"
             android:background="@drawable/roound">
 
             <ImageView
@@ -57,78 +60,77 @@
                 android:id="@+id/user"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+
                 android:src="@drawable/user">
 
             </ImageView>
 
             <TextView
                 android:id="@+id/base"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
                 android:onClick="BASE"
                 android:text="@string/base"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                tools:ignore="OnClick,UsingOnClickInXml">
+                tools:ignore="OnClick,UsingOnClickInXml,TouchTargetSizeCheck">
 
             </TextView>
 
 
             <ImageView
+                android:layout_alignBottom="@id/fav"
                 android:id="@+id/heart"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_below="@id/user"
-                android:layout_marginTop="45dp"
-                android:layout_marginLeft="130dp"
+
+
                 android:src="@drawable/search">
 
             </ImageView>
 
             <TextView
                 android:id="@+id/fav"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/base"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="20dp"
                 android:onClick="SEARCH"
                 android:text="@string/search"
-                android:textSize="20sp"
+
                 android:textColor="@color/black"
-                tools:ignore="OnClick,UsingOnClickInXml">
+                android:textSize="20sp"
+                tools:ignore="OnClick,UsingOnClickInXml,TouchTargetSizeCheck">
 
             </TextView>
 
 
             <ImageView
+                android:layout_alignBottom="@id/readmod"
                 android:id="@+id/globe"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="450dp"
                 android:src="@drawable/book">
 
             </ImageView>
 
             <TextView
                 android:id="@+id/readmod"
-                android:layout_width="120dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="480dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="70dp"
+               android:layout_below="@id/fav"
+
                 android:onClick="READMOD"
                 android:text="@string/about"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                tools:ignore="OnClick,UsingOnClickInXml">
+                tools:ignore="OnClick,UsingOnClickInXml,TouchTargetSizeCheck">
 
             </TextView>
 
@@ -136,42 +138,42 @@
                 android:id="@+id/comic"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_below="@id/globe"
-                android:layout_marginTop="45dp"
-                android:layout_marginLeft="450dp"
+
+
+                android:layout_alignBottom="@id/comicmod"
                 android:src="@drawable/book">
             </ImageView>
 
             <TextView
                 android:id="@+id/comicmod"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/readmod"
-                android:layout_marginLeft="480dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="COMIC"
                 android:text="@string/comicenter"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                tools:ignore="OnClick,UsingOnClickInXml">
+                tools:ignore="OnClick,UsingOnClickInXml,TouchTargetSizeCheck">
 
             </TextView>
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:layout_below="@id/readmod"
-                android:layout_marginTop="70dp"
-                android:layout_toRightOf="@+id/fav"
-                android:layout_marginLeft="170dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/comicmod"
+
                 android:background="@drawable/logout"
                 android:text="@string/logout"
                 android:textColor="#880000"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:onClick="out"
-                tools:ignore="OnClick,UsingOnClickInXml">
+                tools:ignore="OnClick,UsingOnClickInXml"
+                android:layout_toRightOf="@id/comicmod"
+                android:layout_marginLeft="200dp">
 
 
             </Button>

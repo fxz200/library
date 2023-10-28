@@ -1,0 +1,85 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="12dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="100dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/box1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-1"
+                android:paddingRight="10dp"
+                android:checked="false"/>
+            <CheckBox
+                android:id="@+id/box1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-2"
+                android:paddingRight="10dp"
+                android:layout_below="@id/box1_1"
+                android:checked="false"/>
+            <CheckBox
+                android:id="@+id/box1_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-3"
+                android:paddingRight="10dp"
+                android:layout_below="@id/box1_2"
+                android:checked="false"/>
+            <CheckBox
+                android:id="@+id/box1_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-4"
+                android:paddingRight="10dp"
+                android:layout_below="@id/box1_3"
+                android:checked="false"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="掃描"
+                android:layout_toRightOf="@id/box1_2"
+                app:iconPadding="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/linkButton"
+                android:layout_below="@+id/shareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="換區"
+                android:layout_toRightOf="@id/box1_2"
+                app:iconPadding="16dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/editButton"
+                android:layout_toRightOf="@id/box1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Name"
+                android:layout_below="@+id/linkButton"
+                app:iconPadding="16dp" />
+        </RelativeLayout>
+
+</LinearLayout>
