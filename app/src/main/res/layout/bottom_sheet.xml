@@ -5,27 +5,36 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="12dp"
     app:behavior_hideable="true"
     app:behavior_peekHeight="100dp"
+    android:background="@drawable/fragment_dialog_bg"
+
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
 
 
     <RelativeLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <CheckBox
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:paddingRight="10dp"
+                android:clickable="false"
                 android:id="@+id/box1_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1-1"
-                android:paddingRight="10dp"
-                android:checked="false"/>
+                android:checked="false"
+                />
             <CheckBox
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:clickable="false"
                 android:id="@+id/box1_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,6 +43,9 @@
                 android:layout_below="@id/box1_1"
                 android:checked="false"/>
             <CheckBox
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:clickable="false"
                 android:id="@+id/box1_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,6 +54,9 @@
                 android:layout_below="@id/box1_2"
                 android:checked="false"/>
             <CheckBox
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:clickable="false"
                 android:id="@+id/box1_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +72,10 @@
                 android:layout_height="wrap_content"
                 android:text="掃描"
                 android:layout_toRightOf="@id/box1_2"
-                app:iconPadding="16dp" />
+                app:iconPadding="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="20dp"/>
 
             <com.google.android.material.button.MaterialButton
 
@@ -65,10 +83,13 @@
                 android:layout_below="@+id/shareButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+
                 android:text="換區"
                 android:layout_toRightOf="@id/box1_2"
-                app:iconPadding="16dp" />
+                app:iconPadding="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="20dp"/>
 
 
             <com.google.android.material.button.MaterialButton
@@ -77,9 +98,12 @@
                 android:layout_toRightOf="@id/box1_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit Name"
+                android:text="清除紀錄"
                 android:layout_below="@+id/linkButton"
-                app:iconPadding="16dp" />
+                app:iconPadding="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="20dp"/>
         </RelativeLayout>
 
 </LinearLayout>

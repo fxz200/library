@@ -29,7 +29,6 @@ import androidx.camera.core.impl.Observable
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import bottom_sheet
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
@@ -62,7 +61,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.ExecutorService
 
-class cam2_nomap : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener {
+class cam2_nomap : AppCompatActivity() {
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
     var alertDialog: android.app.AlertDialog? = null
     private lateinit var codeScanner: CodeScanner
@@ -525,9 +524,6 @@ class cam2_nomap : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListen
     var check=0;
 
     fun TEST(view: View) {
-        val bottomSheetFragment = bottom_sheet()
-        bottomSheetFragment.listener = this@cam2_nomap
-        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -688,27 +684,10 @@ class cam2_nomap : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListen
             }
         }
     }
-    override fun onSelectDialog(select: String) {
-        Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
-        lateinit var codeScanner: CodeScanner
-        val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
-
-        codeScanner = CodeScanner(this, scannerView)
-        codeScanner.startPreview()
-        codeScanner.camera = CodeScanner.CAMERA_BACK
-        codeScanner.formats = CodeScanner.ALL_FORMATS
-        codeScanner.autoFocusMode = AutoFocusMode.SAFE
-        codeScanner.scanMode = ScanMode.SINGLE
-        codeScanner.isAutoFocusEnabled = true
-        codeScanner.isFlashEnabled = false
-        codeScanner.errorCallback = ErrorCallback {
-            runOnUiThread{
-                Toast.makeText(this, "Error:${it.message}", Toast.LENGTH_LONG).show()
-            }
-        }
 
 
 
-    }
+
+
 
 }

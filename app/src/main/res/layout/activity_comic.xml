@@ -83,7 +83,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"></TextView>
+        tools:ignore="MissingConstraints">
+
+    </TextView>
 
     <TextView
         android:id="@+id/comicinfo2"
@@ -98,7 +100,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"></TextView>
+        tools:ignore="MissingConstraints">
+
+    </TextView>
 
 
 
