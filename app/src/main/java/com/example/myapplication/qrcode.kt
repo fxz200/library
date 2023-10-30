@@ -44,13 +44,7 @@ class qrcode : AppCompatActivity() {
 
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val find ="4"
-        var a1trigger=false
-        var a2trigger=false
-        var a3trigger=false
-        var a4trigger=false
-        var b1trigger=false
-        var b2trigger=false
-        var b3trigger=false
+
 
         val a1 ="1-1"
         val a2 = "1-2"
@@ -81,7 +75,6 @@ class qrcode : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a1
-                a1trigger=true
             } else if (it.text == a2){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)

@@ -45,30 +45,40 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
         </RelativeLayout>
-        <RelativeLayout
+        <ScrollView
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_marginTop="80dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
             <Button
-                android:layout_marginLeft="200dp"
+
+                android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
-                android:layout_height="56dp"
+                android:layout_height="70dp"
                 android:onClick="b_2_16"
                 android:id="@+id/b1"
                 android:text="社會科學總論、統計"
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="200dp"
+                android:layout_alignLeft="@+id/b1"
+                android:layout_alignRight="@+id/b1"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
-                android:layout_height="56dp"
+                android:layout_height="70dp"
                 android:layout_below="@+id/b1"
                 android:onClick="b_2_17"
                 android:id="@+id/b2"
@@ -76,13 +86,15 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="200dp"
+                android:layout_alignLeft="@+id/b2"
+                android:layout_alignRight="@+id/b2"
+
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
-                android:layout_height="56dp"
+                android:layout_height="70dp"
                 android:layout_below="@+id/b2"
                 android:onClick="b_2_18"
                 android:id="@+id/b3"
@@ -90,13 +102,15 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="200dp"
+                android:layout_alignLeft="@+id/b3"
+                android:layout_alignRight="@+id/b3"
+
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
-                android:layout_height="56dp"
+                android:layout_height="70dp"
                 android:layout_below="@id/b3"
                 android:onClick="b_2_19"
                 android:id="@+id/b4"
@@ -104,13 +118,14 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
-                android:layout_marginLeft="200dp"
+                android:layout_alignLeft="@+id/b4"
+                android:layout_alignRight="@+id/b4"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
-                android:layout_height="56dp"
+                android:layout_height="70dp"
 
                 android:layout_below="@+id/b4"
                 android:onClick="b_2_20"
@@ -119,10 +134,12 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_alignBottom="@+id/b3"
+                android:layout_alignTop="@+id/b3"
                 android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="56dp"
@@ -134,14 +151,16 @@
 
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_alignBottom="@+id/b1"
+                android:layout_alignTop="@+id/b1"
                 android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"
+
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="56dp"
-                android:layout_toRightOf="@+id/b4"
+                android:layout_toRightOf="@+id/b1"
                 android:onClick="b_3_2"
                 android:id="@+id/b7"
                 android:text="政治學"
@@ -149,10 +168,12 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_alignBottom="@+id/b2"
+                android:layout_alignTop="@+id/b2"
                 android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
+
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="56dp"
@@ -165,10 +186,11 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_alignBottom="@+id/b4"
+                android:layout_alignTop="@+id/b4"
                 android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="56dp"
@@ -181,10 +203,11 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
+                android:layout_alignBottom="@+id/b4"
+                android:layout_alignTop="@+id/b4"
                 android:layout_marginLeft="100dp"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                android:layout_marginTop="11dp"
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="56dp"
@@ -196,6 +219,7 @@
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
         </RelativeLayout>
+        </ScrollView>
     </LinearLayout>
 </RelativeLayout>
 

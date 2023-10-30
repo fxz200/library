@@ -49,6 +49,7 @@
                 android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
@@ -101,8 +102,9 @@
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="80dp"
-                android:layout_below="@+id/b3"
-                android:layout_marginLeft="240dp"
+                android:layout_below="@+id/b1"
+                android:layout_alignLeft="@+id/b1"
+                android:layout_alignRight="@+id/b1"
                 android:onClick="b_2_8"
                 android:id="@+id/b4"
                 android:text="地理、化學"
@@ -116,8 +118,10 @@
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="60dp"
+
                 android:layout_toRightOf="@+id/b4"
+                android:layout_alignLeft="@+id/b2"
+                android:layout_alignRight="@+id/b2"
                 android:onClick="b_2_9"
                 android:id="@+id/b5"
                 android:text="地學、生態、生物學"

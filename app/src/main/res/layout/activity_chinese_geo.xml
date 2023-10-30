@@ -88,19 +88,23 @@
                 android:layout_marginLeft="60dp"
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_alignLeft="@+id/b1"
+                android:layout_alignRight="@+id/b1"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/a2b38b_green"
                 android:layout_width="190dp"
                 android:layout_height="80dp"
-                android:layout_below="@+id/b3"
+                android:layout_below="@+id/b1"
                 android:onClick="b_3_10"
                 android:id="@+id/b4"
                 android:text="中國史料"
-                android:layout_marginLeft="240dp"
+
                 tools:ignore="OnClick,UsingOnClickInXml" />
             <Button
+                android:layout_alignLeft="@+id/b2"
+                android:layout_alignRight="@+id/b2"
                 android:layout_below="@+id/b2"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -108,7 +112,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:layout_width="190dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="60dp"
+
                 android:layout_toRightOf="@+id/b4"
                 android:onClick="b_3_11"
                 android:id="@+id/b5"

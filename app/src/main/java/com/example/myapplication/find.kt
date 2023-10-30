@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.text.Html
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 
 
 class find : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.HONEYCOMB)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find)

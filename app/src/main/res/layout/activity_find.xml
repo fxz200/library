@@ -12,13 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/bar_green"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/back"
@@ -26,12 +28,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@null"
-                android:gravity="center"
+                android:layout_alignBaseline="@+id/qrcode"
                 android:onClick="back"
                 android:text="@string/back"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -48,11 +49,18 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
+        <ScrollView
 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
             android:layout_width="600dp"
             android:layout_height="350dp"
-            android:layout_marginLeft="140dp">
+
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/total"
@@ -62,7 +70,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="total"
                 android:text="@string/total"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -75,7 +83,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="philo"
                 android:text="@string/philo"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -88,7 +96,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="religion"
                 android:text="@string/religion"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -103,7 +111,7 @@
                 android:onClick="natural"
                 android:textStyle="bold"
                 android:text="@string/natural"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
             <Button
@@ -117,7 +125,7 @@
                 android:background="@drawable/a2b38b_green"
                 android:onClick="applied"
                 android:text="@string/applied"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -146,7 +154,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="geography"
                 android:text="@string/geography"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -161,7 +169,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="chinese_geo"
                 android:text="@string/chinese_geo"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -176,7 +184,7 @@
                 android:background="@drawable/c6d0ba_round"
                 android:onClick="foreign_geo"
                 android:text="@string/foreign_geo"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -190,7 +198,7 @@
                 android:background="@drawable/a2b38b_green"
                 android:onClick="literature"
                 android:text="@string/literature"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -205,10 +213,11 @@
                 android:background="@drawable/a2b38b_green"
                 android:onClick="art"
                 android:text="@string/art"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml" />
         </RelativeLayout>
+        </ScrollView>
     </LinearLayout>
 </RelativeLayout>
 

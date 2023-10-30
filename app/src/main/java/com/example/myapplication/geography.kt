@@ -10,7 +10,11 @@ class geography : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_geography)
     }
+    fun back(view: View) {
 
+        val intent = Intent(this,find::class.java)
+        startActivity(intent)
+    }
     fun b_3_6(view: View) {
         val bundle = Bundle()
         bundle.putString("datanum", "3B06")
