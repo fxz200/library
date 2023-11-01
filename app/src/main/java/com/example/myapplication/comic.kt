@@ -7,6 +7,7 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -29,6 +30,7 @@ import kotlinx.android.synthetic.main.activity_ar_test.*
 import kotlinx.android.synthetic.main.activity_cam2.*
 import kotlinx.android.synthetic.main.activity_comic.comicinfo2
 import kotlinx.android.synthetic.main.activity_main2.*
+
 
 
 class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
@@ -158,10 +160,10 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
 
-    fun qrcode(view: View) {
-        val intent = Intent(this,qrcode::class.java)
-        startActivity(intent);
-    }
+    //fun qrcode(view: View) {
+       // val intent = Intent(this,qrcode::class.java)
+       // startActivity(intent);
+   // }
 
 
 
@@ -172,6 +174,9 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
     ){
 
     }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     fun qrcodebookshelf(book: String) {
         var bookValue = comicqrcode.book
         if (bookValue==""){
@@ -187,40 +192,49 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                     val name=book.name
                     val info=book.info
                     comicinfo.text = name
+
                     comicinfo2.text = info
+
                     when (id) {
                         "1-1" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta1trigger("1")
                             }
                         }
                         "1-2" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta2trigger("1")
                             }
                         }
                         "1-3" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta3trigger("1")
                             }
                         }
                         "1-4" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta4trigger("1")
                             }
                         }
                         "2-1" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb1trigger("1")
                             }
                         }
                         "2-2" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb2trigger("1")
                             }
                         }
                         "2-3" -> {
                             runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb3trigger("1")
                             }
                         }
