@@ -8,10 +8,12 @@
     tools:context=".comic">
 
     <fragment
+        android:id="@+id/ux_fragment"
+        android:name="com.example.myapplication.CleanArFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ux_fragment"
-        android:name="com.example.myapplication.CleanArFragment"/>
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:textSize="17sp"
@@ -81,8 +83,8 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="@string/app_name"
-        android:background="@drawable/c6d0ba_round"
+        android:text=""
+        android:background="@color/login_green"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -97,9 +99,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:textColor="@color/black"
-        android:background="@drawable/deep_green"
+        android:background="@color/bar_green"
         android:textSize="17sp"
-        android:text="@string/app_name"
+        android:text=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"

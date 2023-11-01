@@ -50,6 +50,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:replace="label,allowBackup">
         <activity
+            android:name="com.example.myapplication.tocomic"
+            android:exported="false" />
+        <activity
             android:name="com.example.myapplication.qr_scan"
             android:exported="false" />
         <activity

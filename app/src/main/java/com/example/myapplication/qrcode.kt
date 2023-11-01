@@ -46,13 +46,16 @@ class qrcode : AppCompatActivity() {
         val find ="4"
 
 
-        val a1 ="1-1"
+        val a1 = "1-1"
         val a2 = "1-2"
         val a3 = "1-3"
         val a4 = "1-4"
+        val a5 = "1-5"
         val b1 = "2-1"
         val b2 = "2-2"
         val b3 = "2-3"
+        val b4 = "2-4"
+        val b5 = "2-5"
         val e = "QRCODE錯誤，請重新掃描。"
 
 
@@ -67,9 +70,7 @@ class qrcode : AppCompatActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             if (it.text == find){
-
                 val intent = Intent(this, find::class.java)
-
                 startActivity(intent)
             } else if (it.text == a1){
                 val intent = Intent(this, comic::class.java)

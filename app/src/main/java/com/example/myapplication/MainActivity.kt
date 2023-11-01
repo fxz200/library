@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun COMIC(view: View) {
-        val intent = Intent(this,comic::class.java)
+        val intent = Intent(this,tocomic::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
