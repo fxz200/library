@@ -8,12 +8,10 @@
     tools:context=".comic">
 
     <fragment
-        android:id="@+id/ux_fragment"
-        android:name="com.example.myapplication.CleanArFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:id="@+id/ux_fragment"
+        android:name="com.example.myapplication.CleanArFragment"/>
 
     <Button
         android:textSize="17sp"
@@ -50,22 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick,UsingOnClickInXml" />
 
-    <Button
-        android:textSize="17sp"
-        android:textColor="@color/white"
-        android:background="@drawable/round_button"
-        android:layout_marginLeft="550dp"
-        android:layout_marginBottom="200dp"
-        android:onClick="qrcode"
-        android:id="@+id/qrcode"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/toqrcode"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="OnClick,UsingOnClickInXml" />
+
 <!--
     <ImageView
         android:id="@+id/message"
@@ -83,8 +66,8 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text=""
-        android:background="@color/login_green"
+
+        android:background="@drawable/c6d0ba_round"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -99,9 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:textColor="@color/black"
-        android:background="@color/bar_green"
         android:textSize="17sp"
-        android:text=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
