@@ -15,6 +15,7 @@ class religion : AppCompatActivity() {
 
         val intent = Intent(this, find::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
 
     fun b_29(view: View) {

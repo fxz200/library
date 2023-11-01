@@ -50,6 +50,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:replace="label,allowBackup">
         <activity
+            android:name="com.example.myapplication.qr_scan"
+            android:exported="false" />
+        <activity
             android:name="com.example.myapplication.comic"
             android:exported="false"
             android:screenOrientation="landscape" />
@@ -232,7 +235,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.example.myapplication.aboutus"
             android:exported="false"
@@ -254,7 +256,6 @@
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="Instantiatable" />
-
         <activity
             android:name="com.example.myapplication.search"
             android:exported="false"

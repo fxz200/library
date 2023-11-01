@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+
 import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
 import android.content.Intent
@@ -41,27 +42,32 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this,read::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in, R.anim.stop)
     }
 
     fun SEARCH(view: View) {
         val intent = Intent(this,search::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in, R.anim.stop)
     }
     fun qrcode(view: View) {
         val bundle = intent.extras
         val id_get = bundle?.getString("id")
         var id=GlobalVariable.setName("${id_get}")
-        val intent = Intent(this, qrcode::class.java)
+        val intent = Intent(this, find::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
     fun out(view: View) {
         val intent = Intent(this,login::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in, R.anim.stop)
     }
 
     fun COMIC(view: View) {
         val intent = Intent(this,comic::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
 
 }

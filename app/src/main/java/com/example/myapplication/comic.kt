@@ -23,6 +23,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import bottom_sheet
 import com.google.ar.core.*
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_ar_test.*
 import kotlinx.android.synthetic.main.activity_cam2.*
 import kotlinx.android.synthetic.main.activity_comic.comicinfo2
@@ -153,6 +155,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
     fun back(view: View) {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent);
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
 
     fun qrcode(view: View) {
@@ -162,59 +165,70 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
 
 
+    class Book(
+        var id:String="",
+        var name:String="",
+        var info:String="",
+    ){
 
+    }
     fun qrcodebookshelf(book: String) {
-        val bookValue = comicqrcode.book
-        when (bookValue) {
-            "1-1" -> {
-                runOnUiThread {
-                    GlobalVariable.seta1trigger("1")
-                    comicinfo.text = "《犬夜叉》"
-                    comicinfo2.text = "故事圍繞著主角武藤遊戲，他在玩各種競技型遊戲時，被附身的古埃及遊戲精靈法老所引導，一同參加卡片遊戲「遊戲王」的冒險。"
+        var bookValue = comicqrcode.book
+        if (bookValue==""){
+            bookValue="default"
+        }
+        val db = FirebaseFirestore.getInstance()
+        db.collection("comic_book").document("${bookValue}")
+            .get()
+            .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
+                val book = documentSnapshot.toObject(comic.Book::class.java)
+                if (book != null) {
+                    val id=book.id
+                    val name=book.name
+                    val info=book.info
+                    comicinfo.text = name
+                    comicinfo2.text = info
+                    when (id) {
+                        "1-1" -> {
+                            runOnUiThread {
+                                GlobalVariable.seta1trigger("1")
+                            }
+                        }
+                        "1-2" -> {
+                            runOnUiThread {
+                                GlobalVariable.seta2trigger("1")
+                            }
+                        }
+                        "1-3" -> {
+                            runOnUiThread {
+                                GlobalVariable.seta3trigger("1")
+                            }
+                        }
+                        "1-4" -> {
+                            runOnUiThread {
+                                GlobalVariable.seta4trigger("1")
+                            }
+                        }
+                        "2-1" -> {
+                            runOnUiThread {
+                                GlobalVariable.setb1trigger("1")
+                            }
+                        }
+                        "2-2" -> {
+                            runOnUiThread {
+                                GlobalVariable.setb2trigger("1")
+                            }
+                        }
+                        "2-3" -> {
+                            runOnUiThread {
+                                GlobalVariable.setb3trigger("1")
+                            }
+                        }
+
+
                 }
             }
-            "1-2" -> {
-                runOnUiThread {
-                    GlobalVariable.seta2trigger("1")
-                    comicinfo.text = "《遊戲王》"
-                    comicinfo2.text = "故事圍繞著犬夜叉以及他的冒險夥伴一同尋找四魂之玉碎片，對抗強大的妖怪奈落。"
-                }
-            }
-            "1-3" -> {
-                runOnUiThread {
-                    GlobalVariable.seta3trigger("1")
-                    comicinfo.text = "《美少女戰士》"
-                    comicinfo2.text = "故事講述青少女主角月野兔與她的朋友們，她們具有超能力和魔法，化身水手服美少女戰士對抗邪惡勢力。"
-                }
-            }
-            "1-4" -> {
-                runOnUiThread {
-                    GlobalVariable.seta4trigger("1")
-                    comicinfo.text = "《家有賤狗》"
-                    comicinfo2.text = "一位單身父親丹尼‧坦納，他在妻子去世後獨自撫養三個女兒。為了照顧女兒，他請了朋友傑西、兄弟喬伊，共同居住在一個名為「Full House」的三層樓房子中。"
-                }
-            }
-            "2-1" -> {
-                runOnUiThread {
-                    GlobalVariable.setb1trigger("1")
-                    comicinfo.text = "《航海王》"
-                    comicinfo2.text = "描述海賊蒙其·D·魯夫 想要得到「ONE PIECE」和成為「海賊王」為夢想而出海向「偉大的航道」航行的海洋冒險故事。"
-                }
-            }
-            "2-2" -> {
-                runOnUiThread {
-                    GlobalVariable.setb2trigger("1")
-                    comicinfo.text = "《妖怪手錶》"
-                    comicinfo2.text = "故事講述主人公偶然發現一枚特殊的妖怪手錶，使他能看到妖怪世界。他與各種妖怪成為朋友。他們一起冒險，解決問題，同時揭示了妖怪的秘密。"
-                }
-            }
-            "2-3" -> {
-                runOnUiThread {
-                    GlobalVariable.setb3trigger("1")
-                    comicinfo.text = "《笑傲江湖》"
-                    comicinfo2.text = "故事背景是中國古代的江湖世界，各種武功流派和門派爭鬥不斷。故事圍繞著令狐沖展開，他在江湖中歷經艱難，結識了各種人物，涉足了各個門派，最終成為一名武林高手。"
-                }
-            }
+
         }
     }
 
@@ -225,7 +239,11 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
     override fun onSelectDialog(select: String) {
 
         Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
-
+        if (select=="Share"){
+            val intent = Intent(this,qr_scan::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_up, R.anim.stop)
+        }
     }
 
 }

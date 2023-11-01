@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/bar_green"
+    tools:context=".qr_scan">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <com.budiyev.android.codescanner.CodeScannerView
+                android:id="@+id/scanner_view"
+                android:layout_width="400dp"
+                android:layout_height="280dp"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/textScanResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/plaesescan"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:onClick="test"
+                android:textColor="@color/black"
+                tools:ignore="OnClick,UsingOnClickInXml"/>
+
+            <Button
+                android:background="@drawable/circle_0"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⇓"
+                android:onClick="back"
+                tools:ignore="UsingOnClickInXml" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

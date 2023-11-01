@@ -2,13 +2,11 @@ package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import android.text.Html
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+
 
 
 class find : AppCompatActivity() {
@@ -17,15 +15,20 @@ class find : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
+
     }
+
     fun id_trans(page:AppCompatActivity){
         val intent = Intent(this, page::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in, R.anim.stop)
     }
     fun back(view: View) {
 
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
     fun total(view: View) {
         id_trans(total())

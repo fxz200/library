@@ -14,5 +14,6 @@ class monitor : AppCompatActivity() {
     fun back(view: View) {
         val intent = Intent(this,usersetting::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
 }

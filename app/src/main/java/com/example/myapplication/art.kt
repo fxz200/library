@@ -22,6 +22,7 @@ class art : AppCompatActivity() {
 
         val intent = Intent(this, find::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
 
     fun b_7_1(view: View) {

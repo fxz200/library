@@ -106,5 +106,6 @@ class finish : AppCompatActivity() {
 
         val intent = Intent(this,cam2::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
 }

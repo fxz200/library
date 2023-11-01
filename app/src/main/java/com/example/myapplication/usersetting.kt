@@ -18,6 +18,7 @@ class usersetting : AppCompatActivity() {
 
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
     fun MONITOR(view: View) {
 

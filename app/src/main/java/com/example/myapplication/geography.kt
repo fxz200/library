@@ -14,6 +14,7 @@ class geography : AppCompatActivity() {
 
         val intent = Intent(this,find::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
     }
     fun b_3_6(view: View) {
         val bundle = Bundle()

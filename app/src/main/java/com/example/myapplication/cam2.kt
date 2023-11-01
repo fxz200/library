@@ -590,6 +590,7 @@ class cam2 : AppCompatActivity() {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent);
         time();
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
 
     }
 

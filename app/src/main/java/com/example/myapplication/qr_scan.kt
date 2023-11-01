@@ -25,7 +25,7 @@ import com.example.myapplication.comicqrcode
 
 
 
-class qrcode : AppCompatActivity() {
+class qr_scan : AppCompatActivity() {
 
     lateinit var beaconReferenceApplication: BeaconReferenceApplication
 
@@ -36,7 +36,7 @@ class qrcode : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qrcode)
+        setContentView(R.layout.activity_qr_scan)
 
         beaconReferenceApplication = application as BeaconReferenceApplication
         val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
@@ -212,14 +212,14 @@ class qrcode : AppCompatActivity() {
     }
     fun back(view: View) {
 
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,comic::class.java)
         startActivity(intent)
-        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
+        overridePendingTransition(R.anim.slide_out_down, R.anim.stop)
     }
 
     fun test(view: View) {
-        val intent = Intent(this,find::class.java)
-        startActivity(intent)
+        //val intent = Intent(this,find::class.java)
+        //startActivity(intent)
     }
 
     val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"

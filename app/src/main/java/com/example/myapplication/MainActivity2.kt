@@ -205,6 +205,7 @@ class MainActivity2 : AppCompatActivity() {
 
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
 
 }

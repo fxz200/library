@@ -19,6 +19,7 @@ class feedback : AppCompatActivity() {
     fun back(view: View) {
         val intent = Intent(this,usersetting::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
     @SuppressLint("IntentReset")
     private fun sendEmail() {

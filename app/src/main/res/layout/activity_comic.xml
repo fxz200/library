@@ -14,6 +14,9 @@
         android:name="com.example.myapplication.CleanArFragment"/>
 
     <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +31,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+
         android:textSize="17sp"
         android:textColor="@color/white"
         android:background="@drawable/round_button"

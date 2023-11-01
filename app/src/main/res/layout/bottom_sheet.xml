@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <CheckBox
+
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:paddingRight="10dp"
@@ -74,7 +75,7 @@
                 android:layout_toRightOf="@id/box1_2"
                 app:iconPadding="16dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="450dp"
                 android:layout_marginRight="20dp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -88,7 +89,7 @@
                 android:layout_toRightOf="@id/box1_2"
                 app:iconPadding="16dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="450dp"
                 android:layout_marginRight="20dp"/>
 
 
@@ -102,7 +103,7 @@
                 android:layout_below="@+id/linkButton"
                 app:iconPadding="16dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="450dp"
                 android:layout_marginRight="20dp"/>
         </RelativeLayout>
 

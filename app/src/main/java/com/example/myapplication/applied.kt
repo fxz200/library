@@ -16,6 +16,7 @@ class applied : AppCompatActivity() {
 
         val intent = Intent(this, find::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_sl, R.anim.stop)
 
     }
 
@@ -25,6 +26,7 @@ class applied : AppCompatActivity() {
         val intent = Intent(this, cam2::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
+
     }
     fun b_2_11(view: View) {
         val bundle = Bundle()

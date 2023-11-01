@@ -56,23 +56,7 @@ class bottom_sheet :  BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val db = FirebaseFirestore.getInstance()
-        //db.collection("comic").document("${datanum}")
-          //  .get()
-           // .addOnSuccessListener { documentSnapshot: DocumentSnapshot ->
-             //   val bookshelf = documentSnapshot.toObject(cam2.Bookshelf::class.java)
-               // if (bookshelf != null) {
-                 //   val id=bookshelf.ID
-                   // val id_str = "${id}"
 
-                    //if (id_str=="1846"){
-                        //box1_1.isChecked=true
-                    //}
-
-
-               // }
-          //  }
-        //GlobalVariable.seta1trigger("1")
         var a1trigger=GlobalVariable.geta1trigger()
         var a2trigger=GlobalVariable.geta2trigger()
         var a3trigger=GlobalVariable.geta3trigger()
