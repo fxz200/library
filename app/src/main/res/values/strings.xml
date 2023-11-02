@@ -141,7 +141,10 @@
     <string name="end">停止導覽</string>
     <string name="toqrcode">掃描QRCODE</string>
     <string name="welcome_comic">歡迎來到漫畫區</string>
-    <string name="directions">請掃描書櫃附近的QRCODE來查看漫畫簡介，</string>
-    <string name="list">並可使用選單功能來查看學習進度。</string>
+    <string name="directions">請利用選單內的掃描功能，掃描書櫃附近的QRCODE來查看漫畫簡介，</string>
+    <string name="list">並可在選單查看學習進度。</string>
     <string name="start">開始學習</string>
+    <string name="comic">漫畫介紹</string>
+    <string name="author">作者介紹</string>
+    <string name="direction">請到選單點擊掃描按鈕來掃描QRCODE!</string>
 </resources>

@@ -50,9 +50,11 @@ class qr_scan : AppCompatActivity() {
         val a2 = "1-2"
         val a3 = "1-3"
         val a4 = "1-4"
+        val a5 = "1-5"
         val b1 = "2-1"
         val b2 = "2-2"
         val b3 = "2-3"
+        val b4 = "2-4"
         val e = "QRCODE錯誤，請重新掃描。"
 
 
@@ -87,6 +89,10 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a4
+            }else if (it.text == a5){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = a5
             } else if (it.text == b1){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
@@ -99,7 +105,11 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b3
-            } else{
+            } else if (it.text == b4){
+                val intent = Intent(this, comic::class.java)
+                startActivity(intent)
+                comicqrcode.book = b4
+            }else{
                 runOnUiThread{
                     textScanResult.text = e
                 }
@@ -249,19 +259,19 @@ class qr_scan : AppCompatActivity() {
                 val id3 = nearestBeacon.id3
 
                 //2902
-                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            textScanResult.text = "歡迎來到漫畫區"
-                            beacon1InRange = true
-                        }
-                    }
-                }
+//                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
+//                    if (distance < 2) {
+//                        runOnUiThread {
+//                            textScanResult.text = "歡迎來到漫畫區"
+//                            beacon1InRange = true
+//                        }
+//                    }
+//                }
                 //2908
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                 if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有4個QRCODE"
+                            textScanResult.text = "此區域有5個QRCODE"
                             beacon2InRange = true
                         }
                     }
@@ -271,7 +281,7 @@ class qr_scan : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有4個QRCODE"
+                            textScanResult.text = "此區域有5個QRCODE"
                             beacon3InRange = true
                         }
                     }
@@ -280,7 +290,7 @@ class qr_scan : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有3個QRCODE"
+                            textScanResult.text = "此區域有4個QRCODE"
                             beacon4InRange = true
                         }
                     }
@@ -289,7 +299,7 @@ class qr_scan : AppCompatActivity() {
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有3個QRCODE"
+                            textScanResult.text = "此區域有4個QRCODE"
                             beacon5InRange = true
 
                         }

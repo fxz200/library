@@ -8,10 +8,12 @@
     tools:context=".comic">
 
     <fragment
+        android:id="@+id/ux_fragment"
+        android:name="com.example.myapplication.CleanArFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ux_fragment"
-        android:name="com.example.myapplication.CleanArFragment"/>
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:textSize="17sp"
@@ -47,8 +49,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick,UsingOnClickInXml" />
-
-
+    <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="200dp"
+        android:onClick="change"
+        android:id="@+id/author"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/author"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick,UsingOnClickInXml" />
+<!--
+    <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="200dp"
+        android:onClick="qrcode"
+        android:id="@+id/qrcode"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/toqrcode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick,UsingOnClickInXml" /> -->
 <!--
     <ImageView
         android:id="@+id/message"
@@ -62,12 +95,12 @@
         android:id="@+id/comicinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="45dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
-
-        android:background="@drawable/c6d0ba_round"
+        android:text=""
+        android:background="@color/login_green"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -76,13 +109,27 @@
 
     </TextView>
 
+    <ImageView
+        android:id="@+id/book"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/dog"
+        android:alpha="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/comicinfo2"
-        android:layout_width="270dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="250dp"
         android:textColor="@color/black"
+        android:background="@android:color/transparent"
         android:textSize="17sp"
+        android:text=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"

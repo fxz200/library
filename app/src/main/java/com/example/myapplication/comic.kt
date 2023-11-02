@@ -158,6 +158,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent);
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
+        comicqrcode.book = ""
     }
 
     //fun qrcode(view: View) {
@@ -171,6 +172,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         var id:String="",
         var name:String="",
         var info:String="",
+        var author:String="",
     ){
 
     }
@@ -191,51 +193,100 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                     val id=book.id
                     val name=book.name
                     val info=book.info
+                    val author=book.author
                     comicinfo.text = name
-
                     comicinfo2.text = info
+
+                    val change = findViewById<Button>(R.id.author)
+                    val comic = findViewById<TextView>(R.id.comicinfo2)
+                    val book = findViewById<ImageView>(R.id.book)
+
+                    var isTextVisible = true
+                    change.setOnClickListener {
+                        if (isTextVisible) {
+                            comic.text = info
+                            change.text = "作者介紹"
+                        } else {
+                            comic.text = author
+                            change.text = "漫畫介紹"
+
+                        }
+                        isTextVisible = !isTextVisible
+                    }
 
                     when (id) {
                         "1-1" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta1trigger("1")
+                                book.setImageResource(R.drawable.dog)
+                                book.alpha = 1.0f
                             }
                         }
+
                         "1-2" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta2trigger("1")
+                                book.setImageResource(R.drawable.gameboy)
+                                book.alpha = 1.0f
                             }
                         }
+
                         "1-3" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta3trigger("1")
+                                book.setImageResource(R.drawable.beautiful)
+                                book.alpha = 1.0f
                             }
                         }
                         "1-4" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta4trigger("1")
+                                book.setImageResource(R.drawable.house)
+                                book.alpha = 1.0f
+                            }
+                        }
+                        "1-5" -> {
+                            runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
+                                GlobalVariable.seta4trigger("1")
+                                book.setImageResource(R.drawable.underwear)
+                                book.alpha = 1.0f
                             }
                         }
                         "2-1" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb1trigger("1")
+                                book.setImageResource(R.drawable.onepiece)
+                                book.alpha = 1.0f
                             }
                         }
                         "2-2" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb2trigger("1")
+                                book.setImageResource(R.drawable.funny)
+                                book.alpha = 1.0f
                             }
                         }
                         "2-3" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.setb3trigger("1")
+                                book.setImageResource(R.drawable.laugh)
+                                book.alpha = 1.0f
+                            }
+                        }
+                        "2-4" -> {
+                            runOnUiThread {
+                                comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
+                                GlobalVariable.setb3trigger("1")
+                                book.setImageResource(R.drawable.seven)
+                                book.alpha = 1.0f
                             }
                         }
 
