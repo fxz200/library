@@ -51,10 +51,12 @@
         tools:replace="label,allowBackup">
         <activity
             android:name="com.example.myapplication.tocomic"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.example.myapplication.qr_scan"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.example.myapplication.comic"
             android:exported="false"

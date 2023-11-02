@@ -134,22 +134,6 @@
         android:src="@drawable/f4"
         tools:ignore="MissingConstraints"/>
 
-    <TextView
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:id="@+id/comicinfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="-390dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:textStyle="bold"
-        android:background="@drawable/c6d0ba_round">
-    </TextView>
-
 
 
 

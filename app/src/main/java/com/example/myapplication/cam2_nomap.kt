@@ -49,7 +49,6 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_cam2.ayns
 import kotlinx.android.synthetic.main.activity_cam2.clean
-import kotlinx.android.synthetic.main.activity_cam2.comicinfo
 import kotlinx.android.synthetic.main.activity_cam2.editText
 import kotlinx.android.synthetic.main.activity_cam2.statusTips
 import kotlinx.android.synthetic.main.bottom_sheet.bottom_sheet
@@ -312,12 +311,6 @@ class cam2_nomap : AppCompatActivity() {
 
         val start_time= current.format(formatter)
         record.start_time=start_time
-
-        //////////Beacon/////////
-        beaconReferenceApplication = application as BeaconReferenceApplication
-        val regionViewModel = BeaconManager.getInstanceForApplication(this).getRegionViewModel(beaconReferenceApplication.region)
-        regionViewModel.rangedBeacons.observe(this, distanceRange)
-        //regionViewModel.rangedBeacons.observe(this, distanceRange2)
 
 
     }
@@ -591,102 +584,6 @@ class cam2_nomap : AppCompatActivity() {
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
 
     }
-
-    val uuid = "fda50693-a4e2-4fb1-afcf-c6eb07647825"
-    val major = 10001
-    val minor1 = 2912
-    val minor2 = 2908
-    val minor3 = 3223
-    val minor4 = 2903
-    val minor5 = 1846
-
-    var beacon1InRange = false
-    var beacon2InRange = false
-    var beacon3InRange = false
-    var beacon4InRange = false
-    var beacon5InRange = false
-
-
-    val distanceRange = Observer<Collection<Beacon>> { beacons ->
-        if (beacons.isNotEmpty()) {
-            val nearestBeacon = beacons.minByOrNull { it.distance }
-
-            if (nearestBeacon != null) {
-                val distance = nearestBeacon.distance
-                val id1 = nearestBeacon.id1
-                val id2 = nearestBeacon.id2
-                val id3 = nearestBeacon.id3
-
-                //2902
-                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            beacon1InRange = true
-                            comicinfo.text = "歡迎來到漫畫區"
-                            var str = "ua-be730ffd5325c030f76875dc7f10374f"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
-                        }
-                    }
-                }
-                //2908
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            beacon2InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
-                        }
-                    }
-                }
-                //3223
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            beacon3InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
-                        }
-                    }
-                }
-                //290
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            beacon4InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
-                        }
-                    }
-                }
-                //1846
-                else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
-                    if (distance < 2) {
-                        runOnUiThread {
-                            beacon5InRange = true
-                            comicinfo.text = "2"
-                            var str = "ua-a5cbfdad1b84376e0fcca1567198170b"
-                            arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                            hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                            placeModel()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
 
 
 
