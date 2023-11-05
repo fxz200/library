@@ -576,6 +576,22 @@ class cam2 : AppCompatActivity() {
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
 
     }
+    var cons="1"
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
+    fun Map(view: View) {
+
+        if (cons=="1"){
+            val map = findViewById<ImageView>(R.id.librarymap)
+            map.alpha=(0.0f)
+            cons="0"
+        }
+       else{
+            val map = findViewById<ImageView>(R.id.librarymap)
+            map.alpha=(1.0f)
+            cons="1"
+       }
+
+    }
 
 
 }

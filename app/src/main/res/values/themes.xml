@@ -22,8 +22,10 @@
     </style>
 
     <style name="AppBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">500dp</item>
         <item name="android:background">@drawable/bg_circle_white_pop</item>
     </style>
+
 
 
 </resources>

@@ -109,6 +109,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick,UsingOnClickInXml" />
+    <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="550dp"
+        android:layout_marginBottom="240dp"
+        android:onClick="Map"
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="測試"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick,UsingOnClickInXml" />
 
     <TextView
         android:textSize="17sp"

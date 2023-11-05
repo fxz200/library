@@ -23,11 +23,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import bottom_sheet
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.ar.core.*
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_ar_test.*
 import kotlinx.android.synthetic.main.activity_cam2.*
+import kotlinx.android.synthetic.main.activity_comic.comicinfo
 import kotlinx.android.synthetic.main.activity_comic.comicinfo2
 import kotlinx.android.synthetic.main.activity_main2.*
 
@@ -39,7 +42,6 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
     override fun onStart() {
         super.onStart()
-
         // 畫面開始時檢查權限
         onClickRequestPermission()
 
