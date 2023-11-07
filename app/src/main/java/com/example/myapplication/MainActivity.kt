@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
     }
     fun out(view: View) {
-        val intent = Intent(this,login::class.java)
+        val intent = Intent(this,cam2_nomap::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in, R.anim.stop)
     }

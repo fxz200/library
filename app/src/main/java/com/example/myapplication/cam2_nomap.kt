@@ -2,20 +2,20 @@ package com.example.myapplication
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.ActivityManager
+import android.annotation.TargetApi
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Point
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.provider.Settings
-import android.text.Editable
-import android.util.Log
-import android.view.MotionEvent
+import android.util.DisplayMetrics
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,36 +25,21 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.impl.Observable
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
-import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.ErrorCallback
-import com.budiyev.android.codescanner.ScanMode
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.ar.core.Anchor
-import com.google.ar.core.HitResult
-import com.google.ar.core.Plane
-import com.google.ar.sceneform.AnchorNode
-import com.google.ar.sceneform.Node
+import com.google.ar.sceneform.Camera
+import com.google.ar.sceneform.Scene
+import com.google.ar.sceneform.math.Quaternion
+import com.google.ar.sceneform.math.Vector3
+import com.google.ar.sceneform.rendering.MaterialFactory
 import com.google.ar.sceneform.rendering.ModelRenderable
-import com.google.ar.sceneform.rendering.Renderable
-import com.google.ar.sceneform.ux.ArFragment
-import com.google.ar.sceneform.ux.BaseArFragment
+import com.google.ar.sceneform.rendering.ShapeFactory
+import com.google.ar.sceneform.rendering.Texture
+import com.google.ar.sceneform.rendering.ViewRenderable
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_cam2.ayns
-import kotlinx.android.synthetic.main.activity_cam2.clean
-import kotlinx.android.synthetic.main.activity_cam2.editText
-import kotlinx.android.synthetic.main.activity_cam2.statusTips
-import kotlinx.android.synthetic.main.bottom_sheet.bottom_sheet
-import org.altbeacon.beacon.Beacon
-import org.altbeacon.beacon.BeaconManager
-import org.w3c.dom.Text
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -65,42 +50,20 @@ class cam2_nomap : AppCompatActivity() {
     var alertDialog: android.app.AlertDialog? = null
     private lateinit var codeScanner: CodeScanner
 
-    var arFragment : CleanArFragment? = null
-    var model : ModelRenderable? = null //模型对象
-    var hostAnchor : Anchor? = null     //被绘制的锚点信息（代表本地设置的锚点或者云锚点）
-    /**
-     * 锚点状态机，只允许设置一个锚点，有多余锚点不允许添加
-     */
-    var currentStatus : AnchorStatus = AnchorStatus.EMPTY
-    var statusTip : TextView? = null;   //显示当前状态的提示框
-    var codeNo : TextView? = null       //显示云锚点 id 的编辑框
-    var cleanBtn : Button? = null       //清理锚点按钮
-    var aynsBtn : Button? = null        //获取云锚点按钮
-    var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
-    val ClEAN_OVER = 0x1100             //清理界面锚点信号
-    val SYNC_START = 0x1101             //开始同步信号
-    val SYNC_OVER = 0x1102              //同步完成信号
-    val SYNC_FAILED = 0x1103            //同步失败信号
-    var handler = @SuppressLint("HandlerLeak")
-    object : Handler() {
-        override fun handleMessage(msg : Message) {
-            if (msg.what == SYNC_OVER) {
-                statusTips.text = resources.getString(R.string.sync_over);
-                var toShowStr = msg.obj as String
-
-            } else if (msg.what == SYNC_START) {
-                statusTips.text = resources.getString(R.string.sync_progress);
-            } else if (msg.what == SYNC_FAILED) {
-                statusTips.text = resources.getString(R.string.sync_failed);
-            } else if (msg.what == ClEAN_OVER) {
-                statusTips.text = resources.getString(R.string.empty);
-            }
-        }
-    }
     private lateinit var imageView: ImageView
     private var isImageVisible = true
-
-
+    ////////////////////
+    var arFragment : CleanArFragment? = null
+    var camera : Camera? = null
+    var size = Point();    //屏幕尺寸，控制子弹发射的初始位置
+    var bullet : ModelRenderable? = null
+    var scene : Scene? = null
+    //modles///
+    var andyRenderable : ModelRenderable? = null
+    var testRenderable :   ModelRenderable? = null
+    val SHOT = 0x1101       //绘制过程轨迹信号
+    val SHOT_OVER = 0x1102  //清除子弹模型信号
+    val SHOW_TARGET = 0x1103  //显示目标模型信号
     /////////////////
     @RequiresApi(Build.VERSION_CODES.O)
     private fun time() {
@@ -127,10 +90,14 @@ class cam2_nomap : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
         onClickRequestPermission()
+        initTestModel()
+        initTargetModel()
+
 
     }
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
@@ -224,30 +191,20 @@ class cam2_nomap : AppCompatActivity() {
 
 
     @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.cam2_nomap)
+     //
+        val display = windowManager.defaultDisplay
+        display.getRealSize(size)
+        arFragment = this.supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment
+        arFragment!!.arSceneView.planeRenderer.isEnabled = false        //禁止 sceneform 框架的平面绘制
+        scene = arFragment!!.arSceneView.scene
+        camera = scene!!.camera
 
 
-
-        //imageView = findViewById(R.id.librarymap)
-        //imageView.setOnClickListener{
-            //toggleImageVisibility()
-        //}
-        ///QR///
-
-
-
-
-        ////////AR////
-
-        initAllCompenent()
-        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
-        arFragment!!.setOnTapArPlaneListener(listener)
-        cleanBtn!!.setOnClickListener(clickListener)
-        aynsBtn!!.setOnClickListener(clickListener)
         //////////
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
@@ -304,6 +261,10 @@ class cam2_nomap : AppCompatActivity() {
 
 
             ///////////////////////////////////////////////
+
+
+
+
         }
 
         val current = LocalDateTime.now()
@@ -313,205 +274,73 @@ class cam2_nomap : AppCompatActivity() {
         record.start_time=start_time
 
 
+
+
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
 
 
     ////////AR/////////
 
 
-
-    private var clickListener = object : View.OnClickListener {
-        override fun onClick(p0: View?) {
-            when(p0!!.id)
-            {
-                cleanBtn!!.id -> {
-                    println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-                    //因为存在线程处理状态机的状态，加了并发控制锁
-                    synchronized(currentStatus)
-                    {
-                        cleanAllNode()
-                        currentStatus = AnchorStatus.EMPTY      //每次清理锚点，置状态机为初始状态
-                        handler.sendEmptyMessage(ClEAN_OVER)    //通知界面改变提示信息
-                    }
-                }
-                aynsBtn!!.id -> {
-                    if (codeNo!!.text.length <= 0) {    //如果没有云锚点的索引 ID 不使用云锚点
-                        return
-                    }
-                    var str = codeNo!!.text.toString()
-                    arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                    hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                    placeModel()
-                }
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initTargetModel() {
+        ModelRenderable.builder()
+            .setSource(this@cam2_nomap, R.raw.taro)
+            .build()
+            .thenAccept { renderable ->
+                andyRenderable = renderable
             }
-        }
     }
-
-
-    //清除界面锚点包括云锚点和本地锚点
-    private fun cleanAllNode() {
-        //没有节点被渲染，就不清空锚点集合
-        if (listNode.size == 0) {
-            return
-        }
-
-        //从界面清除被渲染的锚点
-        for (i in 0 .. listNode.lastIndex) {
-            arFragment!!.getArSceneView().getScene().removeChild(listNode.get(i))
-        }
-        //清空记录的渲染锚点集合
-        listNode.clear()
-    }
-
-    //界面空间映射，初始化模型资源
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun initAllCompenent() {
-        val textView : TextView = findViewById(R.id.editText)
-        codeNo = textView
-        cleanBtn = clean
-        aynsBtn = ayns
-        statusTip = statusTips
-
-        ModelRenderable.builder().setSource(this, R.raw.taro)
-            .build().thenAccept { renderable -> model = renderable }
-            .exceptionally ({ it -> Log.e("XXX", "xxx"); null })
-    }
-
-
-
-    //设置放置模型的点击事件的监听器
-    var listener = object : BaseArFragment.OnTapArPlaneListener {
-        override fun onTapPlane(hitResult: HitResult?, plane: Plane?, motionEvent: MotionEvent?) {
-
-            //模型资源加载失败，不对锚点进行渲染处理
-            if (model == null)
-                return
-            synchronized(currentStatus)
-            {
-                //不是初始状态，不对锚点渲染模型，用于限制只有一个锚点模型
-                //不是初始状态即表明有一个锚点已经渲染
-                if (currentStatus != AnchorStatus.EMPTY) {
-                    return
-                }
+    fun initTestModel() {
+        ModelRenderable.builder()
+            .setSource(this@cam2_nomap, R.raw.game)
+            .build()
+            .thenAccept { renderable ->
+                testRenderable = renderable
             }
-
-            //设置绘制的锚点为当前的本地锚点，同时将本地锚点同步至 google 的服务
-            hostAnchor = arFragment!!.arSceneView.session!!.hostCloudAnchor(hitResult!!.createAnchor())
-            run2Test()
-            placeModel()
-        }
     }
 
-    //在锚点上渲染模型
-    private fun placeModel() {
-        var node = AnchorNode(hostAnchor)
-        arFragment!!.getArSceneView().getScene().addChild(node)
-        var andy = TransformableNode(arFragment!!.transformationSystem)
-        andy.setParent(node)
-        andy.renderable = model
-        andy.select()
-        listNode.add(node) //每次在界面上对锚点渲染（加载）3D 模型，就将当前被操作的锚点记录下来
+    @RequiresApi(Build.VERSION_CODES.N)
+
+
+    fun randomTarget() {
+            var andy = TransformableNode(arFragment!!.transformationSystem)
+            andy.renderable = andyRenderable;
+            andy.worldPosition = Vector3(0f, 1f, -5f)
+            andy.setWorldRotation(Quaternion.axisAngle(Vector3(0f, 1f, 0f), 180f))
+            scene!!.addChild(andy)
+            andy.rotationController.isEnabled = false
+            andy.scaleController.isEnabled = false
+            andy.translationController.isEnabled = false
+            andy.setWorldScale(Vector3(10f, 10f, 10f))
+    }
+    fun testTarget() {
+        var test = TransformableNode(arFragment!!.transformationSystem)
+        test.renderable = testRenderable;
+        test.worldPosition = Vector3(0f, 1f, -5f)
+
+        scene!!.addChild(test)
+        test.rotationController.isEnabled = false
+        test.scaleController.isEnabled = false
+        test.translationController.isEnabled = false
+        test.setWorldScale(Vector3(5f, 5f, 5f))
     }
 
-    //开线程获取本地锚点的同步状态（同时刷新状态机）
-    private fun run2Test() {
-        Thread(object : Runnable {
-            override fun run() {
-                //只要状态机线程跑起来，就设置状态机为同步中的状态
-                synchronized(currentStatus)
-                {
-                    currentStatus = AnchorStatus.HOSTING
-                }
-                //通知界面刷新同步中的状态提示
-                handler.sendEmptyMessage(SYNC_START)
 
-                //死循环检测锚点同步状态（暂时未发现回调）
-                loop@while (true) {
-                    Log.e("XXX", "keep running")
-                    Thread.sleep(1000)
-                    var tag = SYNC_START
-                    var showTip = ""
-                    synchronized(currentStatus)
-                    {
 
-                        if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.SUCCESS) {
-                            //同步完成，并且成功
-                            currentStatus = AnchorStatus.HOSTED     //调整状态机为同步完成
-                            Log.e("XXX", "run2Test 1 currentStatus = " + currentStatus)
-                            tag = SYNC_OVER
-                            showTip = hostAnchor!!.cloudAnchorId
-                        } else if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.TASK_IN_PROGRESS) {
-                            //同步中的状态不做任何处理，也不跳出死循环
-                        } else {
-                            //同步完成，但是失败
-                            currentStatus = AnchorStatus.HOST_FAILED  //调整状态机为同步失败
-                            Log.e("XXX", "run2Test 2 currentStatus = " + currentStatus)
-                            showTip = "" + hostAnchor!!.cloudAnchorState
-                            tag = SYNC_FAILED
-                        }
-                    }
-                    when (tag){
-                        SYNC_OVER, SYNC_FAILED -> {
-                            var msg = handler.obtainMessage()
-                            msg.what = tag
-                            msg.obj = showTip
-                            handler.sendMessage(msg)
-                            break@loop
-                        }
-                    }
-                }
-            }
-        }).start()
-    }
 
 
     ////////////////
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun placeObject(arFragment: ArFragment, anchor: Anchor, uri: Int) {
-        ModelRenderable.builder()
-            .setSource(arFragment.context, uri)
-            .build()
-            .thenAccept { modelRenderable: ModelRenderable -> addNodeToScene(arFragment, anchor, modelRenderable) }
-            .exceptionally { throwable: Throwable ->
-                Toast.makeText(
-                    arFragment.getContext(),
-                    "Error:$throwable.message",
-                    Toast.LENGTH_LONG
-                ).show();
-                return@exceptionally null
-            }
-    }
-    private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
-        val anchorNode = AnchorNode(anchor)
-        val node = TransformableNode(arFragment.transformationSystem)
-        node.renderable = renderable
-        node.setParent(anchorNode)
-        arFragment.arSceneView.scene.addChild(anchorNode)
-        node.select()
-    }
-
-    private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show()
-            activity.finish()
-            return false
-        }
-        val openGlVersionString = (activity.getSystemService(ACTIVITY_SERVICE) as ActivityManager)
-            .deviceConfigurationInfo
-            .glEsVersion
-        if (openGlVersionString.toDouble() < 3.0) {
-            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
-                .show()
-            activity.finish()
-            return false
-        }
-        return true
-    }
 
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    @SuppressLint("RestrictedApi")
+
+
+
+
+
 
 
     var check=0;
@@ -585,7 +414,14 @@ class cam2_nomap : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun clean(view: View) {
+        randomTarget()
+    }
 
+    fun ayns(view: View) {
+        testTarget()
+    }
 
 
 }

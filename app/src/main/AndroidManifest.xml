@@ -49,7 +49,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:replace="label,allowBackup">
-  =
+        <activity
+            android:name="com.example.myapplication.MainActivity3"
+            android:exported="false" />
         <activity
             android:name="com.example.myapplication.tocomic"
             android:exported="false"

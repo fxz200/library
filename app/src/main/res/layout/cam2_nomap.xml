@@ -64,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:id="@+id/clean"
-        tools:ignore="MissingConstraints" />
+        android:onClick="clean"
+        tools:ignore="MissingConstraints,OnClick" />
     <Button
         android:layout_marginLeft="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/clean"
         android:id="@+id/ayns"
-        tools:ignore="MissingConstraints" />
+        android:onClick="ayns"
+        tools:ignore="MissingConstraints,OnClick,UsingOnClickInXml" />
     <Button
 
         android:textSize="17sp"

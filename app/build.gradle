@@ -111,6 +111,13 @@ sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specifie
         'default',                    // 'Material Path' specified during import.
         'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
         'src/main/res/raw/taro')
+
+
+sceneform.asset('sampledata/texture/game.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/game.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/game')
+
 dependencies {
 
 
