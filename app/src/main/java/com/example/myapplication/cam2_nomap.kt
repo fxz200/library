@@ -55,15 +55,13 @@ class cam2_nomap : AppCompatActivity() {
     ////////////////////
     var arFragment : CleanArFragment? = null
     var camera : Camera? = null
-    var size = Point();    //屏幕尺寸，控制子弹发射的初始位置
-    var bullet : ModelRenderable? = null
+    var size = Point();
     var scene : Scene? = null
     //modles///
     var andyRenderable : ModelRenderable? = null
-    var testRenderable :   ModelRenderable? = null
-    val SHOT = 0x1101       //绘制过程轨迹信号
-    val SHOT_OVER = 0x1102  //清除子弹模型信号
-    val SHOW_TARGET = 0x1103  //显示目标模型信号
+    var testRenderable : ModelRenderable? = null
+
+    //modles///
     /////////////////
     @RequiresApi(Build.VERSION_CODES.O)
     private fun time() {
@@ -300,6 +298,7 @@ class cam2_nomap : AppCompatActivity() {
             .build()
             .thenAccept { renderable ->
                 testRenderable = renderable
+
             }
     }
 
@@ -309,7 +308,7 @@ class cam2_nomap : AppCompatActivity() {
     fun randomTarget() {
             var andy = TransformableNode(arFragment!!.transformationSystem)
             andy.renderable = andyRenderable;
-            andy.worldPosition = Vector3(0f, 1f, -5f)
+            andy.worldPosition = Vector3(1f, 1f, -5f)
             andy.setWorldRotation(Quaternion.axisAngle(Vector3(0f, 1f, 0f), 180f))
             scene!!.addChild(andy)
             andy.rotationController.isEnabled = false

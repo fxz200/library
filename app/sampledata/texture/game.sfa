@@ -6,7 +6,7 @@
   ],
   materials: [
     {
-      name: '材質',
+      name: 'default',
       parameters: [
         {
           baseColor: [
@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: null,
+          baseColorMap: 'gameboy',
         },
         {
           normalMap: null,
@@ -57,5 +57,12 @@
     name: 'game',
     recenter: 'root',
   },
+  samplers: [
+    {
+      file: 'sampledata/texture/gameboy.png',
+      name: 'gameboy',
+      pipeline_name: 'gameboy.png',
+    },
+  ],
   version: '0.54:2',
 }
