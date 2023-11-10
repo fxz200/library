@@ -28,6 +28,7 @@ import androidx.camera.core.ImageCapture
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.CodeScanner
+import com.google.ar.core.Anchor
 import com.google.ar.sceneform.Camera
 import com.google.ar.sceneform.Scene
 import com.google.ar.sceneform.math.Quaternion
@@ -52,6 +53,7 @@ class cam2_nomap : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
     private var isImageVisible = true
+    var hostAnchor : Anchor? = null
     ////////////////////
     var arFragment : CleanArFragment? = null
     var camera : Camera? = null
@@ -95,6 +97,7 @@ class cam2_nomap : AppCompatActivity() {
         onClickRequestPermission()
         initTestModel()
         initTargetModel()
+        //initModel(R.raw.test,testRenderable)
 
 
     }
@@ -294,18 +297,20 @@ class cam2_nomap : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     fun initTestModel() {
         ModelRenderable.builder()
-            .setSource(this@cam2_nomap, R.raw.game)
+            .setSource(this@cam2_nomap, R.raw.test)
             .build()
             .thenAccept { renderable ->
                 testRenderable = renderable
 
             }
     }
-
     @RequiresApi(Build.VERSION_CODES.N)
 
 
+
+
     fun randomTarget() {
+
             var andy = TransformableNode(arFragment!!.transformationSystem)
             andy.renderable = andyRenderable;
             andy.worldPosition = Vector3(1f, 1f, -5f)
@@ -319,16 +324,26 @@ class cam2_nomap : AppCompatActivity() {
     fun testTarget() {
         var test = TransformableNode(arFragment!!.transformationSystem)
         test.renderable = testRenderable;
-        test.worldPosition = Vector3(0f, 1f, -5f)
-
+        test.worldPosition = Vector3(-1f, 1f, -5f)
+        test.setWorldRotation(Quaternion.axisAngle(Vector3(1f, 0f, 0f), 90f))
         scene!!.addChild(test)
         test.rotationController.isEnabled = false
         test.scaleController.isEnabled = false
         test.translationController.isEnabled = false
-        test.setWorldScale(Vector3(5f, 5f, 5f))
+        test.setWorldScale(Vector3(0.2f, 0.2f, 0.2f))
     }
 
-
+    fun targetput(pos:Vector3?,scal:Vector3,model:ModelRenderable?){
+        var test = TransformableNode(arFragment!!.transformationSystem)
+        test.renderable = model;
+        test.worldPosition = pos
+        test.setWorldRotation(Quaternion.axisAngle(Vector3(1f, 0f, 0f), 90f))
+        scene!!.addChild(test)
+        test.rotationController.isEnabled = false
+        test.scaleController.isEnabled = false
+        test.translationController.isEnabled = false
+        test.setWorldScale(scal)
+    }
 
 
 
@@ -416,11 +431,17 @@ class cam2_nomap : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     fun clean(view: View) {
         randomTarget()
+        var test = TransformableNode(arFragment!!.transformationSystem)
+        test.renderable = testRenderable;
+        scene!!.removeChild(test)
+
     }
 
     fun ayns(view: View) {
-        testTarget()
+        targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),testRenderable)
+
     }
 
 
 }
+

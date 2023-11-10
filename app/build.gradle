@@ -106,17 +106,49 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
 
 
-
+/////ASSET////
 sceneform.asset('sampledata/texture/TARO_1.FBX', // 'Source Asset Path' specified during import.
         'default',                    // 'Material Path' specified during import.
         'sampledata/texture/TARO_1.sfa', // '.sfa Output Path' specified during import.
         'src/main/res/raw/taro')
 
-
-sceneform.asset('sampledata/texture/game.fbx', // 'Source Asset Path' specified during import.
+sceneform.asset('sampledata/texture/test.fbx', // 'Source Asset Path' specified during import.
         'default',                    // 'Material Path' specified during import.
-        'sampledata/texture/game.sfa', // '.sfa Output Path' specified during import.
-        'src/main/res/raw/game')
+        'sampledata/texture/test.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/test')
+sceneform.asset('sampledata/texture/beautiful.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/beautiful.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/beautiful')
+sceneform.asset('sampledata/texture/dog.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/dog.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/dog')
+sceneform.asset('sampledata/texture/funny.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/funny.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/funny')
+sceneform.asset('sampledata/texture/house.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/house.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/house')
+sceneform.asset('sampledata/texture/laugh.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/laugh.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/laugh')
+sceneform.asset('sampledata/texture/onepiece.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/onepiece.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/onepiece')
+sceneform.asset('sampledata/texture/seven.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/seven.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/seven')
+sceneform.asset('sampledata/texture/underwear.fbx', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/texture/underwear.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/underwear')
+
 
 dependencies {
 
