@@ -14,6 +14,7 @@ import android.os.Handler
 import android.os.Message
 import android.provider.Settings
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -29,7 +30,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.CodeScanner
 import com.google.ar.core.Anchor
+import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Camera
+import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.Scene
 import com.google.ar.sceneform.math.Quaternion
 import com.google.ar.sceneform.math.Vector3
@@ -60,10 +63,12 @@ class cam2_nomap : AppCompatActivity() {
     var size = Point();
     var scene : Scene? = null
     //modles///
+    var clearmodel:ModelRenderable?=null
     var andyRenderable : ModelRenderable? = null
     var testRenderable : ModelRenderable? = null
 
     //modles///
+
     /////////////////
     @RequiresApi(Build.VERSION_CODES.O)
     private fun time() {
@@ -95,8 +100,7 @@ class cam2_nomap : AppCompatActivity() {
         super.onStart()
         // 畫面開始時檢查權限
         onClickRequestPermission()
-        initTestModel()
-        initTargetModel()
+
         //initModel(R.raw.test,testRenderable)
 
 
@@ -197,6 +201,8 @@ class cam2_nomap : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cam2_nomap)
+
+
      //
         val display = windowManager.defaultDisplay
         display.getRealSize(size)
@@ -262,7 +268,8 @@ class cam2_nomap : AppCompatActivity() {
 
 
             ///////////////////////////////////////////////
-
+            initTestModel()
+            initTargetModel()
 
 
 
@@ -333,16 +340,17 @@ class cam2_nomap : AppCompatActivity() {
         test.setWorldScale(Vector3(0.2f, 0.2f, 0.2f))
     }
 
-    fun targetput(pos:Vector3?,scal:Vector3,model:ModelRenderable?){
+    fun targetput(pos:Vector3?,scal:Vector3,model:ModelRenderable?,name:String){
         var test = TransformableNode(arFragment!!.transformationSystem)
         test.renderable = model;
-        test.worldPosition = pos
-        test.setWorldRotation(Quaternion.axisAngle(Vector3(1f, 0f, 0f), 90f))
+        test.localPosition = pos
+        test.name=name
+        test.localRotation=(Quaternion.axisAngle(Vector3(1f, 0f, 0f), 90f))
         scene!!.addChild(test)
         test.rotationController.isEnabled = false
         test.scaleController.isEnabled = false
         test.translationController.isEnabled = false
-        test.setWorldScale(scal)
+        test.localScale=(scal)
     }
 
 
@@ -427,18 +435,38 @@ class cam2_nomap : AppCompatActivity() {
         overridePendingTransition(R.anim.back_in, R.anim.back_out)
 
     }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun clearModel(){
+        ModelRenderable.builder()
+            .setSource(this@cam2_nomap, R.raw.taro)
+            .build()
+            .thenAccept { renderable ->
+                andyRenderable = renderable
+            }
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun clean(view: View) {
-        randomTarget()
-        var test = TransformableNode(arFragment!!.transformationSystem)
-        test.renderable = testRenderable;
-        scene!!.removeChild(test)
+        //randomTarget()
+        var stop = TransformableNode(arFragment!!.transformationSystem)
+        stop.renderable = testRenderable;
+        val children=scene!!.children
+        for (child in children) {
 
+            if (child is Node) {
+
+                Toast.makeText(this, "Node name: ${child.name}",Toast.LENGTH_SHORT).show()
+                Log.d("Node", "Node name: ${child.name}")
+            }
+        }
+        val nodeToBeFound = scene!!.findByName("gameboy")
+        scene!!.removeChild(nodeToBeFound)
+        //scene?.removeChild(stop)
     }
 
     fun ayns(view: View) {
-        targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),testRenderable)
+        targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),testRenderable,"gameboy")
 
     }
 

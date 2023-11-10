@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: null,
+          baseColorMap: 'house',
         },
         {
           normalMap: null,
@@ -57,5 +57,12 @@
     name: 'house',
     recenter: 'root',
   },
+  samplers: [
+    {
+      file: 'sampledata/texture\\house.png',
+      name: 'house',
+      pipeline_name: 'drive-download-20231107T182646Z-001\\house.png',
+    },
+  ],
   version: '0.54:2',
 }

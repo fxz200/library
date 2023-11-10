@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: null,
+          baseColorMap: 'laugh',
         },
         {
           normalMap: null,
@@ -57,5 +57,12 @@
     name: 'laugh',
     recenter: 'root',
   },
+  samplers: [
+    {
+      file: 'sampledata/texture\\laugh.png',
+      name: 'laugh',
+      pipeline_name: 'drive-download-20231107T182646Z-001\\laugh.png',
+    },
+  ],
   version: '0.54:2',
 }

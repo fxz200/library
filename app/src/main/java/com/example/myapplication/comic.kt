@@ -2,15 +2,19 @@ package com.example.myapplication
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
@@ -23,9 +27,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import bottom_sheet
+import com.budiyev.android.codescanner.CodeScanner
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.ar.core.*
+import com.google.ar.sceneform.Camera
+import com.google.ar.sceneform.Scene
+import com.google.ar.sceneform.math.Quaternion
+import com.google.ar.sceneform.math.Vector3
+import com.google.ar.sceneform.rendering.ModelRenderable
+import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_ar_test.*
@@ -38,12 +49,37 @@ import kotlinx.android.synthetic.main.activity_main2.*
 
 class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
+    lateinit var beaconReferenceApplication: BeaconReferenceApplication
     var alertDialog: android.app.AlertDialog? = null
+    private lateinit var codeScanner: CodeScanner
 
+    private lateinit var imageView: ImageView
+    private var isImageVisible = true
+    var hostAnchor : Anchor? = null
+    ////////////////////
+    var arFragment : CleanArFragment? = null
+    var camera : Camera? = null
+    var size = Point();
+    var scene : Scene? = null
+    //modles///
+    //var clearmodel:ModelRenderable?=null
+    var gameboy_Renderable : ModelRenderable? = null
+    var beautiful_Renderable : ModelRenderable? = null
+    var dog_Renderable : ModelRenderable? = null
+    var funny_Renderable : ModelRenderable? = null
+    var house_Renderable : ModelRenderable? = null
+    var laugh_Renderable : ModelRenderable? = null
+    var onepiece_Renderable : ModelRenderable? = null
+    var seven_Renderable : ModelRenderable? = null
+    var underwear_Renderable : ModelRenderable? = null
+
+    //modles///
     override fun onStart() {
         super.onStart()
         // 畫面開始時檢查權限
         onClickRequestPermission()
+        var a1trigger=GlobalVariable.geta1trigger()
+
 
     }
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
@@ -69,16 +105,6 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         val bottomSheetFragment = bottom_sheet()
         bottomSheetFragment.listener = this@comic
         bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
-
-        val bundle = Bundle()
-        bundle.putString("data","1999")
-        val fragment = bottom_sheet()
-        fragment.arguments = bundle
-
-
-
-
-
 
     }
     private fun onClickRequestPermission() {
@@ -129,10 +155,64 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         setContentView(R.layout.activity_comic)
         val bookvalue = comicqrcode.book
         qrcodebookshelf(bookvalue)
+        arFragment = this.supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment
+        arFragment!!.arSceneView.planeRenderer.isEnabled = false
+        scene = arFragment!!.arSceneView.scene
+        camera = scene!!.camera
+        /////INIT////
+        initbeautifulModel()
+        initdogModel()
+        initfunnyModel()
+        inithouseModel()
+        initlaughModel()
+        initgameboyModel()
+        initonepieceModel()
+        initsevenModel()
+        initunderwearModel()
 
+        Handler(Looper.getMainLooper()).postDelayed({
 
+          check()
+        }, 1000)
     }
-
+    fun check(){
+        var a1trigger=GlobalVariable.geta1trigger()
+        var a2trigger=GlobalVariable.geta2trigger()
+        var a3trigger=GlobalVariable.geta3trigger()
+        var a4trigger=GlobalVariable.geta4trigger()
+        var a5trigger=GlobalVariable.geta5trigger()
+        var b1trigger=GlobalVariable.getb1trigger()
+        var b2trigger=GlobalVariable.getb2trigger()
+        var b3trigger=GlobalVariable.getb3trigger()
+        var b4trigger=GlobalVariable.getb4trigger()
+        if(a1trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),dog_Renderable,"dog")
+        }
+        if(a2trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),gameboy_Renderable,"gameboy")
+        }
+        if(a3trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),underwear_Renderable,"underwear")
+        }
+        if(a4trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),beautiful_Renderable,"beautiful")
+        }
+        if(a5trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),house_Renderable,"house")
+        }
+        if(b1trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),onepiece_Renderable,"onepiece")
+        }
+        if(b2trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),funny_Renderable,"funny")
+        }
+        if(b3trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),laugh_Renderable,"laugh")
+        }
+        if(b4trigger=="1"){
+            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),seven_Renderable,"seven")
+        }
+    }
     private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show()
@@ -163,10 +243,6 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         comicqrcode.book = ""
     }
 
-    //fun qrcode(view: View) {
-       // val intent = Intent(this,qrcode::class.java)
-       // startActivity(intent);
-   // }
 
 
 
@@ -219,11 +295,14 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                     when (id) {
                         "1-1" -> {
                             runOnUiThread {
+
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
                                 GlobalVariable.seta1trigger("1")
                                 book.setImageResource(R.drawable.dog)
                                 book.alpha = 1.0f
+
                             }
+                            check()
                         }
 
                         "1-2" -> {
@@ -254,7 +333,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                         "1-5" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
-                                GlobalVariable.seta4trigger("1")
+                                GlobalVariable.seta5trigger("1")
                                 book.setImageResource(R.drawable.underwear)
                                 book.alpha = 1.0f
                             }
@@ -286,7 +365,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                         "2-4" -> {
                             runOnUiThread {
                                 comicinfo2.background=ContextCompat.getDrawable(this,R.drawable.deep_green)
-                                GlobalVariable.setb3trigger("1")
+                                GlobalVariable.setb4trigger("1")
                                 book.setImageResource(R.drawable.seven)
                                 book.alpha = 1.0f
                             }
@@ -294,7 +373,9 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
 
                 }
-            }
+
+                    check()
+                }
 
         }
     }
@@ -305,12 +386,116 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
     override fun onSelectDialog(select: String) {
 
-        Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "選取 $select", Toast.LENGTH_SHORT).show()
         if (select=="Share"){
             val intent = Intent(this,qr_scan::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_up, R.anim.stop)
         }
+        if (select=="Link"){
+
+            check()
+
+        }
     }
 
+    ///////////INIT INIT INIT INIT////////////////////
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initbeautifulModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.beautiful)
+            .build()
+            .thenAccept { renderable ->
+                beautiful_Renderable = renderable
+            }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun initdogModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.dog)
+            .build()
+            .thenAccept { renderable ->
+                dog_Renderable = renderable
+
+            }
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initfunnyModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.funny)
+            .build()
+            .thenAccept { renderable ->
+                funny_Renderable = renderable
+            }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun inithouseModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.house)
+            .build()
+            .thenAccept { renderable ->
+                house_Renderable = renderable
+
+            }
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initlaughModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.laugh)
+            .build()
+            .thenAccept { renderable ->
+                laugh_Renderable = renderable
+            }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun initonepieceModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.onepiece)
+            .build()
+            .thenAccept { renderable ->
+                onepiece_Renderable = renderable
+
+            }
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initsevenModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.seven)
+            .build()
+            .thenAccept { renderable ->
+                seven_Renderable = renderable
+            }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun initgameboyModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.test)
+            .build()
+            .thenAccept { renderable ->
+                gameboy_Renderable = renderable
+
+            }
+    }
+    @TargetApi(Build.VERSION_CODES.N)
+    fun initunderwearModel() {
+        ModelRenderable.builder()
+            .setSource(this@comic, R.raw.underwear)
+            .build()
+            .thenAccept { renderable ->
+                underwear_Renderable = renderable
+            }
+    }
+
+    fun targetput(pos: Vector3?, scal: Vector3, model:ModelRenderable?, name:String){
+        var test = TransformableNode(arFragment!!.transformationSystem)
+        test.renderable = model;
+        test.localPosition = pos
+        test.name=name
+        test.localRotation=(Quaternion.axisAngle(Vector3(1f, 0f, 0f), 90f))
+        scene!!.addChild(test)
+        test.rotationController.isEnabled = false
+        test.scaleController.isEnabled = false
+        test.translationController.isEnabled = false
+        test.localScale=(scal)
+    }
 }

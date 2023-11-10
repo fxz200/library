@@ -1,12 +1,12 @@
 {
   animations: [
     {
-      path: 'sampledata/texture/underwear.fbx',
+      path: 'sampledata/texture/zero.fbx',
     },
   ],
   materials: [
     {
-      name: '材質.001',
+      name: 'unnamed material',
       parameters: [
         {
           baseColor: [
@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: 'underwear',
+          baseColorMap: null,
         },
         {
           normalMap: null,
@@ -53,16 +53,9 @@
       'BoneWeights',
     ],
     collision: {},
-    file: 'sampledata/texture/underwear.fbx',
-    name: 'underwear',
+    file: 'sampledata/texture/zero.fbx',
+    name: 'zero',
     recenter: 'root',
   },
-  samplers: [
-    {
-      file: 'sampledata/texture\\underwear.png',
-      name: 'underwear',
-      pipeline_name: 'underwear.png',
-    },
-  ],
   version: '0.54:2',
 }

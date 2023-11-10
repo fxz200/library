@@ -15,8 +15,13 @@ import kotlinx.android.synthetic.main.bottom_sheet.box1_1
 import kotlinx.android.synthetic.main.bottom_sheet.box1_2
 import kotlinx.android.synthetic.main.bottom_sheet.box1_3
 import kotlinx.android.synthetic.main.bottom_sheet.box1_4
+import kotlinx.android.synthetic.main.bottom_sheet.box1_5
+import kotlinx.android.synthetic.main.bottom_sheet.box2_1
+import kotlinx.android.synthetic.main.bottom_sheet.box2_2
+import kotlinx.android.synthetic.main.bottom_sheet.box2_3
+import kotlinx.android.synthetic.main.bottom_sheet.box2_4
 import kotlinx.android.synthetic.main.bottom_sheet.editButton
-import kotlinx.android.synthetic.main.bottom_sheet.linkButton
+
 import kotlinx.android.synthetic.main.bottom_sheet.shareButton
 
 
@@ -61,10 +66,11 @@ class bottom_sheet :  BottomSheetDialogFragment() {
         var a2trigger=GlobalVariable.geta2trigger()
         var a3trigger=GlobalVariable.geta3trigger()
         var a4trigger=GlobalVariable.geta4trigger()
+        var a5trigger=GlobalVariable.geta4trigger()
         var b1trigger=GlobalVariable.getb1trigger()
         var b2trigger=GlobalVariable.getb2trigger()
         var b3trigger=GlobalVariable.getb3trigger()
-
+        var b4trigger=GlobalVariable.getb3trigger()
 
 
 
@@ -80,26 +86,39 @@ class bottom_sheet :  BottomSheetDialogFragment() {
         if(a4trigger=="1"){
             box1_4.isChecked=true
         }
+        if(a5trigger=="1"){
+            box1_5.isChecked=true
+        }
+        if(b1trigger=="1"){
+            box2_1.isChecked=true
+        }
+        if(b2trigger=="1"){
+            box2_2.isChecked=true
+        }
+        if(b3trigger=="1"){
+            box2_3.isChecked=true
+        }
+        if(b4trigger=="1"){
+            box2_4.isChecked=true
+        }
 
         shareButton.setOnClickListener {
             listener?.onSelectDialog("Share")
             dismiss()
         }
 
-        linkButton.setOnClickListener {
-            listener?.onSelectDialog("Link")
-            dismiss()
-        }
 
         editButton.setOnClickListener {
             GlobalVariable.seta1trigger("0")
             GlobalVariable.seta2trigger("0")
             GlobalVariable.seta3trigger("0")
             GlobalVariable.seta4trigger("0")
+            GlobalVariable.seta5trigger("0")
             GlobalVariable.setb1trigger("0")
             GlobalVariable.setb2trigger("0")
             GlobalVariable.setb3trigger("0")
-            listener?.onSelectDialog("Edit")
+            GlobalVariable.setb4trigger("0")
+            //listener?.onSelectDialog("Edit")
             dismiss()
         }
 

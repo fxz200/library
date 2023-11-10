@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: null,
+          baseColorMap: 'onepiece',
         },
         {
           normalMap: null,
@@ -57,5 +57,12 @@
     name: 'onepiece',
     recenter: 'root',
   },
+  samplers: [
+    {
+      file: 'sampledata/texture\\onepiece.png',
+      name: 'onepiece',
+      pipeline_name: 'drive-download-20231107T182646Z-001\\onepiece.png',
+    },
+  ],
   version: '0.54:2',
 }

@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: null,
+          baseColorMap: 'seven',
         },
         {
           normalMap: null,
@@ -57,5 +57,12 @@
     name: 'seven',
     recenter: 'root',
   },
+  samplers: [
+    {
+      file: 'sampledata/texture\\seven.png',
+      name: 'seven',
+      pipeline_name: 'drive-download-20231107T182646Z-001\\seven.png',
+    },
+  ],
   version: '0.54:2',
 }
