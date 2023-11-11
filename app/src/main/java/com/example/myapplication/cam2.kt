@@ -85,40 +85,6 @@ class cam2 : AppCompatActivity() {
     var alertDialog: android.app.AlertDialog? = null
 
 
-    var arFragment : CleanArFragment? = null
-    var model : ModelRenderable? = null //模型对象
-    var hostAnchor : Anchor? = null     //被绘制的锚点信息（代表本地设置的锚点或者云锚点）
-    /**
-     * 锚点状态机，只允许设置一个锚点，有多余锚点不允许添加
-     */
-    var currentStatus : AnchorStatus = AnchorStatus.EMPTY
-    var statusTip : TextView? = null;   //显示当前状态的提示框
-    var codeNo : EditText? = null       //显示云锚点 id 的编辑框
-    var cleanBtn : Button? = null       //清理锚点按钮
-    var aynsBtn : Button? = null        //获取云锚点按钮
-    var listNode : MutableList<Node> = ArrayList()      //记录被渲染的锚点
-    val ClEAN_OVER = 0x1100             //清理界面锚点信号
-    val SYNC_START = 0x1101             //开始同步信号
-    val SYNC_OVER = 0x1102              //同步完成信号
-    val SYNC_FAILED = 0x1103            //同步失败信号
-    var handler = @SuppressLint("HandlerLeak")
-    object : Handler() {
-        override fun handleMessage(msg : Message) {
-            if (msg.what == SYNC_OVER) {
-                statusTips.text = resources.getString(R.string.sync_over);
-                var toShowStr = msg.obj as String
-                codeNo!!.text = Editable.Factory.getInstance().newEditable(toShowStr)
-            } else if (msg.what == SYNC_START) {
-                statusTips.text = resources.getString(R.string.sync_progress);
-            } else if (msg.what == SYNC_FAILED) {
-                statusTips.text = resources.getString(R.string.sync_failed);
-            } else if (msg.what == ClEAN_OVER) {
-                statusTips.text = resources.getString(R.string.empty);
-            }
-        }
-    }
-    private lateinit var imageView: ImageView
-    private var isImageVisible = true
 
 
     /////////////////
@@ -245,15 +211,6 @@ class cam2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (!checkIsSupportedDeviceOrFinish(this)) return
         setContentView(R.layout.activity_cam2)
-
-        ////////AR////
-
-        initAllCompenent()
-        arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as CleanArFragment?;
-        arFragment!!.setOnTapArPlaneListener(listener)
-        cleanBtn!!.setOnClickListener(clickListener)
-        aynsBtn!!.setOnClickListener(clickListener)
-        //////////
         val bundle = intent.extras
         val datanum = bundle?.getString("datanum")
 
@@ -327,147 +284,6 @@ class cam2 : AppCompatActivity() {
 
 
 
-    private var clickListener = object : View.OnClickListener {
-        override fun onClick(p0: View?) {
-            when(p0!!.id)
-            {
-                cleanBtn!!.id -> {
-                    println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-                    //因为存在线程处理状态机的状态，加了并发控制锁
-                    synchronized(currentStatus)
-                    {
-                        cleanAllNode()
-                        currentStatus = AnchorStatus.EMPTY      //每次清理锚点，置状态机为初始状态
-                        handler.sendEmptyMessage(ClEAN_OVER)    //通知界面改变提示信息
-                    }
-                }
-                aynsBtn!!.id -> {
-                    if (codeNo!!.text.length <= 0) {    //如果没有云锚点的索引 ID 不使用云锚点
-                        return
-                    }
-                    var str = codeNo!!.text.toString()
-                    arFragment!!.arSceneView.planeRenderer.isEnabled = false
-                    hostAnchor = arFragment!!.arSceneView.session!!.resolveCloudAnchor(str)
-                    placeModel()
-                }
-            }
-        }
-    }
-
-    //清除界面锚点包括云锚点和本地锚点
-    private fun cleanAllNode() {
-        //没有节点被渲染，就不清空锚点集合
-        if (listNode.size == 0) {
-            return
-        }
-
-        //从界面清除被渲染的锚点
-        for (i in 0 .. listNode.lastIndex) {
-            arFragment!!.getArSceneView().getScene().removeChild(listNode.get(i))
-        }
-        //清空记录的渲染锚点集合
-        listNode.clear()
-    }
-
-    //界面空间映射，初始化模型资源
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun initAllCompenent() {
-        codeNo = editText
-        cleanBtn = clean
-        aynsBtn = ayns
-        statusTip = statusTips
-
-        ModelRenderable.builder().setSource(this, R.raw.taro)
-            .build().thenAccept { renderable -> model = renderable }
-            .exceptionally ({ it -> Log.e("XXX", "xxx"); null })
-    }
-
-
-
-    //设置放置模型的点击事件的监听器
-    var listener = object : BaseArFragment.OnTapArPlaneListener {
-        override fun onTapPlane(hitResult: HitResult?, plane: Plane?, motionEvent: MotionEvent?) {
-
-            //模型资源加载失败，不对锚点进行渲染处理
-            if (model == null)
-                return
-            synchronized(currentStatus)
-            {
-                //不是初始状态，不对锚点渲染模型，用于限制只有一个锚点模型
-                //不是初始状态即表明有一个锚点已经渲染
-                if (currentStatus != AnchorStatus.EMPTY) {
-                    return
-                }
-            }
-
-            //设置绘制的锚点为当前的本地锚点，同时将本地锚点同步至 google 的服务
-            hostAnchor = arFragment!!.arSceneView.session!!.hostCloudAnchor(hitResult!!.createAnchor())
-            run2Test()
-            placeModel()
-        }
-    }
-
-    //在锚点上渲染模型
-    private fun placeModel() {
-        var node = AnchorNode(hostAnchor)
-        arFragment!!.getArSceneView().getScene().addChild(node)
-        var andy = TransformableNode(arFragment!!.transformationSystem)
-        andy.setParent(node)
-        andy.renderable = model
-        andy.select()
-        listNode.add(node) //每次在界面上对锚点渲染（加载）3D 模型，就将当前被操作的锚点记录下来
-    }
-
-    //开线程获取本地锚点的同步状态（同时刷新状态机）
-    private fun run2Test() {
-        Thread(object : Runnable {
-            override fun run() {
-                //只要状态机线程跑起来，就设置状态机为同步中的状态
-                synchronized(currentStatus)
-                {
-                    currentStatus = AnchorStatus.HOSTING
-                }
-                //通知界面刷新同步中的状态提示
-                handler.sendEmptyMessage(SYNC_START)
-
-                //死循环检测锚点同步状态（暂时未发现回调）
-                loop@while (true) {
-                    Log.e("XXX", "keep running")
-                    Thread.sleep(1000)
-                    var tag = SYNC_START
-                    var showTip = ""
-                    synchronized(currentStatus)
-                    {
-
-                        if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.SUCCESS) {
-                            //同步完成，并且成功
-                            currentStatus = AnchorStatus.HOSTED     //调整状态机为同步完成
-                            Log.e("XXX", "run2Test 1 currentStatus = " + currentStatus)
-                            tag = SYNC_OVER
-                            showTip = hostAnchor!!.cloudAnchorId
-                        } else if (hostAnchor!!.cloudAnchorState == Anchor.CloudAnchorState.TASK_IN_PROGRESS) {
-                            //同步中的状态不做任何处理，也不跳出死循环
-                        } else {
-                            //同步完成，但是失败
-                            currentStatus = AnchorStatus.HOST_FAILED  //调整状态机为同步失败
-                            Log.e("XXX", "run2Test 2 currentStatus = " + currentStatus)
-                            showTip = "" + hostAnchor!!.cloudAnchorState
-                            tag = SYNC_FAILED
-                        }
-                    }
-                    when (tag){
-                        SYNC_OVER, SYNC_FAILED -> {
-                            var msg = handler.obtainMessage()
-                            msg.what = tag
-                            msg.obj = showTip
-                            handler.sendMessage(msg)
-                            break@loop
-                        }
-                    }
-                }
-            }
-        }).start()
-    }
 
 
     ////////////////
@@ -582,12 +398,17 @@ class cam2 : AppCompatActivity() {
 
         if (cons=="1"){
             val map = findViewById<ImageView>(R.id.librarymap)
+            val btn= findViewById<Button>(R.id.test)
             map.alpha=(0.0f)
+            btn.text="開啟地圖"
             cons="0"
         }
        else{
             val map = findViewById<ImageView>(R.id.librarymap)
+            val btn= findViewById<Button>(R.id.test)
             map.alpha=(1.0f)
+
+            btn.text="關閉地圖"
             cons="1"
        }
 

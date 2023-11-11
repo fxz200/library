@@ -466,7 +466,7 @@ class cam2_nomap : AppCompatActivity() {
     }
 
     fun ayns(view: View) {
-        targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),testRenderable,"gameboy")
+        targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),andyRenderable,"gameboy")
 
     }
 

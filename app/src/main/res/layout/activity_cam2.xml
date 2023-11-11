@@ -12,70 +12,11 @@
         android:layout_height="match_parent"
         android:id="@+id/ux_fragment"
         android:name="com.example.myapplication.CleanArFragment"/>
-    <TextView
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="状态:"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:id="@+id/status"
-        tools:ignore="MissingConstraints" />
-    <TextView
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="23sp"
-        android:layout_toRightOf="@+id/status"
-        android:id="@+id/statusTips"
-        tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:layout_below="@+id/status"
-        android:id="@+id/editText"
-        tools:ignore="MissingConstraints" />
-    <Button
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="500dp"
-        android:text="clean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/clean"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:layout_marginLeft="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_gravity="center_horizontal"
-        android:text="sync_anchor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/clean"
-        android:id="@+id/ayns"
-        tools:ignore="MissingConstraints" />
-    
+>
+
+
+
 
     <Button
         android:textSize="17sp"
@@ -120,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="測試"
+        android:text="關閉地圖"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
