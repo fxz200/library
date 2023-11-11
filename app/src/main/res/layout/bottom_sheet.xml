@@ -90,7 +90,65 @@
                 android:paddingRight="10dp"
                 android:layout_below="@id/box1_4"
                 android:checked="false"/>
-
+        <CheckBox
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:clickable="false"
+            android:id="@+id/box2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《航海王》"
+            android:paddingRight="10dp"
+            android:layout_toRightOf="@id/box1_1"
+            android:checked="false"/>
+        <CheckBox
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/box2_1"
+            android:clickable="false"
+            android:id="@+id/box2_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《爆笑校園》"
+            android:paddingRight="10dp"
+            android:layout_toRightOf="@id/box1_1"
+            android:checked="false"/>
+        <CheckBox
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/box2_2"
+            android:clickable="false"
+            android:id="@+id/box2_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《笑傲江湖》"
+            android:paddingRight="10dp"
+            android:layout_toRightOf="@id/box1_1"
+            android:checked="false"/>
+        <CheckBox
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/box2_3"
+            android:clickable="false"
+            android:id="@+id/box2_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《七大罪》"
+            android:paddingRight="10dp"
+            android:layout_toRightOf="@id/box1_1"
+            android:checked="false"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="5dp"
@@ -106,20 +164,7 @@
                 android:layout_marginLeft="400dp"
                 android:layout_marginRight="20dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"
-                android:id="@+id/linkButton"
-                android:layout_below="@+id/shareButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="換區"
-                android:layout_toRightOf="@id/box1_2"
-                app:iconPadding="16dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="400dp"
-                android:layout_marginRight="20dp"/>
+
 
 
             <com.google.android.material.button.MaterialButton
@@ -131,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="清除紀錄"
-                android:layout_below="@+id/linkButton"
+                android:layout_below="@+id/shareButton"
                 app:iconPadding="16dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="350dp"
