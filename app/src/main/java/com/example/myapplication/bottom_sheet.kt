@@ -66,11 +66,11 @@ class bottom_sheet :  BottomSheetDialogFragment() {
         var a2trigger=GlobalVariable.geta2trigger()
         var a3trigger=GlobalVariable.geta3trigger()
         var a4trigger=GlobalVariable.geta4trigger()
-        var a5trigger=GlobalVariable.geta4trigger()
+        var a5trigger=GlobalVariable.geta5trigger()
         var b1trigger=GlobalVariable.getb1trigger()
         var b2trigger=GlobalVariable.getb2trigger()
         var b3trigger=GlobalVariable.getb3trigger()
-        var b4trigger=GlobalVariable.getb3trigger()
+        var b4trigger=GlobalVariable.getb4trigger()
 
 
 
