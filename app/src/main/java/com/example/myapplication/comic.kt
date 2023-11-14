@@ -334,7 +334,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
 
                                 GlobalVariable.setmodel("1-1")
                             }
-                            check()
+
                         }
 
                         "1-2" -> {
