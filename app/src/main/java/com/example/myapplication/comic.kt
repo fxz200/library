@@ -16,6 +16,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -32,6 +33,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.ar.core.*
 import com.google.ar.sceneform.Camera
+import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.Scene
 import com.google.ar.sceneform.math.Quaternion
 import com.google.ar.sceneform.math.Vector3
@@ -160,6 +162,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         scene = arFragment!!.arSceneView.scene
         camera = scene!!.camera
         /////INIT////
+
         initbeautifulModel()
         initdogModel()
         initfunnyModel()
@@ -171,11 +174,36 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         initunderwearModel()
 
         Handler(Looper.getMainLooper()).postDelayed({
-
-          check()
+            clean()
+            check()
         }, 1000)
     }
+
+    fun clean() {
+        val children=scene!!.children
+        for (child in children) {
+            if (child is Node) {
+
+                Toast.makeText(this, "Node name: ${child.name}",Toast.LENGTH_SHORT).show()
+                Log.d("Node", "Node name: ${child.name}")
+                if (child.name=="Node"){
+                    println("N")
+                }
+                else {
+                    val nodeToBeFound = scene!!.findByName(child.name)
+                    scene!!.removeChild(nodeToBeFound)
+                }
+
+
+
+
+
+            }
+        }
+        //scene?.removeChild(stop)
+    }
     fun check(){
+        var model=GlobalVariable.getmodel()
         var a1trigger=GlobalVariable.geta1trigger()
         var a2trigger=GlobalVariable.geta2trigger()
         var a3trigger=GlobalVariable.geta3trigger()
@@ -185,31 +213,31 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         var b2trigger=GlobalVariable.getb2trigger()
         var b3trigger=GlobalVariable.getb3trigger()
         var b4trigger=GlobalVariable.getb4trigger()
-        if(a1trigger=="1"){
+        if(model=="1-1"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),dog_Renderable,"dog")
         }
-        if(a2trigger=="1"){
+        if(model=="1-2"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),gameboy_Renderable,"gameboy")
         }
-        if(a3trigger=="1"){
+        if(model=="1-3"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),underwear_Renderable,"underwear")
         }
-        if(a4trigger=="1"){
+        if(model=="1-4"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),beautiful_Renderable,"beautiful")
         }
-        if(a5trigger=="1"){
+        if(model=="1-5"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),house_Renderable,"house")
         }
-        if(b1trigger=="1"){
+        if(model=="2-1"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),onepiece_Renderable,"onepiece")
         }
-        if(b2trigger=="1"){
+        if(model=="2-2"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),funny_Renderable,"funny")
         }
-        if(b3trigger=="1"){
+        if(model=="2-3"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),laugh_Renderable,"laugh")
         }
-        if(b4trigger=="1"){
+        if(model=="2-4"){
             targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),seven_Renderable,"seven")
         }
     }
@@ -274,7 +302,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                     val author=book.author
                     comicinfo.text = name
                     comicinfo2.text = info
-
+                    var model=GlobalVariable.getmodel()
                     val change = findViewById<Button>(R.id.author)
                     val comic = findViewById<TextView>(R.id.comicinfo2)
                     val book = findViewById<ImageView>(R.id.book)
@@ -300,7 +328,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.seta1trigger("1")
                                 book.setImageResource(R.drawable.dog)
                                 book.alpha = 1.0f
-
+                                GlobalVariable.setmodel("1-1")
                             }
                             check()
                         }
@@ -311,6 +339,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.seta2trigger("1")
                                 book.setImageResource(R.drawable.gameboy)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("1-2")
                             }
                         }
 
@@ -320,6 +349,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.seta3trigger("1")
                                 book.setImageResource(R.drawable.beautiful)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("1-3")
                             }
                         }
                         "1-4" -> {
@@ -328,6 +358,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.seta4trigger("1")
                                 book.setImageResource(R.drawable.house)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("1-4")
                             }
                         }
                         "1-5" -> {
@@ -336,6 +367,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.seta5trigger("1")
                                 book.setImageResource(R.drawable.underwear)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("1-5")
                             }
                         }
                         "2-1" -> {
@@ -344,6 +376,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.setb1trigger("1")
                                 book.setImageResource(R.drawable.onepiece)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("2-1")
                             }
                         }
                         "2-2" -> {
@@ -352,6 +385,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.setb2trigger("1")
                                 book.setImageResource(R.drawable.funny)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("2-2")
                             }
                         }
                         "2-3" -> {
@@ -360,6 +394,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.setb3trigger("1")
                                 book.setImageResource(R.drawable.laugh)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("2-3")
                             }
                         }
                         "2-4" -> {
@@ -368,6 +403,7 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
                                 GlobalVariable.setb4trigger("1")
                                 book.setImageResource(R.drawable.seven)
                                 book.alpha = 1.0f
+                                GlobalVariable.setmodel("2-4")
                             }
                         }
 

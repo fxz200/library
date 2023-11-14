@@ -15,9 +15,13 @@ class GlobalVariable : Application() {
         private var b2trigger:String=""
         private var b3trigger:String=""
         private var b4trigger:String=""
+        private var model:String=""
         //修改 變數値//////////////////////
         fun setName(id: String){
             this.id = id
+        }
+        fun setmodel(model: String){
+            this.model = model
         }
         fun seta1trigger(a1trigger: String){
             this.a1trigger = a1trigger
@@ -76,6 +80,9 @@ class GlobalVariable : Application() {
         }
         fun getb4trigger(): String{
             return b4trigger
+        }
+        fun getmodel(): String{
+            return model
         }
     }
 
