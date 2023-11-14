@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\dog.png',
+      file: 'sampledata/texture/dog.png',
       name: 'dog',
       pipeline_name: 'drive-download-20231107T182646Z-001\\dog.png',
     },

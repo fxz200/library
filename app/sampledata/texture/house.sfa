@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\house.png',
+      file: 'sampledata/texture/house.png',
       name: 'house',
       pipeline_name: 'drive-download-20231107T182646Z-001\\house.png',
     },

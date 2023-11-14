@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\onepiece.png',
+      file: 'sampledata/texture/onepiece.png',
       name: 'onepiece',
       pipeline_name: 'drive-download-20231107T182646Z-001\\onepiece.png',
     },
