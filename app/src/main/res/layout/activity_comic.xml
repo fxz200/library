@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="200dp"
         android:layout_marginLeft="550dp"
         android:text="選單"
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         android:textColor="@color/white"
         android:background="@drawable/round_button"
         android:layout_marginLeft="550dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="140dp"
         android:onClick="change"
         android:id="@+id/author"
         android:layout_width="110dp"
@@ -65,6 +65,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="OnClick,UsingOnClickInXml" />
+
+    <Button
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="-550dp"
+        android:text="相關影片"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/youtube"
+        android:onClick="YOUTUBE"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"/>
 <!--
     <Button
         android:textSize="17sp"
@@ -109,23 +127,12 @@
 
     </TextView>
 
-    <ImageView
-        android:id="@+id/book"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/dog"
-        android:alpha="0.0"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/comicinfo2"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="220dp"
         android:textColor="@color/black"
         android:background="@android:color/transparent"
         android:textSize="17sp"

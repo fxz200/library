@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\laugh.png',
+      file: 'sampledata/texture/laugh.png',
       name: 'laugh',
       pipeline_name: 'drive-download-20231107T182646Z-001\\laugh.png',
     },

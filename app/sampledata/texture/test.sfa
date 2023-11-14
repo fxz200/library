@@ -59,9 +59,9 @@
   },
   samplers: [
     {
-      file: 'D:\\gameboy.png',
+      file: 'sampledata/texture/gameboy.png',
       name: 'gameboy',
-      pipeline_name: 'D:\\gameboy.png',
+      pipeline_name: 'drive-download-20231107T182646Z-001\\gameboy.png',
     },
   ],
   version: '0.54:2',

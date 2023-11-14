@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\underwear.png',
+      file: 'sampledata/texture/underwear.png',
       name: 'underwear',
       pipeline_name: 'underwear.png',
     },

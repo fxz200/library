@@ -59,7 +59,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/texture\\beautiful.png',
+      file: 'sampledata/texture/beautiful.png',
       name: 'beautiful',
       pipeline_name: 'drive-download-20231107T182646Z-001\\beautiful.png',
     },

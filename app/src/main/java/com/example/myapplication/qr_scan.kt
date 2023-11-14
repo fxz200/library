@@ -56,6 +56,7 @@ class qr_scan : AppCompatActivity() {
         val b3 = "2-3"
         val b4 = "2-4"
         val e = "QRCODE錯誤，請重新掃描。"
+        val n = "0"
 
 
         codeScanner = CodeScanner(this, scannerView)
@@ -77,38 +78,47 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a1
+                comicqrcode.yt = "https://www.youtube.com/watch?v=5tLT8jLLhOg"
             } else if (it.text == a2){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a2
+                comicqrcode.yt = n
             } else if (it.text == a3){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a3
+                comicqrcode.yt = n
             }else if (it.text == a4){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a4
+                comicqrcode.yt = "https://www.youtube.com/watch?v=t8Z8Zupd7es"
             }else if (it.text == a5){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a5
+                comicqrcode.yt = n
             } else if (it.text == b1){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b1
+                comicqrcode.yt = "https://www.youtube.com/watch?v=nwYBN386dO0"
             } else if (it.text == b2){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b2
+                comicqrcode.yt = n
             } else if (it.text == b3){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b3
+                comicqrcode.yt = n
             } else if (it.text == b4){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b4
+                comicqrcode.yt = "https://www.youtube.com/watch?v=Dgp1DdOV5EY"
             }else{
                 runOnUiThread{
                     textScanResult.text = e
