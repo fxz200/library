@@ -81,7 +81,7 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/youtube"
         android:onClick="YOUTUBE"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,OnClick"
         android:visibility="gone"/>
 <!--
     <Button
