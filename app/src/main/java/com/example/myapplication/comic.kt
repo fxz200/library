@@ -219,31 +219,31 @@ class comic : AppCompatActivity(),bottom_sheet.OnDialogButtonFragmentListener{
         var b3trigger=GlobalVariable.getb3trigger()
         var b4trigger=GlobalVariable.getb4trigger()
         if(model=="1-1"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),dog_Renderable,"dog")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),dog_Renderable,"dog")
         }
         if(model=="1-2"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),gameboy_Renderable,"gameboy")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),gameboy_Renderable,"gameboy")
         }
         if(model=="1-3"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),underwear_Renderable,"underwear")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),underwear_Renderable,"underwear")
         }
         if(model=="1-4"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),beautiful_Renderable,"beautiful")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),beautiful_Renderable,"beautiful")
         }
         if(model=="1-5"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),house_Renderable,"house")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),house_Renderable,"house")
         }
         if(model=="2-1"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),onepiece_Renderable,"onepiece")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),onepiece_Renderable,"onepiece")
         }
         if(model=="2-2"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),funny_Renderable,"funny")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),funny_Renderable,"funny")
         }
         if(model=="2-3"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),laugh_Renderable,"laugh")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),laugh_Renderable,"laugh")
         }
         if(model=="2-4"){
-            targetput(Vector3(-1f, 1f, -5f),Vector3(0.2f, 0.2f, 0.2f),seven_Renderable,"seven")
+            targetput(Vector3(-1f, 0f, -5f),Vector3(0.2f, 0.2f, 0.2f),seven_Renderable,"seven")
         }
     }
     private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
