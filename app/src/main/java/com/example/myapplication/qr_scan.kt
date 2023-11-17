@@ -78,12 +78,12 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a1
-                comicqrcode.yt = "https://www.youtube.com/watch?v=5tLT8jLLhOg"
+                comicqrcode.yt = "https://www.youtube.com/watch?v=Hf9d5UWzAf8&list=PL271qe52OuA6S4NWQhN6-HG0EKFXX_rTM"
             } else if (it.text == a2){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a2
-                comicqrcode.yt = n
+                comicqrcode.yt ="https://youtube.com/playlist?list=PLtV-nO8BQjK3xD8sQabvJR3bEtgbCukx6&si=sZkf5sDOihJ_9-X-"
             } else if (it.text == a3){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
@@ -98,7 +98,7 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = a5
-                comicqrcode.yt = n
+                comicqrcode.yt = "https://youtu.be/C5a4rQY5pz8?si=tR8EVEMyfEg86t9Q"
             } else if (it.text == b1){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
@@ -108,12 +108,12 @@ class qr_scan : AppCompatActivity() {
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b2
-                comicqrcode.yt = n
+                comicqrcode.yt = "https://www.youtube.com/watch?v=_PSbN6UMUQY&list=PLnwN7uFca4UAvYV7yKb_iB3RM11o_eQjc"
             } else if (it.text == b3){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
                 comicqrcode.book = b3
-                comicqrcode.yt = n
+                comicqrcode.yt = "https://www.youtube.com/watch?v=hg8hYOEEnKQ&list=PLsKMWGWXrthkmAA8Op7zV9wCR1ttg8X-A"
             } else if (it.text == b4){
                 val intent = Intent(this, comic::class.java)
                 startActivity(intent)
@@ -269,19 +269,19 @@ class qr_scan : AppCompatActivity() {
                 val id3 = nearestBeacon.id3
 
                 //2902
-//                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
-//                    if (distance < 2) {
-//                        runOnUiThread {
-//                            textScanResult.text = "歡迎來到漫畫區"
-//                            beacon1InRange = true
-//                        }
-//                    }
-//                }
-                //2908
-                 if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor1) {
                     if (distance < 2) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有5個QRCODE"
+                            textScanResult.text = "歡迎來到漫畫區"
+                            beacon1InRange = true
+                        }
+                    }
+                }
+                //2908
+                 if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor2) {
+                    if (distance < 100) {
+                        runOnUiThread {
+                            textScanResult.text = "此區域有9個QRCODE"
                             beacon2InRange = true
                         }
                     }
@@ -289,27 +289,27 @@ class qr_scan : AppCompatActivity() {
 
                 //3223
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor3) {
-                    if (distance < 2) {
+                    if (distance < 100) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有5個QRCODE"
+                            textScanResult.text = "此區域有9個QRCODE"
                             beacon3InRange = true
                         }
                     }
                 }
                 //2903
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor4) {
-                    if (distance < 2) {
+                    if (distance < 100) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有4個QRCODE"
+                            textScanResult.text = "此區域有9個QRCODE"
                             beacon4InRange = true
                         }
                     }
                 }
                 //1846
                 else if (id1.toString() == uuid && id2.toInt() == major && id3.toInt() == minor5) {
-                    if (distance < 2) {
+                    if (distance < 100) {
                         runOnUiThread {
-                            textScanResult.text = "此區域有4個QRCODE"
+                            textScanResult.text = "此區域有9個QRCODE"
                             beacon5InRange = true
 
                         }
